@@ -1,4 +1,6 @@
+<?php require_once './vendor/autoload.php'?>
 <?php $var = "Wello World"?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

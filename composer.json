@@ -1,0 +1,12 @@
+{
+    "name": "gustavo-gomes/vida-crista",
+    "description": "Aplicativo de gerenciamento de documentos da igreja cat\u0000lica",
+    "authors": [
+        {
+            "name": "Gustavo da Silva Gomes",
+            "email": "ovatsug8055@hotmail.com"
+        }
+    ],
+    "require": {
+    }
+}
