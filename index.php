@@ -1,5 +1,29 @@
-<?php $var = "Wello World"?>
-<!DOCTYPE html>
+<?php 
+echo '<br/>index<br/>';
+
+//se tentou acessar alguma coisa da url
+if (isset($_GET['url']) && !empty($_GET['url'])) {
+    $url = $_GET['url'];
+} else {
+    $url = 'home';
+}
+
+$url = array_filter(explode("/", $url));
+
+$file = 'controllers/' . $url[0]. '.php';
+
+if (is_file($file)) {
+    require 'controllers/controller.php';
+}
+else if ($url[0] == 'home') {
+    require 'views/home.php';    
+}
+else {
+    require 'views/404.php';
+}
+
+?>
+<!-- <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -11,7 +35,9 @@
     <link rel="stylesheet" href="dist/styles/main.css">
 </head>
 <body>
-    <h1 data-title><?php echo $var; ?></h1>
+    <h1 data-title>Hello world</h1>
     <script src="dist/scripts/main.js"></script>
 </body>
-</html>
+</html> -->
+
+

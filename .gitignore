@@ -63,5 +63,6 @@ vendor/
 
 #package-lock
 mix-manifest.json
-#package-lock.json
+package-lock.json
+composer.lock
 dist/
