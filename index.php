@@ -1,28 +1,16 @@
 <?php 
 echo '<br/>index<br/>';
 
-//se tentou acessar alguma coisa da url
-if (isset($_GET['url']) && !empty($_GET['url'])) {
-    $url = $_GET['url'];
-} else {
-    $url = 'home';
-}
+require_once 'vendor/autoload.php';
 
-$url = array_filter(explode("/", $url));
+$route = new App\route\Router();
 
-$file = 'controllers/' . $url[0]. '.php';
-
-if (is_file($file)) {
-    require 'controllers/controller.php';
-}
-else if ($url[0] == 'home') {
-    require 'views/home.php';    
-}
-else {
-    require 'views/404.php';
-}
+$route->verifyUrl();
+$route->routing();
 
 ?>
+
+
 <!-- <!DOCTYPE html>
 <html lang="pt-br">
 <head>

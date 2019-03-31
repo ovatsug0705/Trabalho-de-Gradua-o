@@ -1,4 +1,5 @@
 <?php
+namespace App\model;
 
 class DatabaseConnection {
     private $dsn = '';
@@ -23,9 +24,9 @@ class DatabaseConnection {
      */
     public function getConnection() {
         try {
-            $this->conn = new PDO($this->dsn, $this->user, $this->pass, $this->options);
+            $this->conn = new \PDO($this->dsn, $this->user, $this->pass, $this->options);
             return $this->conn;
-        } catch (PDOException $ex) {
+        } catch (\PDOException $ex) {
             echo 'Erro:' . $ex->getMessage();
         }
     }
