@@ -6,18 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta author="Gustavo da Silva Gomes">
     <meta keywords="Bíblia, Catecismo, Encíclica">
-    <title>Document</title>
+    <title>Vida Cristã</title>
     <link rel="stylesheet" href="dist/styles/main.css">
 </head>
 <body>
     <h1 data-title>Hello world</h1>
     <?php 
-        echo '<br/>index<br/>';
-
         require_once 'vendor/autoload.php';
+        use App\route\Router;
 
-        $route = new App\route\Router();
-
+        echo '<br/>index<br/>';
+        
+        $route = new Router();
         $route->verifyUrl();
         $route->routing();
     ?>
