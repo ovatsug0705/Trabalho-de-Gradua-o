@@ -11,5 +11,4 @@ use App\controllers\Controller;
             echo '<h1>' . $data[$i]['texto'] . '</h1>';
         }
     ?>
-    
 </div>

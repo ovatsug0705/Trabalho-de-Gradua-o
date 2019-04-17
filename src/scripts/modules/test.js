@@ -5,7 +5,7 @@ class Teste {
     }
 
     setupListener(){
-        this.elm.addEventListener('click', ()=>console.log('oi'));
+        this.elm.addEventListener('click', ()=>alert('oi'));
     }
 }
 

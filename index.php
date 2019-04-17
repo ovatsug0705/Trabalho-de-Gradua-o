@@ -11,11 +11,10 @@
 </head>
 <body>
     <h1 data-title>Hello world</h1>
+    
     <?php 
         require_once 'vendor/autoload.php';
         use App\route\Router;
-
-        echo '<br/>index<br/>';
         
         $route = new Router();
         $route->verifyUrl();

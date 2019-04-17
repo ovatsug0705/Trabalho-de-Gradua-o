@@ -2,7 +2,7 @@
 
 namespace App\model;
 
-class Catecismo {
+class DoutrinaSocial {
     private $startConnection;
     private $connection;
 
@@ -11,12 +11,12 @@ class Catecismo {
         $this->connection = $this->startConnection->getConnection();
     }
 
-    public function getCatecismo($page){
-        !(is_numeric($page)) ? $page = 0 : null;
-        $endParagraph = $page * 2;
-        $initialParagraph = $endParagraph - 2;
+    public function getDoutrinaSocial($paragraph){
+        !(is_numeric($paragraph)) ? $paragraph = 0 : null;
+        $endParagraph = $paragraph * 5;
+        $initialParagraph = $endParagraph - 5;
 
-        $sql = 'select numero, texto from catecismo where id_paragrafo > (:iId) and id_paragrafo <= (:eId)';
+        $sql = 'select numero, texto from doutrina_social where numero > (:iId) and numero <= (:eId)';
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':iId', $initialParagraph);

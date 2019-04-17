@@ -6,36 +6,61 @@ require_once 'vendor/autoload.php';
 
 class Router {
 
-    private static $routes = [
-        "home" => 'home', 
-        "catecismo" => 'getCatecismo()'
-    ];
-
     private $url = '';
     
     public function setUrl($url) {
         $this->url = $url;
     }
 
-    public function verifyUrl(){
-        if (isset($_GET['url']) && !empty($_GET['url'])) {
-            $this->setUrl($_GET['url']);
+    public function verifyUrl(){        
+        if (isset($_REQUEST["url"]) && !empty($_REQUEST["url"])) {   
+            $this->setUrl($_REQUEST["url"]);
         } else {
             $this->setUrl('home');
         }
     }
     
     public function routing() {
-        $this->url = array_filter(explode(" /", $this->url));
-
-        $file = getcwd() . '/App/views/'. $this->url[0]. '.php';
-
-        if (is_file($file) && ($this->url[0] != 'home')) {
-            new Controller();
-        } else if ($this->url[0] == 'home') {
-            require getcwd() . '/App/views/home.php';
-        } else {
-            require getcwd() . '/App/views/404.php';
+        $this->url =explode("/", trim($this->url, "/"));
+        // var_dump($this->url);
+        $instance = false;
+        
+        switch ($this->url[0]) {
+            case 'catecismo':                 
+                if (count($this->url) == 1) {
+                    $instance = new Controller();
+                    $instance->reqCatecismo();
+                } else if (count($this->url) == 2) {
+                    $instance = new Controller();
+                    $instance->reqCatecismo($this->url[1]);
+                }
+                break;
+            case 'canodo':
+                if (count($this->url) == 1) {
+                    $instance = new Controller();
+                    $instance->reqCanodo();
+                } else if (count($this->url) == 2) {
+                    $instance = new Controller();
+                    $instance->reqCanodo($this->url[1]);
+                }
+                break;
+            case 'doutrina_social':
+                if (count($this->url) == 1) {
+                    $instance = new Controller();
+                    $instance->reqDoutrinaSocial();
+                } else if (count($this->url) == 2) {
+                    $instance = new Controller();
+                    $instance->reqDoutrinaSocial($this->url[1]);
+                }
+                break;
+            case 'home':
+                $instance = true;
+                require __DIR__ . '\..\views\home.php';
+                break;
+        }
+            
+        if(!$instance) {
+            require  __DIR__ . '\..\views\404.php';
         }
     }
 }

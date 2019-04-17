@@ -4,3 +4,5 @@ RewriteCond %{SCRIPT_FILENAME} !-F
 RewriteCond %{SCRIPT_FILENAME} !-D
 
 RewriteRule ^(.*)$ index.php?url=$1
+
+#RewriteRule ^catecismo/(.*) index.php?url=catecismo&id=$1
