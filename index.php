@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="dist/styles/main.css">
 </head>
 <body>
-    <h1 data-title>Hello world</h1>
+    <h1 data-title>Vida Cristã</h1>
     
     <?php 
         require_once 'vendor/autoload.php';

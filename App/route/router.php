@@ -62,6 +62,18 @@ class Router {
                     $instance->reqEnciclica($this->url[1]);
                 }
                 break;
+            case 'biblia':
+                if (count($this->url) == 1) {
+                    $instance = new Controller();
+                    $instance->reqBiblia();
+                } else if (count($this->url) == 2) {
+                    $instance = new Controller();
+                    $instance->reqBiblia($this->url[1]);
+                } else if (count($this->url) == 3) {
+                    $instance = new Controller();
+                    $instance->reqBiblia($this->url[1], $this->url[2]);
+                }
+                break;
             case 'home':
                 $instance = true;
                 require __DIR__ . '\..\views\home.php';

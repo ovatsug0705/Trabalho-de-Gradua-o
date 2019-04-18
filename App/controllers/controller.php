@@ -4,10 +4,11 @@ use App\model\Catecismo;
 use App\model\Canodo;
 use App\model\DoutrinaSocial;
 use App\model\Enciclicas;
+use App\model\Biblia;
 
 class Controller {
 
-    private $catecismo, $canodo, $doutrinaSocial, $enciclicas;
+    private $catecismo, $canodo, $doutrinaSocial, $enciclicas, $biblia;
 
     public function reqCatecismo($page = 1) {
         $this->catecismo = new Catecismo();
@@ -27,6 +28,11 @@ class Controller {
     public function reqEnciclica($enciclica = false) {
         $this->enciclicas = new Enciclicas();
         $this->renderPage($this->enciclicas->getEnciclica($enciclica), 'enciclica');
+    }
+
+    public function reqBiblia($livro = false, $cap = 1) {
+        $this->biblia = new Biblia();
+        $this->renderPage($this->biblia->getBiblia($livro, $cap), 'biblia');
     }
 
     private function renderPage($data, $template) {
