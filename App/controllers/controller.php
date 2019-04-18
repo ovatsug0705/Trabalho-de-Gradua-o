@@ -3,10 +3,11 @@ namespace App\controllers;
 use App\model\Catecismo;
 use App\model\Canodo;
 use App\model\DoutrinaSocial;
+use App\model\Enciclicas;
 
 class Controller {
 
-    private $catecismo, $canodo, $doutrinaSocial;
+    private $catecismo, $canodo, $doutrinaSocial, $enciclicas;
 
     public function reqCatecismo($page = 1) {
         $this->catecismo = new Catecismo();
@@ -21,6 +22,11 @@ class Controller {
     public function reqDoutrinaSocial($paragraph = 1) {
         $this->doutrinaSocial = new DoutrinaSocial();
         $this->renderPage($this->doutrinaSocial->getDoutrinaSocial($paragraph), 'doutrina_social');
+    }
+
+    public function reqEnciclica($enciclica = false) {
+        $this->enciclicas = new Enciclicas();
+        $this->renderPage($this->enciclicas->getEnciclica($enciclica), 'enciclica');
     }
 
     private function renderPage($data, $template) {
