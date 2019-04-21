@@ -11,7 +11,7 @@ class Biblia {
         $this->connection = $this->startConnection->getConnection();
     }
 
-    public function getBiblia($livro, $cap){
+    public function getBiblia($livro){
         if (!$livro) {
             $sql = 'select nome_livro from livros';
 
@@ -20,15 +20,13 @@ class Biblia {
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
-            $sql = 'select livros.nome_livro, versiculos.numero, versiculos.capitulo, versiculos.texto from livros inner join versiculos on livros.id_livro = versiculos.id_livro where versiculos.capitulo = (:cap) and livros.url = (:livro)';
+            $sql = 'select livros.nome_livro, versiculos.numero, versiculos.capitulo, versiculos.texto from livros inner join versiculos on livros.id_livro = versiculos.id_livro where livros.url = :livro order by CAST(versiculos.capitulo AS unsigned), CAST(versiculos.numero AS unsigned)';
 
             $stmt = $this->connection->prepare($sql);
-            $stmt->bindValue(':cap', $cap);
             $stmt->bindValue(':livro', $livro);
             $stmt->execute();
 
-            return $stmt->fetchAll(\PDO::FETCH_NUM);
-            // return '';
+            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
     }
 }

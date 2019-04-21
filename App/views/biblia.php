@@ -7,7 +7,22 @@ use App\controllers\Controller;
         var_dump($data);
         echo '</pre>';
 
-        // for ($i=0; $i < count($data); $i++) { 
+        // echo '<pre>';
+        // foreach ($data as $key => $value) {
+        //     echo'capitulo: '. $value['capitulo'];
+        //     echo '</br>';
+            
+        //     echo'versiculo: '. $value['numero'];
+        //     echo '</br>';
+
+        //     echo'texto: '. $value['texto'];
+        //     echo '</br>';
+        //     echo '</br>';
+        // }
+        // echo '</pre>';
+
+        // for ($i=0; $i < count($data); $i++) {
+        //     echo '<span>'.$data[$i]['numero'].'</span>';
         //     echo '<p>' . $data[$i]['texto'] . '</p>';
         // }
     ?>

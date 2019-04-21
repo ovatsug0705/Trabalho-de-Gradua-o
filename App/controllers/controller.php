@@ -30,9 +30,9 @@ class Controller {
         $this->renderPage($this->enciclicas->getEnciclica($enciclica), 'enciclica');
     }
 
-    public function reqBiblia($livro = false, $cap = 1) {
+    public function reqBiblia($livro = false) {
         $this->biblia = new Biblia();
-        $this->renderPage($this->biblia->getBiblia($livro, $cap), 'biblia');
+        $this->renderPage($this->biblia->getBiblia($livro), 'biblia');
     }
 
     private function renderPage($data, $template) {
