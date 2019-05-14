@@ -10,21 +10,21 @@
 </head>
 <body>
     <?php
-        include 'App/views/partials/header.php';
-        include 'App/views/partials/menu.php';
+        include './../App/views/partials/header.php';
+        include './../App/views/partials/menu.php';
     ?>
-    <?php 
-        require_once 'vendor/autoload.php';
+    <?php
+        require_once './../vendor/autoload.php';
         use App\route\Router;
-        
-        
+
+
         $route = new Router();
-        
+
         $route->verifyUrl();
         $route->routing();
     ?>
     <?php
-        include 'App/views/partials/footer.php';
+        include './../App/views/partials/footer.php';
     ?>
     <link rel="stylesheet" href="/dist/styles/main.css">
     <script src="/dist/scripts/main.js"></script>
