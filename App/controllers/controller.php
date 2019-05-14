@@ -35,7 +35,7 @@ class Controller {
         $this->renderPage($this->biblia->getBiblia($livro), 'biblia');
     }
 
-    private function renderPage($data, $template) {
+    private function renderPage($data, $template) {        
         if (isset($data) && !empty($data)) {
             require __DIR__. '\..\views/' . $template . '.php';  
         } else {

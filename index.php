@@ -7,7 +7,6 @@
     <meta author="Gustavo da Silva Gomes">
     <meta keywords="Bíblia, Catecismo, Encíclica">
     <title>Vida Cristã</title>
-    <link rel="stylesheet" href="dist/styles/main.css">
 </head>
 <body>
     <h1 data-title>Vida Cristã</h1>
@@ -16,10 +15,13 @@
         require_once 'vendor/autoload.php';
         use App\route\Router;
         
+        
         $route = new Router();
+        
         $route->verifyUrl();
         $route->routing();
     ?>
+    <link rel="stylesheet" href="dist/styles/main.css">
     <script src="dist/scripts/main.js"></script>
 </body>
 </html>

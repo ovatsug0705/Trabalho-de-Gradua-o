@@ -1,8 +1,8 @@
 RewriteEngine On
+CheckSpelling On
 
-RewriteCond %{SCRIPT_FILENAME} !-F
-RewriteCond %{SCRIPT_FILENAME} !-D
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond $1 !^(\.css|\.js|\.jpg|\.png)
 
-RewriteRule ^(.*)$ index.php?url=$1
-
-#RewriteRule ^catecismo/(.*) index.php?url=catecismo&id=$1
+RewriteRule ^(.*)$ index.php?url=$1 [L]

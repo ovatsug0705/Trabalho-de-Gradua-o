@@ -18,11 +18,12 @@ class Router {
         } else {
             $this->setUrl('home');
         }
+
+        var_dump($this->url);
     }
     
     public function routing() {
-        $this->url =explode("/", trim($this->url, "/"));
-        
+        $this->url = explode("/", trim($this->url, "/"));
         $instance = false;
         
         switch ($this->url[0]) {
