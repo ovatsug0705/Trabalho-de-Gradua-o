@@ -10,8 +10,8 @@ class Menu {
   setupListener(){
     this.elm.addEventListener('click', ()=>{
       this.elm2.classList.toggle('active');
-      document.querySelector('header').classList.toggle('opacity');
-      document.querySelector('footer').classList.toggle('opacity');
+      // document.querySelector('header').classList.toggle('opacity');
+      // document.querySelector('footer').classList.toggle('opacity');
     });
   }
 }

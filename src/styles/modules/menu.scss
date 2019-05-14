@@ -39,11 +39,12 @@
   .menu {
     transform: translateX(-100%);
     transition: transform 0.2s ease-in-out;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 60px);
     width: 50vw;
     z-index: 10;
     position: absolute;
-    top: 70px;
+    top: 60px;
+    border: none;
   }
 
   .menu.active {
@@ -64,6 +65,7 @@
     background-color: $color-greenblue;
     vertical-align: middle;
     cursor: pointer;
+    z-index: 11;
   }
 
   .menu__list {
