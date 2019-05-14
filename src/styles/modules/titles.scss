@@ -1,0 +1,14 @@
+.title {
+  font-size: 25px;
+  font-family: $main-font;
+  line-height: 1;
+  margin: 0;
+  font-weight: $bold-font;
+  letter-spacing: 1px;
+}
+
+.title--main {
+  color: $color-white;
+  display: inline-block;
+  vertical-align: middle;
+}

@@ -18,8 +18,6 @@ class Router {
         } else {
             $this->setUrl('home');
         }
-
-        var_dump($this->url);
     }
     
     public function routing() {
