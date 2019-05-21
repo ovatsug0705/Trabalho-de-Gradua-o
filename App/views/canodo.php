@@ -1,7 +1,3 @@
-<?php
-use App\controllers\Controller;
-?>
-
 <main class="canon">
   <div class="canon__holder content">
   <h1 class="title canon__title">Código de Direito Canônico</h1>

@@ -1,6 +1,5 @@
 .canon__holder {
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding: 30px 15px;
 }
 
 .canon__title {
@@ -19,11 +18,4 @@
 .canon__number {
   font-size: 20px;
   font-weight: $bold-font;
-}
-
-@media all and (max-width: 1069px) {
-  .canon__holder {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
 }

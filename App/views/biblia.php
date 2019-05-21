@@ -1,6 +1,3 @@
-<?php
-use App\controllers\Controller;
-?>
 <div>
     <?php
         echo '<pre>';
@@ -11,7 +8,7 @@ use App\controllers\Controller;
         // foreach ($data as $key => $value) {
         //     echo'capitulo: '. $value['capitulo'];
         //     echo '</br>';
-            
+
         //     echo'versiculo: '. $value['numero'];
         //     echo '</br>';
 

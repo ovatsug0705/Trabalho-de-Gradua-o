@@ -41,7 +41,7 @@
     transform: translateX(-100%);
     transition: transform 0.2s ease-in-out;
     height: calc(100% - 70px);
-    width: 60vw;
+    width: 40vw;
     z-index: 10;
     position: absolute;
     top: 60px;
@@ -75,4 +75,8 @@
   }
 }
 
-// @media all and (max-width: 767px) {}
+@media all and (max-width: 767px) {
+  .menu {
+    width: 60vw;
+  }
+}
