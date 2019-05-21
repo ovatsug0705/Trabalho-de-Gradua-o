@@ -1,7 +1,6 @@
 <?php
 namespace App\route;
 use App\controllers\Controller;
-
 class Router {
 
     private $url = '';
@@ -10,20 +9,20 @@ class Router {
         $this->url = $url;
     }
 
-    public function verifyUrl(){        
-        if (isset($_REQUEST["url"]) && !empty($_REQUEST["url"])) {   
+    public function verifyUrl(){
+        if (isset($_REQUEST["url"]) && !empty($_REQUEST["url"])) {
             $this->setUrl($_REQUEST["url"]);
         } else {
             $this->setUrl('home');
         }
     }
-    
+
     public function routing() {
         $this->url = explode("/", trim($this->url, "/"));
         $instance = false;
-        
+
         switch ($this->url[0]) {
-            case 'catecismo':                 
+            case 'catecismo':
                 if (count($this->url) == 1) {
                     $instance = new Controller();
                     $instance->reqCatecismo();
@@ -73,7 +72,7 @@ class Router {
                 require __DIR__ . '\..\views\home.php';
                 break;
         }
-            
+
         if(!$instance) {
             require  __DIR__ . '\..\views\404.php';
         }

@@ -16,10 +16,10 @@
     <?php 
         require_once './../vendor/autoload.php';
         use App\route\Router;
-        
-        
+
+
         $route = new Router();
-        
+
         $route->verifyUrl();
         $route->routing();
     ?>

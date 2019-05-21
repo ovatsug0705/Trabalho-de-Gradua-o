@@ -44,7 +44,8 @@
     width: 60vw;
     z-index: 10;
     position: absolute;
-    top: 70px;
+    top: 60px;
+    border: none;
   }
 
   .menu.active {
@@ -65,6 +66,7 @@
     // background-color: $color-greenblue;
     vertical-align: middle;
     cursor: pointer;
+    z-index: 11;
   }
 
   .menu__list {
