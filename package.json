@@ -23,7 +23,10 @@
   },
   "homepage": "https://github.com/ovatsug0705/Trabalho-de-Graduacao",
   "devDependencies": {
+    "copy-webpack-plugin": "^5.0.3",
     "cross-env": "^5.2.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
     "laravel-mix": "^4.0.15",
     "resolve-url-loader": "^2.3.1",
     "sass": "^1.17.3",

@@ -2,8 +2,6 @@
 namespace App\route;
 use App\controllers\Controller;
 
-require_once 'vendor/autoload.php';
-
 class Router {
 
     private $url = '';

@@ -1,8 +1,0 @@
-RewriteEngine On
-CheckSpelling On
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond $1 !^(\.css|\.js|\.jpg|\.png)
-
-RewriteRule ^(.*)$ index.php?url=$1 [L]

@@ -1,0 +1,29 @@
+.canon__holder {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.canon__title {
+  font-size: 30px;
+  letter-spacing: 0.3px;
+}
+
+.canon__paragraph {
+  font-family: $main-font;
+  color: $color-graphtext;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: justify;
+}
+
+.canon__number {
+  font-size: 20px;
+  font-weight: $bold-font;
+}
+
+@media all and (max-width: 1069px) {
+  .canon__holder {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
