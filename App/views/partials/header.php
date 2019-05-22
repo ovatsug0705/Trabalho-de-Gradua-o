@@ -3,6 +3,6 @@
     <span class="menu-button"></span>
   </span>
   <a class="logo" href="http://tg.working:8080/">
-    <h1 class="title title--main">Vida Cristã</h1>
+    <span class="title title--main">Vida Cristã</span>
   </a>
 </header>
