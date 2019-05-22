@@ -56,17 +56,56 @@
     border: none;
     outline: 0;
     padding: 0;
-    width: 40px;
     display: inline-block;
     position: relative;
     font-size: 25px;
-    // background-image: url('/assets/img/menu.svg');
-    // background-repeat: no-repeat;
-    // background-position: center center;
-    // background-color: $color-greenblue;
     vertical-align: middle;
     cursor: pointer;
     z-index: 11;
+    height: 3px;
+    width: 25px;
+    background-color: $color-white;
+    margin-right: 10px;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      background-color: $color-white;
+      width: 25px;
+      height: 3px;
+      top: -8px;
+      transition: all ease-in-out 0.1s;
+    }
+
+    &::after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      background-color: $color-white;
+      width: 25px;
+      height: 3px;
+      top: 8px;
+      transition: all ease-in-out 0.1s;
+    }
+  }
+
+  .menu-button__holder.active {
+    .menu-button {
+      background-color: $color-greenblue;
+
+      &::before {
+        top: 0;
+        width: 30px;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        top: 0;
+        width: 30px;
+        transform: rotate(-45deg);
+      }
+    }
   }
 
   .menu__list {
