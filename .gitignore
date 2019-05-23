@@ -63,7 +63,6 @@ vendor/
 
 #package-lock
 mix-manifest.json
-package-lock.json
-composer.lock
 dist/
+20190523-sql.txt
 sql.txt
