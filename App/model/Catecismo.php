@@ -13,8 +13,8 @@ class Catecismo {
 
     public function getCatecismo($page){
         !(is_numeric($page)) ? $page = 0 : null;
-        $endParagraph = $page * 2;
-        $initialParagraph = $endParagraph - 2;
+        $endParagraph = $page * 4;
+        $initialParagraph = $endParagraph - 4;
 
         $sql = 'select numero, texto from catecismo where id_paragrafo > (:iId) and id_paragrafo <= (:eId)';
 
@@ -23,7 +23,7 @@ class Catecismo {
         $stmt->bindValue(':eId', $endParagraph);
 
         $stmt->execute();
-        
+
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

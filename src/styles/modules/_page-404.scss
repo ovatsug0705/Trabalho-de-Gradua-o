@@ -16,3 +16,14 @@
   font-size: 18px;
   font-family: $main-font;
 }
+
+//provisory
+@media all and (max-width: 1069px) {
+  .page-404__title {
+    font-size: 40px;
+
+    br {
+      display: none;
+    }
+  }
+}
