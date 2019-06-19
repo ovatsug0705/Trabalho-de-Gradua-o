@@ -1,6 +1,7 @@
 <?php
 namespace App\route;
 use App\controllers\Controller;
+
 class Router {
 
     private $url = '';
@@ -65,6 +66,12 @@ class Router {
                 } else if (count($this->url) == 2) {
                     $instance = new Controller();
                     $instance->reqBiblia($this->url[1]);
+                }
+                break;
+            case 'busca':
+                if(!empty($_GET['s'])){
+                    $instance = new Controller();
+                    $instance->search($_GET['s']);
                 }
                 break;
             case 'home':

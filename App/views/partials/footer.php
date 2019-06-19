@@ -1,3 +1,3 @@
 <footer class="footer">
-  <a href="http://tg.working:8080/" class="footer__link">Vida Cristã</a>
+  <a href="http://tg.working:81/" class="footer__link">Vida Cristã</a>
 </footer>

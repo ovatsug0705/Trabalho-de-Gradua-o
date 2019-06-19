@@ -1,14 +1,16 @@
 <?php
 namespace App\controllers;
-use App\model\Catecismo;
+
 use App\model\Canodo;
-use App\model\DoutrinaSocial;
-use App\model\Enciclicas;
 use App\model\Biblia;
+use App\model\Search;
+use App\model\Catecismo;
+use App\model\Enciclicas;
+use App\model\DoutrinaSocial;
 
 class Controller {
 
-    private $catecismo, $canodo, $doutrinaSocial, $enciclicas, $biblia;
+    private $catecismo, $canodo, $doutrinaSocial, $enciclicas, $biblia, $search;
 
     public function reqCatecismo($page = 1) {
         $this->catecismo = new Catecismo();
@@ -35,7 +37,12 @@ class Controller {
         $this->renderPage($this->biblia->getBiblia($livro), 'biblia');
     }
 
-    private function renderPage($data, $template) {        
+    public function search($text) {
+        $this->search = new Search();
+        $this->renderPage($this->search->search($text), 'busca');
+    }
+
+    private function renderPage($data, $template) {       
         if (isset($data) && !empty($data)) {
             require __DIR__. '\..\views/' . $template . '.php';  
         } else {

@@ -20,10 +20,10 @@ class Enciclicas {
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
-            $sql = 'select enciclica_papal.nome, texto_eciclica_papal.texto from texto_eciclica_papal inner join enciclica_papal on texto_eciclica_papal.id_enciclica = enciclica_papal.id_enciclica where enciclica_papal.nome = (:nome)';
+            $sql = 'select enciclica_papal.nome, texto_enciclica_papal.texto from texto_enciclica_papal inner join enciclica_papal on texto_enciclica_papal.id_enciclica = enciclica_papal.id_enciclica where enciclica_papal.url = (:url)';
 
             $stmt = $this->connection->prepare($sql);
-            $stmt->bindValue(':nome', $enciclica);
+            $stmt->bindValue(':url', $enciclica);
             $stmt->execute();
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);

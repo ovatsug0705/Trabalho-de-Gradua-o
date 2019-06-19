@@ -1,22 +1,26 @@
 <div>
+    <div>
+    <h1>Bíblia<h1>
+    </div>
     <?php
         echo '<pre>';
         var_dump($data);
         echo '</pre>';
 
-        // echo '<pre>';
+        // $count = 0;
+        // echo '<p>';
         // foreach ($data as $key => $value) {
-        //     echo'capitulo: '. $value['capitulo'];
+
+        //     $count+=1;
+        //     echo 'item n°   : ' . $count . '<br>';
+        //     echo'versiculo: '. $key['numero'];
         //     echo '</br>';
 
-        //     echo'versiculo: '. $value['numero'];
-        //     echo '</br>';
-
-        //     echo'texto: '. $value['texto'];
+        //     echo'texto: '. $key['texto'];
         //     echo '</br>';
         //     echo '</br>';
         // }
-        // echo '</pre>';
+        // echo '</p>';
 
         // for ($i=0; $i < count($data); $i++) {
         //     echo '<span>'.$data[$i]['numero'].'</span>';
