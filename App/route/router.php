@@ -66,12 +66,27 @@ class Router {
                 } else if (count($this->url) == 2) {
                     $instance = new Controller();
                     $instance->reqBiblia($this->url[1]);
+                } else if (count($this->url) == 3) {
+                    $instance = new Controller();
+                    $instance->reqBiblia($this->url[1], $this->url[2]);
                 }
                 break;
             case 'busca':
-                if(!empty($_GET['s'])){
+                if (!empty($_GET['s'])){
                     $instance = new Controller();
                     $instance->search($_GET['s']);
+                }
+                break;
+            case 'filtro':
+                if(!empty($this->url[1])){
+                    if (($this->url[1] == 'bib') && !empty($_GET['t']) && !empty($_GET['p'])) {
+                        $instance = new Controller();
+
+                        !empty($_GET['b']) ? $instance->bibleFilter($_GET['t'], $_GET['p'], $_GET['b']) : $instance->bibleFilter($_GET['t'], $_GET['p']);
+
+                    } else if (($this->url[1] == 'pas') && !empty($_GET['l']) && !empty($_GET['c'])){
+                       header("Location: http://tg.working:81/biblia/{$_GET['l']}/{$_GET['c']}");
+                    }
                 }
                 break;
             case 'home':

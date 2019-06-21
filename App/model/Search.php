@@ -14,15 +14,15 @@ class Search {
     if ($text) {
       $sql = "select nome_livro, url from livros where nome_livro like :text";
       $stmt = $this->connection->prepare($sql);
-      $stmt->bindValue(':text', '%'. $text . '%');
+      $stmt->bindValue(':text', "%{$text}%");
       $stmt->execute(); 
 
       $data['livros'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
       $sql = "select nome, url from enciclica_papal where nome like :text or papa like :text2";
       $stmt = $this->connection->prepare($sql);
-      $stmt->bindValue(':text', '%'. $text . '%');
-      $stmt->bindValue(':text2', '%'. $text . '%');
+      $stmt->bindValue(':text', "%{$text}%");
+      $stmt->bindValue(':text2', "%{$text}%");
       $stmt->execute();
 
       $data['enciclicas'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);

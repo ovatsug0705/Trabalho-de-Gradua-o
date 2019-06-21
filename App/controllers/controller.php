@@ -10,36 +10,41 @@ use App\model\DoutrinaSocial;
 
 class Controller {
 
-    private $catecismo, $canodo, $doutrinaSocial, $enciclicas, $biblia, $search;
+    private $instance;
 
     public function reqCatecismo($page = 1) {
-        $this->catecismo = new Catecismo();
-        $this->renderPage($this->catecismo->getCatecismo($page), 'catecismo');
+        $this->instance = new Catecismo();
+        $this->renderPage($this->instance->getCatecismo($page), 'catecismo');
     }
 
     public function reqCanodo($canon = 1) {
-        $this->canodo = new Canodo();
-        $this->renderPage($this->canodo->getCanodo($canon), 'canodo');
+        $this->instance = new Canodo();
+        $this->renderPage($this->instance->getCanodo($canon), 'canodo');
     }
 
     public function reqDoutrinaSocial($paragraph = 1) {
-        $this->doutrinaSocial = new DoutrinaSocial();
-        $this->renderPage($this->doutrinaSocial->getDoutrinaSocial($paragraph), 'doutrina_social');
+        $this->instance = new DoutrinaSocial();
+        $this->renderPage($this->instance->getDoutrinaSocial($paragraph), 'doutrina_social');
     }
 
     public function reqEnciclica($enciclica = false) {
-        $this->enciclicas = new Enciclicas();
-        $this->renderPage($this->enciclicas->getEnciclica($enciclica), 'enciclica');
+        $this->instance = new Enciclicas();
+        $this->renderPage($this->instance->getEnciclica($enciclica), 'enciclica');
     }
 
-    public function reqBiblia($livro = false) {
-        $this->biblia = new Biblia();
-        $this->renderPage($this->biblia->getBiblia($livro), 'biblia');
+    public function reqBiblia($livro = false, $capitulo = false) {
+        $this->instance = new Biblia();
+        $this->renderPage($this->instance->getBiblia($livro, $capitulo), 'biblia');
     }
 
     public function search($text) {
-        $this->search = new Search();
-        $this->renderPage($this->search->search($text), 'busca');
+        $this->instance = new Search();
+        $this->renderPage($this->instance->search($text), 'busca');
+    }
+
+    public function bibleFilter($text, $partial, $books = null) {
+        $this->instance = new Biblia();
+        $this->renderPage($this->instance->bibleFilter($text, $partial, $books), 'busca');
     }
 
     private function renderPage($data, $template) {       
