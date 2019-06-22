@@ -16,7 +16,7 @@ class Catecismo {
         $endParagraph = $page * 2;
         $initialParagraph = $endParagraph - 2;
 
-        $sql = 'select numero, texto from catecismo where id_paragrafo > (:iId) and id_paragrafo <= (:eId)';
+        $sql = 'select numero, texto from catecismo where numero > (:iId) and numero <= (:eId)';
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':iId', $initialParagraph);

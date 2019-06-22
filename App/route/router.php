@@ -57,6 +57,9 @@ class Router {
                 } else if (count($this->url) == 2) {
                     $instance = new Controller();
                     $instance->reqEnciclica($this->url[1]);
+                } else if (count($this->url) == 3) {
+                    $instance = new Controller();
+                    $instance->reqEnciclica($this->url[1], $this->url[2]);
                 }
                 break;
             case 'biblia':
@@ -86,6 +89,9 @@ class Router {
 
                     } else if (($this->url[1] == 'pas') && !empty($_GET['l']) && !empty($_GET['c'])){
                        header("Location: http://tg.working:81/biblia/{$_GET['l']}/{$_GET['c']}");
+                    } else if (($this->url[1] == 'enc') && !empty($_GET['t'])) {
+                        $instance = new Controller();
+                        $instance->encyclicalFilter($_GET['t']);
                     }
                 }
                 break;

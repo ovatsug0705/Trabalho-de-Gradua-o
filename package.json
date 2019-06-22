@@ -32,5 +32,9 @@
     "sass": "^1.17.3",
     "sass-loader": "^7.1.0",
     "vue-template-compiler": "^2.6.10"
+  },
+  "dependencies": {
+    "ajax-request": "^1.2.3",
+    "jquery": "^3.4.1"
   }
 }

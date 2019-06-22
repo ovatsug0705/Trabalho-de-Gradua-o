@@ -27,9 +27,9 @@ class Controller {
         $this->renderPage($this->instance->getDoutrinaSocial($paragraph), 'doutrina_social');
     }
 
-    public function reqEnciclica($enciclica = false) {
+    public function reqEnciclica($encyclical = false, $page = 1) {
         $this->instance = new Enciclicas();
-        $this->renderPage($this->instance->getEnciclica($enciclica), 'enciclica');
+        $this->renderPage($this->instance->getEnciclica($encyclical, $page), 'enciclica');
     }
 
     public function reqBiblia($livro = false, $capitulo = false) {
@@ -45,6 +45,11 @@ class Controller {
     public function bibleFilter($text, $partial, $books = null) {
         $this->instance = new Biblia();
         $this->renderPage($this->instance->bibleFilter($text, $partial, $books), 'busca');
+    }
+
+    public function encyclicalFilter($text) {
+        $this->instance = new Enciclicas();
+        $this->renderPage($this->instance->encyclicalFilter($text), 'busca');
     }
 
     private function renderPage($data, $template) {       
