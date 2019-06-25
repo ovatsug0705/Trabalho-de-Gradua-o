@@ -86,12 +86,27 @@ class Router {
                         $instance = new Controller();
 
                         !empty($_GET['b']) ? $instance->bibleFilter($_GET['t'], $_GET['p'], $_GET['b']) : $instance->bibleFilter($_GET['t'], $_GET['p']);
-
                     } else if (($this->url[1] == 'pas') && !empty($_GET['l']) && !empty($_GET['c'])){
                        header("Location: http://tg.working:81/biblia/{$_GET['l']}/{$_GET['c']}");
-                    } else if (($this->url[1] == 'enc') && !empty($_GET['t'])) {
-                        $instance = new Controller();
-                        $instance->encyclicalFilter($_GET['t']);
+                    } else if (!empty($_GET['t'])) {
+                        switch ($this->url[1]) {
+                            case 'enc':
+                                $instance = new Controller();
+                                $instance->textFilter($_GET['t'], 'enc');
+                                break;
+                            case 'cic':
+                                $instance = new Controller();
+                                $instance->textFilter($_GET['t'], 'cic');
+                                break;
+                            case 'can':
+                                $instance = new Controller();
+                                $instance->textFilter($_GET['t'], 'can');
+                                break;
+                            case 'dou':
+                                $instance = new Controller();
+                                $instance->textFilter($_GET['t'], 'dou');
+                                break;
+                        }
                     }
                 }
                 break;

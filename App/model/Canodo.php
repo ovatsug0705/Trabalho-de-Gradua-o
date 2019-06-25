@@ -3,8 +3,7 @@
 namespace App\model;
 
 class Canodo {
-    private $startConnection;
-    private $connection;
+    private $startConnection, $connection;
 
     public function __construct() {
         $this->startConnection = new DatabaseConnection('localhost', 'root', '', 'vida_crista');
@@ -23,6 +22,7 @@ class Canodo {
         $stmt->bindValue(':eId', $endParagraph);
 
         $stmt->execute();
+        $this->connection = null;
         
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }

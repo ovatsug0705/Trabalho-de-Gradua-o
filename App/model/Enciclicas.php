@@ -3,8 +3,7 @@
 namespace App\model;
 
 class Enciclicas {
-    private $startConnection;
-    private $connection;
+    private $startConnection, $connection;
 
     public function __construct() {
         $this->startConnection = new DatabaseConnection('localhost', 'root', '', 'vida_crista');
@@ -31,18 +30,9 @@ class Enciclicas {
             $stmt->bindValue(':iId', $initialParagraph);
             $stmt->bindValue(':eId', $endParagraph);
             $stmt->execute();
-
+            $this->connection = null;
+            
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
-    }
-
-    public function encyclicalFilter($text){
-        $sql = 'select numero, texto, url, nome from enciclica_papal inner join texto_enciclica_papal on enciclica_papal.id_enciclica = texto_enciclica_papal.id_enciclica where texto like :text';
-
-        $stmt = $this->connection->prepare($sql);
-        $stmt->bindValue(':text', "%{$text}%");
-        $stmt->execute();
-
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }

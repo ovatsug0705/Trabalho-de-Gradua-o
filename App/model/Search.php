@@ -24,7 +24,8 @@ class Search {
       $stmt->bindValue(':text', "%{$text}%");
       $stmt->bindValue(':text2', "%{$text}%");
       $stmt->execute();
-
+      $this->connection = null;
+      
       $data['enciclicas'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
       $data['canodo'] = stristr('canodos', $text) === false ? false : true;

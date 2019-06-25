@@ -3,8 +3,7 @@
 namespace App\model;
 
 class Biblia {
-    private $startConnection;
-    private $connection;
+    private $startConnection, $connection;
 
     public function __construct() {
         $this->startConnection = new DatabaseConnection('localhost', 'root', '', 'vida_crista');
@@ -17,7 +16,8 @@ class Biblia {
 
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
-
+            $this->connection = null;
+            
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else if(!$capitulo) {
             $sql = 'select livros.nome_livro, versiculos.numero, versiculos.capitulo, versiculos.texto from livros inner join versiculos on livros.id_livro = versiculos.id_livro where livros.url = :livro order by CAST(versiculos.capitulo AS unsigned), CAST(versiculos.numero AS unsigned)';
@@ -25,6 +25,7 @@ class Biblia {
             $stmt = $this->connection->prepare($sql);
             $stmt->bindValue(':livro', $livro);
             $stmt->execute();
+            $this->connection = null;
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
@@ -34,6 +35,7 @@ class Biblia {
             $stmt->bindValue(':livro', $livro);
             $stmt->bindValue(':capitulo', $capitulo);
             $stmt->execute();
+            $this->connection = null;
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         }
@@ -78,6 +80,7 @@ class Biblia {
         }
 
         $stmt->execute();
+        $this->connection = null;
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }

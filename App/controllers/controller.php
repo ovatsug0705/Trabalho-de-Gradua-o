@@ -1,8 +1,9 @@
 <?php
 namespace App\controllers;
 
-use App\model\Canodo;
 use App\model\Biblia;
+use App\model\Canodo;
+use App\model\Filter;
 use App\model\Search;
 use App\model\Catecismo;
 use App\model\Enciclicas;
@@ -44,17 +45,17 @@ class Controller {
 
     public function bibleFilter($text, $partial, $books = null) {
         $this->instance = new Biblia();
-        $this->renderPage($this->instance->bibleFilter($text, $partial, $books), 'busca');
+        $this->renderPage($this->instance->bibleFilter($text, $partial, $books), 'filter');
     }
 
-    public function encyclicalFilter($text) {
-        $this->instance = new Enciclicas();
-        $this->renderPage($this->instance->encyclicalFilter($text), 'busca');
+    public function textFilter($text, $doc) {
+        $this->instance = new Filter();
+        $this->renderPage($this->instance->textFilter($text, $doc), 'filter');
     }
 
-    private function renderPage($data, $template) {       
+    private function renderPage($data, $page) {       
         if (isset($data) && !empty($data)) {
-            require __DIR__. '\..\views/' . $template . '.php';  
+            require __DIR__. '\..\views/' . $page . '.php';  
         } else {
             require __DIR__. '\..\views\404.php';
         }

@@ -2,12 +2,7 @@
 namespace App\model;
 
 class DatabaseConnection {
-    private $dsn = '';
-    private $host = '';
-    private $user = '';
-    private $pass = '';
-    private $db = '';
-    private $conn = '';
+    private $dsn, $host, $user, $pass, $db, $conn, $options;
 
     public function __construct($host, $user, $pass, $db)
     {
