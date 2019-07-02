@@ -2,38 +2,38 @@
 
 namespace App\model;
 
-class Biblia {
+class Bible {
     private $startConnection, $connection;
 
     public function __construct() {
-        $this->startConnection = new DatabaseConnection('localhost', 'root', '', 'vida_crista');
+        $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
         $this->connection = $this->startConnection->getConnection();
     }
 
-    public function getBiblia($livro, $capitulo){
-        if (!$livro) {
-            $sql = 'select nome_livro from livros';
+    public function getBible($book, $chapter){
+        if (!$book) {
+            $sql = 'select book_name from books';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
             $this->connection = null;
             
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        } else if(!$capitulo) {
-            $sql = 'select livros.nome_livro, versiculos.numero, versiculos.capitulo, versiculos.texto from livros inner join versiculos on livros.id_livro = versiculos.id_livro where livros.url = :livro order by CAST(versiculos.capitulo AS unsigned), CAST(versiculos.numero AS unsigned)';
+        } else if(!$chapter) {
+            $sql = 'select book_name, verser_number, chapter, verser_text from books inner join verser on books.id_book = verser.id_book where books.url_text = :url order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
 
             $stmt = $this->connection->prepare($sql);
-            $stmt->bindValue(':livro', $livro);
+            $stmt->bindValue(':url', $book);
             $stmt->execute();
             $this->connection = null;
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
-            $sql = 'select livros.nome_livro, versiculos.numero, versiculos.capitulo, versiculos.texto from livros inner join versiculos on livros.id_livro = versiculos.id_livro where livros.url = :livro and versiculos.capitulo = :capitulo order by CAST(versiculos.capitulo AS unsigned), CAST(versiculos.numero AS unsigned)';
+            $sql = 'select book_name, verser_number, chapter, verser_text from books inner join verser on books.id_book = verser.id_book where books.url_text = :url and chapter = :chapter order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
 
             $stmt = $this->connection->prepare($sql);
-            $stmt->bindValue(':livro', $livro);
-            $stmt->bindValue(':capitulo', $capitulo);
+            $stmt->bindValue(':url', $book);
+            $stmt->bindValue(':chapter', $chapter);
             $stmt->execute();
             $this->connection = null;
 
@@ -46,7 +46,7 @@ class Biblia {
             $string = '';
             if($books){
                 foreach ($books as $value) {
-                    $string = "{$string} nome_livro = '{$value}' or";
+                    $string = "{$string} book_name = '{$value}' or";
                 }
 
                 $size = strlen($string);
@@ -56,9 +56,9 @@ class Biblia {
                 return false;
             }
             
-            $sql = "select nome_livro, url, numero, capitulo, texto from livros inner join versiculos on livros.id_livro = versiculos.id_livro where texto like :text and ({$string}) order by CAST(versiculos.capitulo AS unsigned), CAST(versiculos.numero AS unsigned)";
+            $sql = "select book_name, url_text, verser_number, chapter, verser_text from books inner join verser on books.id_book = verser.id_book where verser_number like :text and ({$string}) order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)";
         } else {
-            $sql = 'select nome_livro, url, numero, capitulo, texto from livros inner join versiculos on livros.id_livro = versiculos.id_livro where texto like :text and (testamento = :test1 or testamento = :test2) order by CAST(versiculos.capitulo AS unsigned), CAST(versiculos.numero AS unsigned)';
+            $sql = 'select book_name, url_text, verser_number, chapter, verser_text from books inner join verser on books.id_book = verser.id_book where verser_text like :text and (testament = :test1 or testament = :test2) order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
         }
 
         $stmt = $this->connection->prepare($sql);

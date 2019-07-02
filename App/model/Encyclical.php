@@ -2,20 +2,21 @@
 
 namespace App\model;
 
-class Enciclicas {
+class Encyclical {
     private $startConnection, $connection;
 
     public function __construct() {
-        $this->startConnection = new DatabaseConnection('localhost', 'root', '', 'vida_crista');
+        $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
         $this->connection = $this->startConnection->getConnection();
     }
 
     public function getEnciclica($encyclical, $page){
         if (!$encyclical) {
-            $sql = 'select nome, papa from enciclica_papal order by papa';
+            $sql = 'select encyclical_name, pontiff from encyclical order by pontiff';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
+            $this->connection= null;
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
@@ -23,7 +24,7 @@ class Enciclicas {
             $endParagraph = $page * 3;
             $initialParagraph = $endParagraph - 3;
 
-            $sql = 'select enciclica_papal.nome, texto_enciclica_papal.texto, texto_enciclica_papal.numero from texto_enciclica_papal inner join enciclica_papal on texto_enciclica_papal.id_enciclica = enciclica_papal.id_enciclica where enciclica_papal.url = (:url) and numero > (:iId) and numero <= (:eId)';
+            $sql = 'select encyclical_name,paragraph_text, paragraph_number from encyclical_text inner join encyclical on encyclical_text.id_encyclical = encyclical.id_encyclical where url_text = (:url) and paragraph_number > (:iId) and paragraph_number <= (:eId)';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->bindValue(':url', $encyclical);

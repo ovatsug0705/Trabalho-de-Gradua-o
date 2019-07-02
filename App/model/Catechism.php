@@ -2,20 +2,20 @@
 
 namespace App\model;
 
-class Canodo {
+class Catechism {
     private $startConnection, $connection;
 
     public function __construct() {
-        $this->startConnection = new DatabaseConnection('localhost', 'root', '', 'vida_crista');
+        $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
         $this->connection = $this->startConnection->getConnection();
     }
 
-    public function getCanodo($cannon){
-        !(is_numeric($cannon)) ? $cannon = 0 : null;
-        $endParagraph = $cannon * 5;
-        $initialParagraph = $endParagraph - 5;
+    public function getCatechism($page){
+        !(is_numeric($page)) ? $page = 0 : null;
+        $endParagraph = $page * 2;
+        $initialParagraph = $endParagraph - 2;
 
-        $sql = 'select numero, texto from canodos where numero > (:iId) and numero <= (:eId)';
+        $sql = 'select paragraph_number, paragraph_text from catechism where paragraph_number > (:iId) and paragraph_number <= (:eId)';
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':iId', $initialParagraph);

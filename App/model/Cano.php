@@ -2,20 +2,20 @@
 
 namespace App\model;
 
-class DoutrinaSocial {
+class Cano {
     private $startConnection, $connection;
 
     public function __construct() {
-        $this->startConnection = new DatabaseConnection('localhost', 'root', '', 'vida_crista');
+        $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
         $this->connection = $this->startConnection->getConnection();
     }
 
-    public function getDoutrinaSocial($paragraph){
-        !(is_numeric($paragraph)) ? $paragraph = 0 : null;
-        $endParagraph = $paragraph * 5;
+    public function getCano($cano){
+        !(is_numeric($cano)) ? $cano = 0 : null;
+        $endParagraph = $cano * 5;
         $initialParagraph = $endParagraph - 5;
 
-        $sql = 'select numero, texto from doutrina_social where numero > (:iId) and numero <= (:eId)';
+        $sql = 'select paragraph_number, paragraph_text from cano where paragraph_number > (:iId) and paragraph_number <= (:eId)';
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':iId', $initialParagraph);
