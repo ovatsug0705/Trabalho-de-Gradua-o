@@ -7,7 +7,7 @@
         var_dump($data);
         echo '</pre>';
     ?>
-    <form action="http://tg.working:81/filtro/bib">
+    <form action="<?php echo (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";?>/filtro/bib">
     	<label for="test">Texto a ser procurado</label>
     	<input type="text" name="t" id="test">
     	
@@ -39,7 +39,7 @@
     	<input type="submit" value="enviar">
     </form>
 
-    <form action="http://tg.working:81/filtro/pas" method="get" accept-charset="utf-8">
+    <form action="<?php echo (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://{$_SERVER['HTTP_HOST']}{$_SERVER['REQUEST_URI']}";?>//filtro/pas" method="get" accept-charset="utf-8">
     	<label for="livro">Livro</label>
     	<select name="l" id="livro">
     		<option value="lucas">Lucas</option>
