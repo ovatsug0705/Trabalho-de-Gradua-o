@@ -10,7 +10,7 @@ class Encyclical {
         $this->connection = $this->startConnection->getConnection();
     }
 
-    public function getEnciclica($encyclical, $page){
+    public function getEncyclical($encyclical, $page){
         if (!$encyclical) {
             $sql = 'select encyclical_name, pontiff from encyclical order by pontiff';
 

@@ -6,26 +6,26 @@ class Filter {
 	private $startConnection, $connection, $data;
 
     public function __construct() {
-        $this->startConnection = new DatabaseConnection('localhost', 'root', '', 'vida_crista');
+        $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
         $this->connection = $this->startConnection->getConnection();
     }
 
     public function textFilter($text, $doc){
     	switch ($doc) {
     		case 'enc':
-    			$sql = 'select numero, texto, url, nome from enciclica_papal inner join texto_enciclica_papal on enciclica_papal.id_enciclica = texto_enciclica_papal.id_enciclica where texto like :text';
+    			$sql = 'select paragraph_number, paragraph_text, url_text, encyclical_name from Encyclical inner join Encyclical_text on Encyclical.id_encyclical = Encyclical_text.id_encyclical where paragraph_text like :text';
                 $url = 'enciclicas';
     			break;
     		case 'can':
-    			$sql = 'select numero, texto from canodos where texto like :text';
+    			$sql = 'select paragraph_number, paragraph_text from Canos where paragraph_text like :text';
                 $url = 'canodos';
     			break;
     		case 'dou':
-    			$sql = 'select numero, texto from doutrina_social where texto like :text';
+    			$sql = 'select paragraph_number, paragraph_text from Social_doctrine where paragraph_text like :text';
                 $url = 'doutrina_social';
     			break;
     		case 'cic':
-    			$sql = 'select numero, texto from catecismo where texto like :text';
+    			$sql = 'select paragraph_number, paragraph_text from Catechism where paragraph_text like :text';
                 $url = 'catecismo';
     			break;
     	}
@@ -35,9 +35,9 @@ class Filter {
         $stmt->execute();
         $this->connection = null;
 
-        $data['url'] = $url;
-        $data['content'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $this->data['url'] = $url;
+        $this->data['content'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-        return $data['content'] ? $data : null;
+        return $this->data['content'] ? $this->data : null;
     }
 }

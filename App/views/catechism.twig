@@ -1,0 +1,13 @@
+{% extends "layouts/app.twig" %}
+
+{% block content %}
+<form action="/filtro/cic">
+	<label for="test">Texto a ser procurado</label>
+	<input type="text" name="t" id="test">
+	
+	<input type="submit" value="enviar">
+</form>
+<div>
+    <h1>Catecismo</h1>
+</div>
+{% endblock %}

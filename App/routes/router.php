@@ -1,5 +1,5 @@
 <?php
-namespace App\route;
+namespace App\routes;
 use App\controllers\Controller;
 
 class Router {
@@ -44,10 +44,10 @@ class Router {
             case 'doutrina_social':
                 if (count($this->url) == 1) {
                     $instance = new Controller();
-                    $instance->reqDoutrinaSocial();
+                    $instance->reqSocialDoctrine();
                 } else if (count($this->url) == 2) {
                     $instance = new Controller();
-                    $instance->reqDoutrinaSocial($this->url[1]);
+                    $instance->reqSocialDoctrine($this->url[1]);
                 }
                 break;
             case 'enciclicas':
@@ -112,12 +112,12 @@ class Router {
                 break;
             case 'home':
                 $instance = true;
-                require __DIR__ . '\..\views\home.php';
+                echo $GLOBALS['twig']->render('home.twig');
                 break;
         }
 
         if(!$instance) {
-            require  __DIR__ . '\..\views\404.php';
+            echo $GLOBALS['twig']->render('404.twig');
         }
     }
 }

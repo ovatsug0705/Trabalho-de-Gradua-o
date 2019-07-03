@@ -15,7 +15,7 @@ class Cano {
         $endParagraph = $cano * 5;
         $initialParagraph = $endParagraph - 5;
 
-        $sql = 'select paragraph_number, paragraph_text from cano where paragraph_number > (:iId) and paragraph_number <= (:eId)';
+        $sql = 'select paragraph_number, paragraph_text from Canos where paragraph_number > (:iId) and paragraph_number <= (:eId)';
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':iId', $initialParagraph);

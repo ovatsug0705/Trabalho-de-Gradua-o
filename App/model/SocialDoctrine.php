@@ -7,7 +7,7 @@ class SocialDoctrine {
 
     public function __construct() {
         $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
-        $this->connection = $this->startConnection->getConnection();
+        $this->connection = $this->startConnection->getConnection();    
     }
 
     public function getSocialDoctrine($paragraph){
