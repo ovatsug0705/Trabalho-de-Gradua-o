@@ -2,14 +2,34 @@
 
 namespace App\model;
 
+/**
+ * Search model class
+ *
+ * Search texts in documents names in the database
+ *
+ * @copyright  2019 Gustavo da Silva Gomes
+ * @author     Gustavo da Silva Gomes <ovatsug8055@hotmail.com>
+ * @since      Class available since Release 1.0.0
+ */
 class Search {
   private $startConnection, $connection, $data;
 
+  /**
+   * Search class Constructor
+   *
+   * @return void
+   */
   public function __construct() {
-    $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
+    $this->startConnection = new DatabaseConnection(getenv('APP_HOST'), getenv('APP_DB_USER'), getenv('APP_DB_PASS'), getenv('APP_DB_NAME'));
     $this->connection = $this->startConnection->getConnection();
   }
 
+  /**
+   * Search texts
+   * 
+   * @param string $text text to be searched
+   * @return PDO
+   */
   public function search($text) {
     if ($text) {
       $sql = "select book_name, url_text from Books where book_name like :text";

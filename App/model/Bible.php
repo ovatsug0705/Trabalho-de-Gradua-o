@@ -1,15 +1,35 @@
 <?php
 
 namespace App\model;
-
+/**
+ * Bible model class
+ *
+ * Performs the connection to Books and versers tables into database
+ *
+ * @copyright  2019 Gustavo da Silva Gomes
+ * @author     Gustavo da Silva Gomes <ovatsug8055@hotmail.com>
+ * @since      Class available since Release 1.0.0
+ */ 
 class Bible {
     private $startConnection, $connection;
 
+    /**
+     * Bible class Constructor
+     *
+     * @return void
+     */
     public function __construct() {
-        $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
+        $this->startConnection = new DatabaseConnection(getenv('APP_HOST'), getenv('APP_DB_USER'), getenv('APP_DB_PASS'), getenv('APP_DB_NAME'));
         $this->connection = $this->startConnection->getConnection();
     }
 
+    /**
+     * Execute the querys in the database in the book and versers tables
+     *
+     * @param string  $book name of the book of bible to be sought
+     * @param integer $chapter chapter number of the book that will be returned 
+     * @return PDO 
+     */
     public function getBible($book, $chapter){
         if (!$book) {
             $sql = 'select book_name from books';
@@ -41,6 +61,14 @@ class Bible {
         }
     }
 
+    /**
+     * Filter texts in the books and versers tables
+     *
+     * @param string $text text to be searched
+     * @param string $partial name of the partial to be searched
+     * @param string $books name of the books of bible to be sought
+     * @return PDO
+     */
     public function bibleFilter($text, $partial, $books){
         if ($partial == 'customized') {
             $string = '';

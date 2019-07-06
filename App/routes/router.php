@@ -2,23 +2,63 @@
 namespace App\routes;
 use App\controllers\Controller;
 
+/**
+ * Router with aplication
+ *
+ * Processes browser requests
+ *
+ * @copyright  2019 Gustavo da Silva Gomes
+ * @author     Gustavo da Silva Gomes <ovatsug8055@hotmail.com>
+ * @since      Class available since Release 1.0.0
+ */ 
 class Router {
 
     private $url = '';
 
-    public function setUrl($url) {
+    /**
+     * Router constructor
+     * 
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->verifyUrl();
+        $this->routing();
+    }
+
+    /**
+     * Set url variable valor
+     * 
+     * @param string $url url text
+     * @return void
+     */
+    public function setUrl($url) 
+    {
         $this->url = $url;
     }
 
-    public function verifyUrl(){
-        if (isset($_REQUEST["url"]) && !empty($_REQUEST["url"])) {
+    /**
+     * Check the type of url
+     * 
+     * @return void
+     */
+    public function verifyUrl()
+    {
+        if (isset($_REQUEST["url"]) && !empty($_REQUEST["url"])) 
+        {
             $this->setUrl($_REQUEST["url"]);
         } else {
             $this->setUrl('home');
         }
     }
 
-    public function routing() {
+    /**
+     * Performs the routing of the required routes
+     * 
+     * @return void
+     */
+    public function routing() 
+    {
         $this->url = explode("/", trim($this->url, "/"));
         $instance = false;
 
@@ -87,7 +127,7 @@ class Router {
 
                         !empty($_GET['b']) ? $instance->bibleFilter($_GET['t'], $_GET['p'], $_GET['b']) : $instance->bibleFilter($_GET['t'], $_GET['p']);
                     } else if (($this->url[1] == 'pas') && !empty($_GET['l']) && !empty($_GET['c'])){
-                       header("Location: http://tg.working:81/biblia/{$_GET['l']}/{$_GET['c']}");
+                       header("Location: {$_SERVER['REQUEST_URI']}/{$_GET['l']}/{$_GET['c']}");
                     } else if (!empty($_GET['t'])) {
                         switch ($this->url[1]) {
                             case 'enc':

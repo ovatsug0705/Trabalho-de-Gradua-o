@@ -1,6 +1,6 @@
 .title {
   font-size: 25px;
-  font-family: $main-font;
+  font-family: $title-font;
   line-height: 1;
   margin: 0;
   font-weight: $bold-font;
@@ -13,4 +13,10 @@
   display: inline-block;
   vertical-align: middle;
   z-index: 11;
+}
+
+.test-color {
+  font-family: $main-font;
+  color: $color-red;
+  font-size: 20px;
 }

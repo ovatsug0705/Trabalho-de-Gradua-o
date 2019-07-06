@@ -9,62 +9,129 @@ use App\model\Catechism;
 use App\model\Encyclical;
 use App\model\SocialDoctrine;
 
+/**
+ * Controller with aplication
+ *
+ * Performs the connection between the views and the database model classes
+ *
+ * @copyright  2019 Gustavo da Silva Gomes
+ * @author     Gustavo da Silva Gomes <ovatsug8055@hotmail.com>
+ * @since      Class available since Release 1.0.0
+ */ 
 class Controller {
-
+    
     private $instance;
 
-    public function reqCatechism($page = 1) {
+    /**
+     * Requires the texts of the Catechism 
+     *
+     * @param integer $page page number of the document that will be returned
+     * @return void
+     */ 
+    public function reqCatechism($page = 1) 
+    {
         $this->instance = new Catechism();
-        $this->renderPage($this->instance->getCatechism($page), 'catechism.twig');
-    }
-
-    public function reqCano($cano = 1) {
-        $this->instance = new Cano();
-        $this->renderPage($this->instance->getCano($cano), 'cano.twig');
-    }
-
-    public function reqSocialDoctrine($paragraph = 1) {
-        $this->instance = new SocialDoctrine();
-        $this->renderPage($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.twig');
-    }
-
-    public function reqEncyclical($encyclical = false, $page = 1) {
-        $this->instance = new Encyclical();
-        $this->renderPage($this->instance->getEncyclical($encyclical, $page), 'encyclical.twig');
-    }
-
-    public function reqBible($book = false, $chapter = false) {
-        $this->instance = new Bible();
-        $this->renderPage($this->instance->getBible($book, $chapter), 'bible.twig');
-    }
-
-    public function search($text) {
-        $this->instance = new Search();
-        $this->renderPage($this->instance->search($text), 'search.twig');
-    }
-
-    public function bibleFilter($text, $partial, $books = null) {
-        $this->instance = new Bible();
-        $this->renderPage($this->instance->bibleFilter($text, $partial, $books), 'filter.twig');
-    }
-
-    public function textFilter($text, $doc) {
-        $this->instance = new Filter();
-        $this->renderPage($this->instance->textFilter($text, $doc), 'filter.twig');
+        $this->view($this->instance->getCatechism($page), 'catechism.twig');
     }
 
     /**
-     * Render pages with returned data
-     * 
-     * @param $data = array
-     * @param $page = String
+     * Requires the texts of the Cano
+     *
+     * @param integer $page page number of the document that will be returned
+     * @return void
      */
-    private function renderPage($data, $page) {  
+    public function reqCano($cano = 1) 
+    {
+        $this->instance = new Cano();
+        $this->view($this->instance->getCano($cano), 'cano.twig');
+    }
+
+    /**
+     * Requires the texts of the Social Doctrine
+     *
+     * @param integer $page page number of the document that will be returned
+     * @return void
+     */
+    public function reqSocialDoctrine($paragraph = 1) 
+    {
+        $this->instance = new SocialDoctrine();
+        $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.twig');
+    }
+
+    /**
+     * Requires the texts of the Encyclical
+     *
+     * @param string/boolean $encyclical name of the encyclical to be sought (if it is passed)
+     * @param integer $page page number of the document that will be returned
+     * @return void
+     */
+    public function reqEncyclical($encyclical = false, $page = 1) 
+    {
+        $this->instance = new Encyclical();
+        $this->view($this->instance->getEncyclical($encyclical, $page), 'encyclical.twig');
+    }
+
+    /**
+     * Requires the texts of the Bible
+     *
+     * @param string/boolean $book name of the book of bible to be sought (if it is passed)
+     * @param integer/boolean $chapter chapter number of the book that will be returned (if it is passed)
+     * @return void
+     */
+    public function reqBible($book = false, $chapter = false) 
+    {
+        $this->instance = new Bible();
+        $this->view($this->instance->getBible($book, $chapter), 'bible.twig');
+    }
+
+    /**
+     * Search for specific text in the name of documents
+     *
+     * @param string $text text to be searched
+     * @return void
+     */
+    public function search($text) 
+    {
+        $this->instance = new Search();
+        $this->view($this->instance->search($text), 'search.twig');
+    }
+
+    /**
+     * Filter specific text in the bible
+     *
+     * @param string $text text to be searched
+     * @param string $partial name of the partial to be searched
+     * @param string/null $books name of the books of bible to be sought (if it is passed)
+     * @return void
+     */
+    public function bibleFilter($text, $partial, $books = null) 
+    {
+        $this->instance = new Bible();
+        $this->view($this->instance->bibleFilter($text, $partial, $books), 'filter.twig');
+    }
+
+    /**
+     * Filter specific text in other documents (except bible)
+     *
+     * @param string $text text to be searched
+     * @param string $doc name of the document where the search will be performed
+     * @return void
+     */
+    public function textFilter($text, $doc) 
+    {
+        $this->instance = new Filter();
+        $this->view($this->instance->textFilter($text, $doc), 'filter.twig');
+    }
+
+    /**
+     * Render pages with returned data using Twig
+     * 
+     * @param array  $data data returned with database
+     * @param string $page page that will be returned to the browser
+     */
+    private function view($data, $page) {  
         
         if (isset($data) && !empty($data)) {
-            echo '<pre>';
-            var_dump($data);
-            echo '</pre>';
             echo $GLOBALS['twig']->render($page, $data);
         } else {
             echo $GLOBALS['twig']->render('404.twig');

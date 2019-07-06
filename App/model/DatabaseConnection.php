@@ -1,9 +1,27 @@
 <?php
 namespace App\model;
 
+/**
+ * DatabaseConnection class
+ *
+ * Establishes the connection with the database
+ *
+ * @copyright  2019 Gustavo da Silva Gomes
+ * @author     Gustavo da Silva Gomes <ovatsug8055@hotmail.com>
+ * @since      Class available since Release 1.0.0
+ */ 
 class DatabaseConnection {
     private $dsn, $host, $user, $pass, $db, $conn, $options;
 
+    /**
+     * DatabaseConnection class constructor
+     * 
+     * @param string $host database host name
+     * @param string $user database user name
+     * @param string $pass database password
+     * @param string $db database name
+     * @return void
+     */
     public function __construct($host, $user, $pass, $db)
     {
         $this->host = $host;
@@ -15,6 +33,8 @@ class DatabaseConnection {
     }
 
     /**
+     * Get database connection
+     * 
      * @return PDO
      */
     public function getConnection() {

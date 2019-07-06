@@ -1,13 +1,23 @@
-// @font-face {
-//   font-family: "Roboto";
-//   src:
-//     url('https://fonts.googleapis.com/css?family=Roboto');
+@font-face {
+  font-family: "Roboto";
+  src:
+    url('../assets/fonts/Roboto-Regular.ttf');
 
-//   font-weight: 400;
-//   font-style: normal;
-// }
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Confortanaa";
+  src:
+    url('../assets/fonts/Comfortaa[wght].ttf');
+
+  font-weight: 400;
+  font-style: normal;
+}
 
 $main-font: 'Roboto', sans-serif;
+$title-font: 'Calibri', 'sans-serif';
 $bold-font: 600;
 $regular-font: 500;
 

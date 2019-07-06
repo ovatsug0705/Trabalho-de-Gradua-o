@@ -2,14 +2,34 @@
 
 namespace App\model;
 
+/**
+ * Catechism model class
+ *
+ * Performs the connection to Catechism table into database
+ *
+ * @copyright  2019 Gustavo da Silva Gomes
+ * @author     Gustavo da Silva Gomes <ovatsug8055@hotmail.com>
+ * @since      Class available since Release 1.0.0
+ */ 
 class Catechism {
     private $startConnection, $connection;
 
+    /**
+     * Catechism Constructor
+     *
+     * @return void
+     */
     public function __construct() {
-        $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
+        $this->startConnection = new DatabaseConnection(getenv('APP_HOST'), getenv('APP_DB_USER'), getenv('APP_DB_PASS'), getenv('APP_DB_NAME'));
         $this->connection = $this->startConnection->getConnection();
     }
 
+    /**
+     * Execute the querys in the database in the cano table
+     *
+     * @param integer  $page number of the page of catechism to be sought
+     * @return PDO
+     */
     public function getCatechism($page){
         !(is_numeric($page)) ? $page = 0 : null;
         $endParagraph = $page * 2;

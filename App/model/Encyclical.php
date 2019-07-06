@@ -2,14 +2,35 @@
 
 namespace App\model;
 
+/**
+ * Encyclical model class
+ *
+ * Performs the connection to Encyclical and Encyclical_text tables into database
+ *
+ * @copyright  2019 Gustavo da Silva Gomes
+ * @author     Gustavo da Silva Gomes <ovatsug8055@hotmail.com>
+ * @since      Class available since Release 1.0.0
+ */ 
 class Encyclical {
     private $startConnection, $connection;
 
+    /**
+     * Encyclical class Constructor
+     *
+     * @return void
+     */
     public function __construct() {
-        $this->startConnection = new DatabaseConnection('localhost', 'dev_vida_crista', '80ab55sd', 'VidaCrista');
+        $this->startConnection = new DatabaseConnection(getenv('APP_HOST'), getenv('APP_DB_USER'), getenv('APP_DB_PASS'), getenv('APP_DB_NAME'));
         $this->connection = $this->startConnection->getConnection();
     }
 
+    /**
+     * Execute the querys in the database in the Encyclical and Encyclical_text table
+     * 
+     * @param string  $encyclical encyclical name
+     * @param integer $page number of the page of Encyclical to be sought
+     * @return PDO
+     */
     public function getEncyclical($encyclical, $page){
         if (!$encyclical) {
             $sql = 'select encyclical_name, pontiff from encyclical order by pontiff';
