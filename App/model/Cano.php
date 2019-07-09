@@ -34,7 +34,7 @@ class Cano {
         $endParagraph = $cano * 5;
         $initialParagraph = $endParagraph - 5;
 
-        $sql = 'select paragraph_number, paragraph_text from Canos where paragraph_number > (:iId) and paragraph_number <= (:eId)';
+        $sql = 'select paragraph_number, paragraph_text, paragraph_book, paragraph_partial, paragraph_title, paragraph_chapter, paragraph_article, ref_text from Canos left join Canos_references on Canos.id_cano = canos_references.id_cano where paragraph_number > (:iId) and paragraph_number <= (:eId) order by CAST(paragraph_number AS unsigned)';
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':iId', $initialParagraph);
@@ -42,7 +42,9 @@ class Cano {
 
         $stmt->execute();
         $this->connection = null;
-        
+
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
+
+// inner join canos_references on canos.id_cano = canos_references.id_cano

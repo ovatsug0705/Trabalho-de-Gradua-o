@@ -15,7 +15,13 @@
 require_once './../vendor/autoload.php';
 
 $loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '\..\App\views/');
-$GLOBALS['twig'] = new \Twig\Environment($loader);
+// $GLOBALS['twig'] = new \Twig\Environment($loader);
+
+//debug
+$GLOBALS['twig'] = new \Twig\Environment($loader, [
+  'debug' => true,
+]);
+$GLOBALS['twig']->addExtension(new \Twig\Extension\DebugExtension());
 
 $dotenv = \Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();

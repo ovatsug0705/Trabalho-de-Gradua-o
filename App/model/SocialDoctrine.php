@@ -35,7 +35,7 @@ class SocialDoctrine {
         $endParagraph = $paragraph * 5;
         $initialParagraph = $endParagraph - 5;
 
-        $sql = 'select paragraph_number, paragraph_text from social_doctrine where paragraph_number > (:iId) and paragraph_number <= (:eId)';
+        $sql = 'select paragraph_number, paragraph_text, paragraph_partial, paragraph_chapter, paragraph_section, paragraph_title, ref_text from Social_doctrine left join Social_doctrine_references on Social_doctrine.id_social_doctrine = Social_doctrine_references.id_social_doctrine where paragraph_number > (:iId) and paragraph_number <= (:eId) order by CAST(paragraph_number AS unsigned)';
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':iId', $initialParagraph);

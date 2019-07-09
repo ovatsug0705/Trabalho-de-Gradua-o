@@ -31,7 +31,7 @@ class Controller {
     public function reqCatechism($page = 1) 
     {
         $this->instance = new Catechism();
-        $this->view($this->instance->getCatechism($page), 'catechism.twig');
+        $this->view($this->instance->getCatechism($page), 'catechism.html');
     }
 
     /**
@@ -43,7 +43,7 @@ class Controller {
     public function reqCano($cano = 1) 
     {
         $this->instance = new Cano();
-        $this->view($this->instance->getCano($cano), 'cano.twig');
+        $this->view($this->instance->getCano($cano), 'cano.html');
     }
 
     /**
@@ -55,7 +55,7 @@ class Controller {
     public function reqSocialDoctrine($paragraph = 1) 
     {
         $this->instance = new SocialDoctrine();
-        $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.twig');
+        $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.html');
     }
 
     /**
@@ -68,7 +68,7 @@ class Controller {
     public function reqEncyclical($encyclical = false, $page = 1) 
     {
         $this->instance = new Encyclical();
-        $this->view($this->instance->getEncyclical($encyclical, $page), 'encyclical.twig');
+        $this->view($this->instance->getEncyclical($encyclical, $page), 'encyclical.html');
     }
 
     /**
@@ -81,7 +81,7 @@ class Controller {
     public function reqBible($book = false, $chapter = false) 
     {
         $this->instance = new Bible();
-        $this->view($this->instance->getBible($book, $chapter), 'bible.twig');
+        $this->view($this->instance->getBible($book, $chapter), 'bible.html');
     }
 
     /**
@@ -93,7 +93,7 @@ class Controller {
     public function search($text) 
     {
         $this->instance = new Search();
-        $this->view($this->instance->search($text), 'search.twig');
+        $this->view($this->instance->search($text), 'search.html');
     }
 
     /**
@@ -107,7 +107,7 @@ class Controller {
     public function bibleFilter($text, $partial, $books = null) 
     {
         $this->instance = new Bible();
-        $this->view($this->instance->bibleFilter($text, $partial, $books), 'filter.twig');
+        $this->view($this->instance->bibleFilter($text, $partial, $books), 'filter.html');
     }
 
     /**
@@ -120,7 +120,7 @@ class Controller {
     public function textFilter($text, $doc) 
     {
         $this->instance = new Filter();
-        $this->view($this->instance->textFilter($text, $doc), 'filter.twig');
+        $this->view($this->instance->textFilter($text, $doc), 'filter.html');
     }
 
     /**
@@ -129,12 +129,11 @@ class Controller {
      * @param array  $data data returned with database
      * @param string $page page that will be returned to the browser
      */
-    private function view($data, $page) {  
-        
+    private function view($data, $page) {
         if (isset($data) && !empty($data)) {
-            echo $GLOBALS['twig']->render($page, $data);
+            echo $GLOBALS['twig']->render($page, ['data' => $data]);
         } else {
-            echo $GLOBALS['twig']->render('404.twig');
+            echo $GLOBALS['twig']->render('404.html');
         }
     }
 }

@@ -45,7 +45,7 @@ class Encyclical {
             $endParagraph = $page * 3;
             $initialParagraph = $endParagraph - 3;
 
-            $sql = 'select encyclical_name,paragraph_text, paragraph_number from encyclical_text inner join encyclical on encyclical_text.id_encyclical = encyclical.id_encyclical where url_text = (:url) and paragraph_number > (:iId) and paragraph_number <= (:eId)';
+            $sql = 'select encyclical_name, paragraph_text, paragraph_number, ref_text from encyclical_text inner join Encyclical on Encyclical_text.id_encyclical = Encyclical.id_encyclical left join Encyclical_text_references on Encyclical_text.id_encyclical_text = Encyclical_text_references.id_encyclical_text where url_text = (:url) and paragraph_number > (:iId) and paragraph_number <= (:eId) order by CAST(paragraph_number AS unsigned)';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->bindValue(':url', $encyclical);

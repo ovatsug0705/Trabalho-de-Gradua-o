@@ -152,12 +152,12 @@ class Router {
                 break;
             case 'home':
                 $instance = true;
-                echo $GLOBALS['twig']->render('home.twig');
+                echo $GLOBALS['twig']->render('home.html');
                 break;
         }
 
         if(!$instance) {
-            echo $GLOBALS['twig']->render('404.twig');
+            echo $GLOBALS['twig']->render('404.html');
         }
     }
 }

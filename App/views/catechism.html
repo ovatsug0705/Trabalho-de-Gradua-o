@@ -1,4 +1,4 @@
-{% extends "layouts/app.twig" %}
+{% extends "layouts/app.html" %}
 
 {% block content %}
 <form action="/filtro/cic">
@@ -10,4 +10,14 @@
 <div>
     <h1>Catecismo</h1>
 </div>
+
+<!-- <pre> -->
+	{{ dump() }}
+	{# dump(_context|keys) #}
+	{% for itens in data %}
+		{% for item in itens %}
+		<br><br>{{ item }} 
+		{% endfor %}
+	{% endfor %}
+<!-- </pre> -->
 {% endblock %}
