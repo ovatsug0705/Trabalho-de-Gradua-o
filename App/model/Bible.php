@@ -74,39 +74,40 @@ class Bible {
             $string = '';
             if($books){
                 foreach ($books as $value) {
-                    $string = "{$string} book_name = '{$value}' or";
+                    $string = "{$string}book_name = '{$value}' or ";
                 }
 
                 $size = strlen($string);
-                $string = substr($string, 1, $size - 3);
-                
+                $string = substr($string, 0, $size - 3);
             } else {
                 return false;
             }
             
-            $sql = "select book_name, url_text, verser_number, chapter, verser_text from books inner join verser on books.id_book = verser.id_book where verser_number like :text and ({$string}) order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)";
+            $sql = "select book_name, url_text, chapter, verser_number, verser_text from books inner join verser on books.id_book = verser.id_book where verser_text like :text and ({$string}) order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)";
+
+            $stmt = $this->connection->prepare($sql);
         } else {
-            $sql = 'select book_name, url_text, verser_number, chapter, verser_text from books inner join verser on books.id_book = verser.id_book where verser_text like :text and (testament = :test1 or testament = :test2) order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
+            $sql = 'select book_name, url_text, chapter, verser_number, verser_text from books inner join verser on books.id_book = verser.id_book where verser_text like :text and (testament = :test1 or testament = :test2) order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
+
+            $stmt = $this->connection->prepare($sql);
+
+            switch ($partial) {
+                case 'new':
+                    $stmt->bindValue(':test1', 'novo');
+                    $stmt->bindValue(':test2', 'novo');
+                    break;
+                case 'old':
+                    $stmt->bindValue(':test1', 'antigo');
+                    $stmt->bindValue(':test2', 'antigo');
+                    break;
+                case 'all':
+                    $stmt->bindValue(':test1', 'antigo');
+                    $stmt->bindValue(':test2', 'novo');
+                    break;
+            }
         }
 
-        $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':text', "%{$text}%");
-
-        switch ($partial) {
-            case 'new':
-                $stmt->bindValue(':test1', 'novo');
-                $stmt->bindValue(':test2', 'novo');
-                break;
-            case 'old':
-                $stmt->bindValue(':test1', 'antigo');
-                $stmt->bindValue(':test2', 'antigo');
-                break;
-            case 'all':
-                $stmt->bindValue(':test1', 'antigo');
-                $stmt->bindValue(':test2', 'novo');
-                break;
-        }
-
         $stmt->execute();
         $this->connection = null;
 

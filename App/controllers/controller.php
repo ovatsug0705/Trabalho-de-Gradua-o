@@ -28,10 +28,10 @@ class Controller {
      * @param integer $page page number of the document that will be returned
      * @return void
      */ 
-    public function reqCatechism($page = 1) 
-    {
+    public function reqCatechism($page) 
+    {   
         $this->instance = new Catechism();
-        $this->view($this->instance->getCatechism($page), 'catechism.html');
+        $this->view($this->instance->getCatechism($page), 'catechism.html', 'Catecismo');
     }
 
     /**
@@ -40,7 +40,7 @@ class Controller {
      * @param integer $page page number of the document that will be returned
      * @return void
      */
-    public function reqCano($cano = 1) 
+    public function reqCano($cano) 
     {
         $this->instance = new Cano();
         $this->view($this->instance->getCano($cano), 'cano.html');
@@ -52,7 +52,7 @@ class Controller {
      * @param integer $page page number of the document that will be returned
      * @return void
      */
-    public function reqSocialDoctrine($paragraph = 1) 
+    public function reqSocialDoctrine($paragraph) 
     {
         $this->instance = new SocialDoctrine();
         $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.html');
@@ -65,7 +65,7 @@ class Controller {
      * @param integer $page page number of the document that will be returned
      * @return void
      */
-    public function reqEncyclical($encyclical = false, $page = 1) 
+    public function reqEncyclical($encyclical, $page)
     {
         $this->instance = new Encyclical();
         $this->view($this->instance->getEncyclical($encyclical, $page), 'encyclical.html');
@@ -78,7 +78,7 @@ class Controller {
      * @param integer/boolean $chapter chapter number of the book that will be returned (if it is passed)
      * @return void
      */
-    public function reqBible($book = false, $chapter = false) 
+    public function reqBible($book, $chapter)
     {
         $this->instance = new Bible();
         $this->view($this->instance->getBible($book, $chapter), 'bible.html');
@@ -90,7 +90,7 @@ class Controller {
      * @param string $text text to be searched
      * @return void
      */
-    public function search($text) 
+    public function search($text)
     {
         $this->instance = new Search();
         $this->view($this->instance->search($text), 'search.html');
@@ -104,7 +104,7 @@ class Controller {
      * @param string/null $books name of the books of bible to be sought (if it is passed)
      * @return void
      */
-    public function bibleFilter($text, $partial, $books = null) 
+    public function bibleFilter($text, $partial, $books) 
     {
         $this->instance = new Bible();
         $this->view($this->instance->bibleFilter($text, $partial, $books), 'filter.html');
@@ -129,12 +129,11 @@ class Controller {
      * @param array  $data data returned with database
      * @param string $page page that will be returned to the browser
      */
-    private function view($data, $page) {
+    private function view($data, $page, $title = 'Page Name') {
         if (isset($data) && !empty($data)) {
-            echo $GLOBALS['twig']->render($page, ['data' => $data]);
+            echo $GLOBALS['twig']->render($page, ['data' => $data, 'title' => $title]);
         } else {
             echo $GLOBALS['twig']->render('404.html');
         }
     }
 }
-

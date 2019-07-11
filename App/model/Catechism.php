@@ -32,8 +32,8 @@ class Catechism {
      */
     public function getCatechism($page){
         !(is_numeric($page)) ? $page = 0 : null;
-        $endParagraph = $page * 2;
-        $initialParagraph = $endParagraph - 2;
+        $endParagraph = $page * 5;
+        $initialParagraph = $endParagraph - 5;
 
         $sql = 'select paragraph_number, paragraph_text, paragraph_partial, paragraph_section, paragraph_chapter, paragraph_article, paragraph_title, ref_text from Catechism left join Catechism_references on Catechism.id_catechism = Catechism_references.id_catechism where paragraph_number > (:iId) and paragraph_number <= (:eId) order by CAST(paragraph_number AS unsigned)';
 

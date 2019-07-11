@@ -1,23 +1,54 @@
 {% extends "layouts/app.html" %}
 
 {% block content %}
-<form action="/filtro/cic">
-	<label for="test">Texto a ser procurado</label>
-	<input type="text" name="t" id="test">
-	
-	<input type="submit" value="enviar">
-</form>
-<div>
-    <h1>Catecismo</h1>
-</div>
 
-<!-- <pre> -->
-	{{ dump() }}
-	{# dump(_context|keys) #}
-	{% for itens in data %}
-		{% for item in itens %}
-		<br><br>{{ item }} 
+<main class="c-catechism">
+	<h1 class="c-catechism__main-title">{{ title }}</h1>
+	<div class="c-catechism__holder">
+		{% for item in data %}
+			<header class="c-catechism__header">
+				{% if item.paragraph_partial != '' %}
+					<h2 class="c-catechism__partial">{{ item.paragraph_partial }}</h2>
+				{% endif %}
+				{% if item.paragraph_section != '' %}
+					<h3 class="c-catechism__section">{{ item.paragraph_section }}</h3>
+				{% endif %}
+				{% if item.paragraph_chapter != '' %}
+					<h4 class="c-catechism__chapter">{{ item.paragraph_chapter }}</h4>
+				{% endif %}
+				{% if item.paragraph_article != '' %}
+					<h5 class="c-catechism__article">{{ item.paragraph_article }}</h5>
+				{% endif %}
+				{% if item.paragraph_title != '' %}
+					<h6 class="c-catechism__title">{{ item.paragraph_title }}</h6>
+				{% endif %}
+			</header>
+			<p class="c-catechism__paragraph">
+				<span class="c-catechism__paragraph-number">
+					{{ item.paragraph_number }}
+				</span>
+				{{ item.paragraph_text }}
+			</p>
 		{% endfor %}
-	{% endfor %}
-<!-- </pre> -->
+	</div>
+</main>
+
+<aside class="c-catechism__lateral">
+	<div class="c-catechism__form-holder">
+		<form action="/filtro/catecismo" class="c-catechism__form">
+			<label for="catechismText" class="c-catechism__form-label">Encontre no Catecismo</label>
+			<input type="text" class="c-catechism__form-input" placeholder="Ex: igreja, fé, sacramentos" name="t" id="catechismText">
+			<input type="submit" class="c-catechism__form-submit" value="Buscar">
+		</form>
+	</div>
+	<div class="c-catechism__form-holder">
+		<form action="/filtro/catecismo" class="c-catechism__form">
+			<label for="catechismNumber">Encontre por número</label>
+			<input type="number" class="c-catechism__form-input" step="1" min="1" max="2865" name="n" id="catechismNumber">
+			<input type="submit" class="c-catechism__form-submit" value="Filtrar">
+		</form>
+	</div>
+</aside>
+{% include "partials/references.html" %}
+{% include "partials/socials.html" %}
 {% endblock %}

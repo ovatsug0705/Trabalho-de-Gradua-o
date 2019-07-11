@@ -3,7 +3,7 @@
     <h1>Bíblia<h1>
 		</div>
 		
-    <form action="/filtro/bib">
+    <form action="/filtro/biblia">
     	<label for="test">Texto a ser procurado</label>
     	<input type="text" name="t" id="test">
     	
@@ -28,19 +28,14 @@
     	<input type="checkbox" name="b[]" id="genesis" value="genesis">
     	<label for="genesis">Genesis</label>
 
-    	<input type="checkbox" name="b[]" id="salmos" value="salmos">
-    	<label for="salmos">Salmos</label>
-
-
     	<input type="submit" value="enviar">
     </form>
 
-    <form action="filtro/pas" method="get" accept-charset="utf-8">
+    <form action="/filtro/pas" method="get" accept-charset="utf-8">
     	<label for="livro">Livro</label>
     	<select name="l" id="livro">
     		<option value="lucas">Lucas</option>
     		<option value="genesis">Gênesis</option>
-    		<option value="lucas">Salmos</option>
     	</select>
 
     	<label for="cap">Capítulo</label>
