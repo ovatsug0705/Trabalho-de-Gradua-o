@@ -1,7 +1,16 @@
+@charset 'UTF-8';
+
+//base
 @import 'base/base';
 @import 'base/colors';
 @import 'base/typography';
 
+//mixins
+@import 'mixins/fonts';
+@import 'mixins/response';
+@import 'mixins/themes';
+
+// modules
 @import 'modules/titles';
 @import 'modules/header';
 @import 'modules/footer';

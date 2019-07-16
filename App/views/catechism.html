@@ -2,29 +2,31 @@
 
 {% block content %}
 
-<main class="c-catechism">
-	<h1 class="c-catechism__main-title">{{ title }}</h1>
-	<div class="c-catechism__holder">
+<main class="c-document">
+	<h1 class="c-document__main-title">{{ title }}</h1>
+	<div class="c-document__holder">
 		{% for item in data %}
-			<header class="c-catechism__header">
-				{% if item.paragraph_partial != '' %}
-					<h2 class="c-catechism__partial">{{ item.paragraph_partial }}</h2>
-				{% endif %}
-				{% if item.paragraph_section != '' %}
-					<h3 class="c-catechism__section">{{ item.paragraph_section }}</h3>
-				{% endif %}
-				{% if item.paragraph_chapter != '' %}
-					<h4 class="c-catechism__chapter">{{ item.paragraph_chapter }}</h4>
-				{% endif %}
-				{% if item.paragraph_article != '' %}
-					<h5 class="c-catechism__article">{{ item.paragraph_article }}</h5>
-				{% endif %}
-				{% if item.paragraph_title != '' %}
-					<h6 class="c-catechism__title">{{ item.paragraph_title }}</h6>
-				{% endif %}
-			</header>
-			<p class="c-catechism__paragraph">
-				<span class="c-catechism__paragraph-number">
+			{% if (item.paragraph_partial != '') or (item.paragraph_section != '') or (item.paragraph_chapter != '') or (item.paragraph_article != '') or (item.paragraph_title != '') %}
+				<header class="c-document__header">
+					{% if item.paragraph_partial != '' %}
+						<h2 class="c-document__partial">{{ item.paragraph_partial }}</h2>
+					{% endif %}
+					{% if item.paragraph_section != '' %}
+						<h3 class="c-document__section">{{ item.paragraph_section }}</h3>
+					{% endif %}
+					{% if item.paragraph_chapter != '' %}
+						<h4 class="c-document__chapter">{{ item.paragraph_chapter }}</h4>
+					{% endif %}
+					{% if item.paragraph_article != '' %}
+						<h5 class="c-document__article">{{ item.paragraph_article }}</h5>
+					{% endif %}
+					{% if item.paragraph_title != '' %}
+						<h6 class="c-document__title">{{ item.paragraph_title }}</h6>
+					{% endif %}
+				</header>
+			{% endif %}
+			<p class="c-document__paragraph">
+				<span class="c-document__paragraph-number">
 					{{ item.paragraph_number }}
 				</span>
 				{{ item.paragraph_text }}

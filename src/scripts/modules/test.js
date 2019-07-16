@@ -1,4 +1,5 @@
-const $ = require ('jquery');
+
+/*const $ = require ('jquery');
 
 class Test {
   constructor(elm, elm2, elm3){
@@ -47,3 +48,4 @@ export default {
     new Test(element, element2, element3);
   }
 }
+*/

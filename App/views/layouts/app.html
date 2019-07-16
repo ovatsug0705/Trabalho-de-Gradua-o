@@ -6,12 +6,12 @@
   <meta author="Gustavo da Silva Gomes">
   <meta keywords="Bíblia, Catecismo, Encíclica">
   <title>Vida Cristã - {{ title ? title : 'Home' }}</title>
+  <link rel="stylesheet" type="text/css" href="./dist/styles/main.css">
 </head>
 <body>
     {% include "partials/header.html" %}
     {% include "partials/menu.html" %}
     {% block content %}{% endblock %}
     {% include "partials/footer.html" %}
-    <link rel="stylesheet" type="text/css" href="./dist/styles/main.css">
     <script src="./dist/scripts/main.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>

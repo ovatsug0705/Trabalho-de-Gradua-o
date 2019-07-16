@@ -1,0 +1,22 @@
+.c-header {
+  width: 100vw;
+  padding: 20px;
+  color: $color-red;
+}
+
+.c-header__logo {
+  @include font-size(24);
+  color: red;
+}
+
+@include respond-to(mobile) {
+  .c-header__logo {
+    color: green;
+  }
+}
+
+@include respond-to(tablet){
+  .c-header__logo {
+    color: blue;
+  }
+}

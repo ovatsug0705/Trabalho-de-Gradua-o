@@ -1,3 +1,4 @@
+/*
 class Menu {
   constructor(elm, elm2){
     this.elm = elm;
@@ -22,3 +23,4 @@ export default {
       new Menu(element, element2);
   }
 }
+*/
