@@ -1,18 +1,20 @@
 @charset 'UTF-8';
 
 //base
-@import 'base/base';
-@import 'base/colors';
-@import 'base/typography';
+@import 'base/b-base';
+@import 'base/b-colors';
+@import 'base/b-typography';
 
 //mixins
-@import 'mixins/fonts';
-@import 'mixins/response';
-@import 'mixins/themes';
+@import 'mixins/t-fonts';
+@import 'mixins/t-response';
+@import 'mixins/t-themes';
+@import 'mixins/t-clearfix';
 
 // modules
 @import 'modules/titles';
-@import 'modules/header';
+@import 'modules/c-header';
 @import 'modules/footer';
 @import 'modules/menu';
 @import 'modules/canon';
+@import 'modules/c-document';

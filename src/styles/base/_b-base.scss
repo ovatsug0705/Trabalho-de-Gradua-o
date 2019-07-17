@@ -23,6 +23,10 @@ a {
   text-decoration: none;
 }
 
+ul, ol {
+  padding-left: 0;
+}
+
 $site-content: 1170px;
 
 .content {

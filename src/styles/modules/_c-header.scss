@@ -1,0 +1,153 @@
+.c-header {
+  width: 100vw;
+  padding: 20px 50px;
+  background-color: $c-brown;
+  box-shadow: 1px 0 15px -5px;
+  max-width: 100%;
+}
+
+.c-header__link {
+  display: inline-block;
+  line-height: 1;
+}
+
+.c-header__logo {
+  color: $c-white;
+  font-size: rem(32);
+  font-family: $title-font;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: inline-block;
+
+  &:hover {
+    opacity: 0.8;
+    transition: all 0.2s ease;
+  }
+}
+
+.c-header__menu-button {
+  display: none;
+}
+
+.c-header__actions {
+  float: right;
+  position: relative;
+  @include clearfix();
+}
+
+.c-header__search-form {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.c-header__search-input {
+  height: 30px;
+  width: 300px;
+  border-radius: 3px;
+  border: none;
+  padding: 5px;
+  font-size: rem(16);
+  position: relative;
+  vertical-align: top;
+  font-family: $main-font;
+}
+
+.c-header__submit-button {
+  position: relative;
+  background-color: $c-transparent;
+  border-radius: 2px;
+  border: none;
+  vertical-align: top;
+  
+  svg {
+    fill: $c-white;
+  }
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+  }
+}
+
+.c-header__actions-button {
+  background-color: $c-transparent;
+  border: none;
+  float: right;
+  color: $c-white;
+  font-size: rem(18);
+  margin-left: 5px;
+  margin-right: 5px;
+
+  svg {
+    fill: $c-white;
+  }
+
+  &:hover{
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out;
+  }
+}
+
+.c-header__themes {
+  position: absolute;
+  top: 35px;
+  font-size: 0;
+  right: 70px;
+  background-color: $c-white;
+  border-radius: 5px;
+  box-shadow: 1px 0 15px -10px;
+}
+
+.c-header__themes-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  list-style: none;
+}
+
+.c-header__themes-item {
+  position: relative;
+  text-align: center;
+  font-size: 0;
+  flex: 1;
+}
+
+.c-header__themes-item.active {
+  &::before {
+    content: '';
+    position: absolute;
+    height: 10px;
+    width: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: $c-white;
+  }
+}
+
+.c-header__themes-color {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: black;
+  display: inline-block;
+}
+
+
+@include respond-to(mobile) {
+  .c-header__logo {
+    color: green;
+  }
+}
+
+@include respond-to(tablet){
+  .c-header__logo {
+    color: blue;
+  }
+}
