@@ -130,9 +130,11 @@ class Controller {
      * @param string $page page that will be returned to the browser
      */
     private function view($data, $page, $title = 'Page Name') {
+        
         if (isset($data) && !empty($data)) {
             echo $GLOBALS['twig']->render($page, ['data' => $data, 'title' => $title]);
         } else {
+            return 'deu ruim';
             echo $GLOBALS['twig']->render('404.html');
         }
     }
