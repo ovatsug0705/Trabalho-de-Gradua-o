@@ -43,13 +43,13 @@ $site-content: 1170px;
   margin-right: auto;
 }
 
-@media all and (max-width: 1169px) and (min-width: 767px){
+@include respond-to(mobile-tablet){
   .content {
     width: 700px;
   }
 }
 
-@media all and (max-width: 767px) {
+@include respond-to(mobile) {
   .content {
     width: 100%;
     max-width: 100%;

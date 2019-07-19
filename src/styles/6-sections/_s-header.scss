@@ -1,4 +1,4 @@
-.c-header {
+.s-header {
   width: 100vw;
   padding: 20px 50px;
   background-color: $c-brown;
@@ -6,13 +6,14 @@
   max-width: 100%;
 }
 
-.c-header__link {
+.s-header__link {
   display: inline-block;
   line-height: 1;
 }
 
-.c-header__logo {
-  color: $c-white;
+.s-header__logo {
+  
+  @include color-theme(color, c-white);
   font-size: rem(32);
   font-family: $title-font;
   margin-top: 0;
@@ -25,22 +26,22 @@
   }
 }
 
-.c-header__menu-button {
+.s-header__menu-button {
   display: none;
 }
 
-.c-header__actions {
+.s-header__actions {
   float: right;
   position: relative;
   @include clearfix();
 }
 
-.c-header__search-form {
+.s-header__search-form {
   display: inline-block;
   margin-right: 20px;
 }
 
-.c-header__search-input {
+.s-header__search-input {
   height: 30px;
   width: 300px;
   border-radius: 3px;
@@ -52,7 +53,7 @@
   font-family: $main-font;
 }
 
-.c-header__submit-button {
+.s-header__submit-button {
   position: relative;
   background-color: $c-transparent;
   border-radius: 2px;
@@ -72,12 +73,13 @@
   }
 }
 
-.c-header__actions-button {
+.s-header__actions-button {
   background-color: $c-transparent;
   border: none;
   float: right;
   color: $c-white;
-  font-size: rem(18);
+  font-size: rem(22);
+  font-family: $main-font;
   margin-left: 5px;
   margin-right: 5px;
 
@@ -94,7 +96,7 @@
   }
 }
 
-.c-header__themes {
+.s-header__themes {
   position: absolute;
   top: 35px;
   font-size: 0;
@@ -146,7 +148,7 @@
   }
 }
 
-.c-header__themes-list {
+.s-header__themes-list {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -156,7 +158,7 @@
   list-style: none;
 }
 
-.c-header__themes-item {
+.s-header__themes-item {
   position: relative;
   text-align: center;
   font-size: 0;
@@ -164,7 +166,7 @@
   cursor: pointer;
 }
 
-.c-header__themes-item.active {
+.s-header__themes-item.active {
   &::before {
     content: '';
     position: absolute;
@@ -178,7 +180,7 @@
   }
 }
 
-.c-header__themes-color {
+.s-header__themes-color {
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -188,13 +190,13 @@
 
 
 @include respond-to(mobile) {
-  .c-header__logo {
+  .s-header__logo {
     color: green;
   }
 }
 
 @include respond-to(tablet){
-  .c-header__logo {
+  .s-header__logo {
     color: blue;
   }
 }

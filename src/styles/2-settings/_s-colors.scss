@@ -14,3 +14,23 @@ $c-gray-text: #424242;
 $c-brown: #4e342e;
 $c-brown-light: #7b5e57;
 $c-brown-dark: #260e04;
+
+$colors: (
+  c-white: $c-white,
+  c-black: $c-black,
+);
+
+$theme-01: (
+  c-white: $c-black,
+  c-black: $c-white,
+);
+
+$theme-02: (
+  c-white: $c-red,
+  c-black: $c-white,
+);
+
+$theme-03: (
+  c-white: $c-green,
+  c-black: $c-white,
+);

@@ -1,0 +1,33 @@
+@mixin color-theme($property, $color, $forced-color: null) {
+  #{$property}: (map-get($colors, $color));
+
+  .t-theme-01 & {
+    @if ($forced-color) {
+      #{$property}: (map-get($colors, $forced-color)) !important;
+    }
+
+    @else {
+      #{$property}: (map-get($theme-01, $color));
+    }
+  }
+
+  .t-theme-02 & {
+    @if ($forced-color) {
+      #{$property}: (map-get($colors, $forced-color)) !important;
+    }
+
+    @else {
+      #{$property}: (map-get($theme-02, $color));
+    }
+  }
+
+  .t-theme-03 & {
+    @if ($forced-color) {
+      #{$property}: (map-get($colors, $forced-color)) !important;
+    }
+
+    @else {
+      #{$property}: (map-get($theme-03, $color));
+    }
+  }
+}

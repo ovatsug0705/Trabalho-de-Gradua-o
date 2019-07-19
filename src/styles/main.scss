@@ -1,20 +1,26 @@
 @charset 'UTF-8';
 
-//base
-@import 'base/b-base';
-@import 'base/b-colors';
-@import 'base/b-typography';
+// 1 - tools
+@import '1-tools/t-clearfix';
+@import '1-tools/t-fonts';
+@import '1-tools/t-respond-to';
+@import '1-tools/t-themes';
 
-//mixins
-@import 'mixins/t-fonts';
-@import 'mixins/t-response';
-@import 'mixins/t-themes';
-@import 'mixins/t-clearfix';
+// 2 - settings
+@import '2-settings/s-base';
+@import '2-settings/s-colors';
+@import '2-settings/s-typography';
 
-// modules
-@import 'modules/titles';
-@import 'modules/c-header';
-@import 'modules/footer';
-@import 'modules/menu';
-@import 'modules/canon';
-@import 'modules/c-document';
+// 3 - vendors
+@import '3-vendors/v-vendors';
+
+// 4 - objects
+@import '4-objects/o-titles';
+
+// 5 - components
+@import '5-components/c-document';
+@import '5-components/c-menu';
+
+// 6 - sections
+@import '6-sections/s-header';
+@import '6-sections/s-footer';
