@@ -1,7 +1,7 @@
 class FontSize {
-  constructor(elm, elm2){
-    this.elm = elm;
-    this.elm2 = elm2;
+  constructor(){
+    this.elm = document.querySelector('[data-font-increase]');
+    this.elm2 = document.querySelector('[data-font-decrease]');
     this.root = document.getElementsByTagName('html')[0];
     this.setupListener();
   }
@@ -23,10 +23,7 @@ class FontSize {
 }
 
 export default {
-  create(elm, elm2) {
-      let element = document.querySelector(elm);
-      let element2 = document.querySelector(elm2);
-
-      new FontSize(element, element2);
+  create() {
+    new FontSize();
   }
 }

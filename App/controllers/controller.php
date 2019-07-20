@@ -134,7 +134,6 @@ class Controller {
         if (isset($data) && !empty($data)) {
             echo $GLOBALS['twig']->render($page, ['data' => $data, 'title' => $title]);
         } else {
-            return 'deu ruim';
             echo $GLOBALS['twig']->render('404.html');
         }
     }

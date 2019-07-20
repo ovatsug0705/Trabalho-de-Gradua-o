@@ -1,7 +1,7 @@
 class Themes {
-  constructor(elm, elm2){
-    this.elm = elm;
-    this.elm2 = elm2;
+  constructor(){
+    this.elm = document.querySelector('[data-themes-button]');
+    this.elm2 = document.querySelector('[data-themes]');
     this.themes = [];
     this.setupListener();
     this.changeTheme();
@@ -64,10 +64,7 @@ class Themes {
 }
 
 export default {
-  create(elm, elm2) {
-      let element = document.querySelector(elm);
-      let element2 = document.querySelector(elm2);
-
-      new Themes(element, element2);
+  create() {
+    new Themes();
   }
 }

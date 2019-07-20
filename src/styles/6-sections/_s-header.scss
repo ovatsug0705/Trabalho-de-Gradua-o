@@ -39,10 +39,11 @@
 .s-header__search-form {
   display: inline-block;
   margin-right: 20px;
+  position: relative;
 }
 
 .s-header__search-input {
-  height: 30px;
+  height: rem(30);
   width: 300px;
   border-radius: 3px;
   border: none;
@@ -51,6 +52,25 @@
   position: relative;
   vertical-align: top;
   font-family: $main-font;
+}
+
+.s-header__search-close {
+  @include color-theme(background-color, c-transparent);
+  @include color-theme(color, c-black);
+
+  display: inline-block;
+  height: 100%;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  font-family: $main-font;
+  font-size: rem(20);
+  position: absolute;
+  right: rem(42);
+  cursor: pointer;
+
+  &.hide {
+    display: none;
+  }
 }
 
 .s-header__submit-button {
@@ -76,7 +96,7 @@
 .s-header__actions-button {
   background-color: $c-transparent;
   border: none;
-  float: right;
+  float: right; 
   color: $c-white;
   font-size: rem(22);
   font-family: $main-font;
@@ -190,13 +210,60 @@
 
 
 @include respond-to(mobile) {
-  .s-header__logo {
-    color: green;
+  .s-header {
+    padding: 15px;
   }
-}
 
-@include respond-to(tablet){
-  .s-header__logo {
-    color: blue;
+  .s-header__holder {
+    overflow: hidden;
+
+    &.show {
+      overflow: visible;
+    }
+  }
+  
+  .s-header__menu-button {
+    display: inline-block;
+  }
+
+  .s-header__search-form {
+    margin-right: 0;
+  }
+
+  .s-header__search-input {
+    position: absolute;
+    transform: translateX(100%);
+    right: -15px;
+    width: 100vw;
+    height: 50px;
+    top: 50px;
+    transition: all 0.2s ease-in-out;
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  .s-header__search-close {
+    transform: translateX(100%);
+    right: -10px;
+    height: 50px;
+    width: 50px;
+    top: 50px;
+    transition: all 0.2s ease-in-out;
+    border: none;
+    font-size: rem(24);
+    
+    &.active {
+      transform: translateX(0);
+    }
+
+    &.hide {
+      display: inline-block;
+    }
+  }
+
+  .s-header__actions-button {
+    display: none;
   }
 }

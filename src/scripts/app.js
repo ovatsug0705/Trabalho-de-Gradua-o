@@ -8,6 +8,11 @@ test.create('[data-request]', '[data-input-button]', '[data-input]');
 
 import fontSize from './modules/font-size';
 import themes from './modules/themes';
+import search from './modules/search';
+import searchMobile from './modules/search-mobile';
 
-fontSize.create('[data-font-increase]', '[data-font-decrease]');
-themes.create('[data-themes-button]', '[data-themes]');
+fontSize.create();
+themes.create();
+search.create();
+searchMobile.create();
+
