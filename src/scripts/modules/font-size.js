@@ -3,10 +3,10 @@ class FontSize {
     this.elm = document.querySelector('[data-font-increase]');
     this.elm2 = document.querySelector('[data-font-decrease]');
     this.root = document.getElementsByTagName('html')[0];
-    this.setupListener();
+    this.setupListeners();
   }
 
-  setupListener(){
+  setupListeners(){
     this.elm.addEventListener('click', ()=> this.addBodyClass());
     this.elm2.addEventListener('click', ()=> this.removeBodyClass());
   }

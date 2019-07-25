@@ -1,8 +1,8 @@
 .s-header {
   width: 100vw;
-  padding: 20px 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: $c-brown;
-  box-shadow: 1px 0 15px -5px;
   max-width: 100%;
 }
 
@@ -81,7 +81,7 @@
   vertical-align: top;
   
   svg {
-    fill: $c-white;
+    @include color-theme(fill, c-white);
     height: rem(24);
     width: rem(24);
   }
@@ -97,14 +97,14 @@
   background-color: $c-transparent;
   border: none;
   float: right; 
-  color: $c-white;
+  @include color-theme(color, c-white);
   font-size: rem(22);
   font-family: $main-font;
   margin-left: 5px;
   margin-right: 5px;
 
   svg {
-    fill: $c-white;
+    @include color-theme(fill, c-white);
     height: rem(24);
     width: rem(24);
   }
@@ -121,11 +121,12 @@
   top: 35px;
   font-size: 0;
   right: 70px;
-  background-color: $c-white;
+  @include color-theme(background-color, c-white);
   border-radius: 5px;
   box-shadow: 1px 0 15px -10px;
   animation: themes-div-out 0.2s ease-in-out forwards;
   transform: scale(0);
+  z-index: 3;
 
   &.active {
     animation: themes-div 0.2s ease-in-out forwards;
@@ -195,23 +196,96 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background-color: $c-white;
+    border-radius: 3px;
+    @include color-theme(background-color, c-white);
   }
 }
 
 .s-header__themes-color {
   width: 25px;
   height: 25px;
-  border-radius: 50%;
-  background-color: black;
+  border-radius: 3px;
+  @include color-theme(background-color, c-black);
   display: inline-block;
 }
 
+@include respond-to(mobile-tablet) {
+  .s-header__menu-button {
+    display: inline-block;
+    border: none;
+    height: 25px;
+    width: 25px;
+    background-color: $c-transparent;
+    position: relative;
+    margin-right: 20px;
+    padding: 0;
+    z-index: 5;
+
+    &.active {
+      .s-header__menu-button-content {
+        background-color: $c-transparent;
+        
+        &::before {
+          transform: rotate(45deg);
+          top: 0;
+        }
+
+        &::after {
+          transform: rotate(-45deg);
+          bottom: 0;
+        }
+      }
+    }
+  }
+
+  .s-header__menu-button-content {
+    @include color-theme(background-color, c-white);
+    color: $c-transparent;
+    width: rem(25);
+    height: rem(3);
+    position: absolute;
+    display: inline-block;
+    font-size: 0;
+    left: 0;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+
+    &::before {
+      content: '';
+      @include color-theme(background-color, c-white);
+      width: rem(25);
+      height: rem(3);
+      position: absolute;
+      top: -8px;
+      left: 0;
+      border-radius: 3px;
+      transition: all 0.2s ease-in-out;
+    }
+
+    &::after {
+      content: '';
+      @include color-theme(background-color, c-white);
+      width: rem(25);
+      height: rem(3);
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      border-radius: 3px;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+}
+
+@include respond-to(tablet) {
+  .s-header__menu-button {
+    position: absolute;
+    left: 20px;
+  }
+}
 
 @include respond-to(mobile) {
   .s-header {
-    padding: 15px;
+    padding: 15px 20px;
   }
 
   .s-header__holder {
@@ -221,31 +295,34 @@
       overflow: visible;
     }
   }
-  
-  .s-header__menu-button {
-    display: inline-block;
-  }
 
   .s-header__search-form {
     margin-right: 0;
   }
 
+  .s-header__submit-button {
+    padding: 0;
+  }
+
   .s-header__search-input {
     position: absolute;
-    transform: translateX(100%);
-    right: -15px;
+    transform: translateY(-100%);
+    right: -20px;
     width: 100vw;
     height: 50px;
     top: 50px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.4s ease;
+    transform-origin: top;
+    z-index: -1;
 
     &.active {
-      transform: translateX(0);
+      transform: translateY(0);
+      z-index: 1;
     }
   }
 
   .s-header__search-close {
-    transform: translateX(100%);
+    transform: translateY(100%);
     right: -10px;
     height: 50px;
     width: 50px;
@@ -253,6 +330,7 @@
     transition: all 0.2s ease-in-out;
     border: none;
     font-size: rem(24);
+    z-index: 2;
     
     &.active {
       transform: translateX(0);
