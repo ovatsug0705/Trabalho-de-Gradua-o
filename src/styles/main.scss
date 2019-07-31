@@ -1,26 +1,19 @@
 @charset 'UTF-8';
 
 // 1 - tools
-@import '1-tools/t-clearfix';
-@import '1-tools/t-fonts';
-@import '1-tools/t-respond-to';
-@import '1-tools/t-themes';
+@import '1-tools/index';
 
 // 2 - settings
-@import '2-settings/s-base';
-@import '2-settings/s-colors';
-@import '2-settings/s-typography';
+@import '2-settings/index';
 
 // 3 - vendors
-@import '3-vendors/v-vendors';
+@import '3-vendors/index';
 
 // 4 - objects
-@import '4-objects/o-titles';
+@import '4-objects/index';
 
 // 5 - components
-@import '5-components/c-document';
-@import '5-components/c-menu';
+@import '5-components/index';
 
 // 6 - sections
-@import '6-sections/s-header';
-@import '6-sections/s-footer';
+@import '6-sections/index';

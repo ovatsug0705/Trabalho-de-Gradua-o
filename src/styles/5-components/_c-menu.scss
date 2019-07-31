@@ -55,10 +55,10 @@
     top: 0;
     padding-top: 50px;
     box-shadow: none;
+    z-index: 4;
 
     &.active {
       transform: translateX(0);
-      z-index: 4;
     }
   }
 

@@ -2,26 +2,26 @@
 
 {% block content %}
 
-<main class="c-document">
-	<h1 class="c-document__main-title">{{ title }}</h1>
+<main class="c-document s-catechism">
+	<h1 class="c-document__main-title o-title">{{ title }}</h1>
 	<div class="c-document__holder">
 		{% for item in data %}
 			{% if (item.paragraph_partial != '') or (item.paragraph_section != '') or (item.paragraph_chapter != '') or (item.paragraph_article != '') or (item.paragraph_title != '') %}
 				<header class="c-document__header">
 					{% if item.paragraph_partial != '' %}
-						<h2 class="c-document__partial">{{ item.paragraph_partial }}</h2>
+						<h2 class="o-title o-title--2">{{ item.paragraph_partial }}</h2>
 					{% endif %}
 					{% if item.paragraph_section != '' %}
-						<h3 class="c-document__section">{{ item.paragraph_section }}</h3>
+						<h3 class="o-title o-title--3">{{ item.paragraph_section }}</h3>
 					{% endif %}
 					{% if item.paragraph_chapter != '' %}
-						<h4 class="c-document__chapter">{{ item.paragraph_chapter }}</h4>
+						<h4 class="o-title o-title--4">{{ item.paragraph_chapter }}</h4>
 					{% endif %}
 					{% if item.paragraph_article != '' %}
-						<h5 class="c-document__article">{{ item.paragraph_article }}</h5>
+						<h5 class="o-title o-title--5">{{ item.paragraph_article }}</h5>
 					{% endif %}
 					{% if item.paragraph_title != '' %}
-						<h6 class="c-document__title">{{ item.paragraph_title }}</h6>
+						<h6 class="o-title o-title--6">{{ item.paragraph_title }}</h6>
 					{% endif %}
 				</header>
 			{% endif %}
@@ -35,19 +35,19 @@
 	</div>
 </main>
 
-<aside class="c-catechism__lateral">
-	<div class="c-catechism__form-holder">
-		<form action="/filtro/catecismo" class="c-catechism__form">
-			<label for="catechismText" class="c-catechism__form-label">Encontre no Catecismo</label>
-			<input type="text" class="c-catechism__form-input" placeholder="Ex: igreja, fé, sacramentos" name="t" id="catechismText">
-			<input type="submit" class="c-catechism__form-submit" value="Buscar">
+<aside class="s-catechism__lateral">
+	<div class="s-catechism__form-holder">
+		<form action="/filtro/catecismo" class="s-catechism__form">
+			<label for="catechismText" class="s-catechism__form-label">Encontre no Catecismo</label>
+			<input type="text" class="s-catechism__form-input" placeholder="Ex: igreja, fé, sacramentos" name="t" id="catechismText">
+			<input type="submit" class="s-catechism__form-submit" value="Buscar">
 		</form>
 	</div>
-	<div class="c-catechism__form-holder">
-		<form action="/filtro/catecismo" class="c-catechism__form">
+	<div class="s-catechism__form-holder">
+		<form action="/filtro/catecismo" class="s-catechism__form">
 			<label for="catechismNumber">Encontre por número</label>
-			<input type="number" class="c-catechism__form-input" step="1" min="1" max="2865" name="n" id="catechismNumber">
-			<input type="submit" class="c-catechism__form-submit" value="Filtrar">
+			<input type="number" class="s-catechism__form-input" step="1" min="1" max="2865" name="n" id="catechismNumber">
+			<input type="submit" class="s-catechism__form-submit" value="Filtrar">
 		</form>
 	</div>
 </aside>

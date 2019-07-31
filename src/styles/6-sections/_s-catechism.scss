@@ -1,0 +1,13 @@
+.s-catechism__lateral {
+  position: absolute;
+  right: calc((100vw - 1170px) / 2);
+  top: 164px;
+  max-width: 300px;
+  border: 1px solid red;
+}
+
+@include respond-to(mobile-tablet) {
+  .s-catechism__lateral {
+    display: none;
+  }
+}

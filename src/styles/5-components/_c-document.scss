@@ -1,0 +1,31 @@
+.c-document {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: calc((100vw - 1170px) / 2);
+  position: relative;
+  display: block; 
+  max-width: 60vw;
+}
+
+.c-document__paragraph {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  font-size: rem(18);
+  @include color-theme(color, c-gray-text);
+  line-height: 1.2;
+}
+
+.c-document__paragraph-number {
+  font-weight: $bold-font;
+  font-size: rem(16);
+  @include color-theme(color, c-gray-text);
+}
+
+@include respond-to(mobile-tablet) {
+  .c-document {
+    margin-left: 20px;
+    margin-right: 20px;
+    max-width: 100%;
+    margin-top: 30px;
+  }
+}

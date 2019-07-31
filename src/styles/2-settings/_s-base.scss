@@ -15,8 +15,9 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  padding-bottom: 50px;
+  padding-bottom: 70px;
   font-size: 16px;
+  font-family: $main-font;
 
   &.hide {
     overflow: hidden;
@@ -31,6 +32,17 @@ body {
       z-index: 3;
     }
   }
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  @include color-theme(background-color, c-white);
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  @include color-theme(background-color, c-brown);
 }
 
 .increased-font {

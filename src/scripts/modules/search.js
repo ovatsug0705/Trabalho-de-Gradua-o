@@ -8,9 +8,15 @@ class Search {
   }
 
   setupListeners(){
-    this.elm.addEventListener('focus', ()=> this.elm2.classList.remove('hide'));
+    this.elm.addEventListener('keydown', (evt)=> this.displayCloseButton(evt));
     this.elm2.addEventListener('click', (evt)=> this.clearInput(evt));
   }
+
+  displayCloseButton(){
+    setTimeout(()=>{
+      this.elm.value == '' ? this.elm2.classList.add('hide') : this.elm2.classList.remove('hide');
+    }, 200);
+  } 
 
   clearInput(evt){
     evt.preventDefault();

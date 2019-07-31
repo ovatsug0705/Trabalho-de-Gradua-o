@@ -1,0 +1,27 @@
+.o-title {
+  font-weight: $regular-font;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-family: $title-font;
+  font-size: rem(40);
+
+  &--2 {
+    font-size: rem(28);
+  }
+
+  &--3 {
+    font-size: rem(26);
+  }
+
+  &--4 {
+    font-size: rem(24);
+  }
+
+  &--5 {
+    font-size: rem(22);
+  }
+
+  &--6 {
+    font-size: rem(20);
+  }
+}
