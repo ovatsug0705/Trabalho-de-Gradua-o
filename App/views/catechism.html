@@ -25,7 +25,7 @@
 					{% endif %}
 				</header>
 			{% endif %}
-			<p class="c-document__paragraph">
+			<p id="{{ item.paragraph_number }}" class="c-document__paragraph">
 				<span class="c-document__paragraph-number">
 					{{ item.paragraph_number }}
 				</span>
@@ -33,24 +33,26 @@
 			</p>
 		{% endfor %}
 	</div>
+	{% include "partials/references.html" %}
 </main>
 
 <aside class="s-catechism__lateral">
 	<div class="s-catechism__form-holder">
 		<form action="/filtro/catecismo" class="s-catechism__form">
-			<label for="catechismText" class="s-catechism__form-label">Encontre no Catecismo</label>
-			<input type="text" class="s-catechism__form-input" placeholder="Ex: igreja, fé, sacramentos" name="t" id="catechismText">
-			<input type="submit" class="s-catechism__form-submit" value="Buscar">
+			<label for="catechismText" class="s-catechism__form-label">Procure no Catecismo</label>
+			<input type="text" class="s-catechism__form-input" placeholder="Ex: igreja, fé" name="t" id="catechismText">
+			<input type="submit" class="s-catechism__form-submit" value="ok">
 		</form>
 	</div>
 	<div class="s-catechism__form-holder">
 		<form action="/filtro/catecismo" class="s-catechism__form">
-			<label for="catechismNumber">Encontre por número</label>
-			<input type="number" class="s-catechism__form-input" step="1" min="1" max="2865" name="n" id="catechismNumber">
-			<input type="submit" class="s-catechism__form-submit" value="Filtrar">
+			<label class="s-catechism__form-label" for="catechismNumber">Encontre por número</label>
+			<input type="number" class="s-catechism__form-input s-catechism__form-input--num" step="0" min="1" max="2865" name="n" id="catechismNumber">
+			<input type="submit" class="s-catechism__form-submit" value="ok">
 		</form>
 	</div>
+	{% if pageInfo.prevUrl %}<a href="{{ pageInfo.prevUrl }}">Previous Page</a>{% endif %}
+	{% if pageInfo.nextUrl %}<a href="{{ pageInfo.nextUrl }}">Next Page</a>{% endif %}
 </aside>
-{% include "partials/references.html" %}
 {% include "partials/socials.html" %}
 {% endblock %}

@@ -3,6 +3,7 @@ class Themes {
     this.elm = document.querySelector('[data-themes-button]');
     this.elm2 = document.querySelector('[data-themes]');
     this.themes = [];
+    this.html = document.getElementsByTagName('html')[0];
     this.setupListeners();
     this.changeTheme();
   }
@@ -26,27 +27,27 @@ class Themes {
     
     switch (data) {
       case '0':
-      document.body.classList.remove('t-theme-01');
-      document.body.classList.remove('t-theme-02');
-      document.body.classList.remove('t-theme-03');
+      this.html.classList.remove('t-theme-01');
+      this.html.classList.remove('t-theme-02');
+      this.html.classList.remove('t-theme-03');
       break;
       case '1':
-      document.body.classList.add('t-theme-01');
-      document.body.classList.remove('t-theme-02');
-      document.body.classList.remove('t-theme-03');
+      this.html.classList.add('t-theme-01');
+      this.html.classList.remove('t-theme-02');
+      this.html.classList.remove('t-theme-03');
       break;
       case '2':
-      document.body.classList.add('t-theme-02');
-      document.body.classList.remove('t-theme-01');
-      document.body.classList.remove('t-theme-03');
+      this.html.classList.add('t-theme-02');
+      this.html.classList.remove('t-theme-01');
+      this.html.classList.remove('t-theme-03');
       break;
       case '3':
-      document.body.classList.add('t-theme-03');
-      document.body.classList.remove('t-theme-02');
-      document.body.classList.remove('t-theme-01');
+      this.html.classList.add('t-theme-03');
+      this.html.classList.remove('t-theme-02');
+      this.html.classList.remove('t-theme-01');
       break;
       default:
-      if (localStorage.getItem('theme')) document.body.classList.add(localStorage.getItem('theme'));
+      if (localStorage.getItem('theme')) this.html.classList.add(localStorage.getItem('theme'));
       break;
     }
     

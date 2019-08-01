@@ -3,25 +3,27 @@
   margin-top: 20px;
   margin-bottom: 20px;
   font-family: $title-font;
-  font-size: rem(40);
+  font-size: rem(44);
+  text-align: center;
+  @include color-theme(color, c-black);
 
   &--2 {
-    font-size: rem(28);
+    font-size: rem(32);
   }
 
   &--3 {
-    font-size: rem(26);
+    font-size: rem(30);
   }
 
   &--4 {
-    font-size: rem(24);
+    font-size: rem(28);
   }
 
   &--5 {
-    font-size: rem(22);
+    font-size: rem(26);
   }
 
   &--6 {
-    font-size: rem(20);
+    font-size: rem(24);
   }
 }

@@ -18,6 +18,7 @@ body {
   padding-bottom: 70px;
   font-size: 16px;
   font-family: $main-font;
+  @include color-theme(background-color, c-white);
 
   &.hide {
     overflow: hidden;
@@ -43,6 +44,16 @@ body {
   -webkit-border-radius: 7px;
   border-radius: 7px;
   @include color-theme(background-color, c-brown);
+}
+
+/* Hide HTML5 Up and Down arrows. */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+ 
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .increased-font {

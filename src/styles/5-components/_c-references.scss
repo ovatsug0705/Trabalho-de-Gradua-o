@@ -1,0 +1,23 @@
+.c-references {
+  width: 100%;
+  border-top-width: 1px;
+  border-top-style: solid;
+  @include color-theme(border-top-color, c-gray);
+  margin-top: 25px;
+}
+
+.c-references__title {
+  @include color-theme(color, c-black);
+  font-size: rem(24);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  font-family: $title-font;
+  display: block;
+}
+
+.c-references__text {
+  @include color-theme(color, c-gray-text);
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: rem(14);
+}

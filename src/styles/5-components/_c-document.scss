@@ -3,8 +3,12 @@
   margin-bottom: 50px;
   margin-left: calc((100vw - 1170px) / 2);
   position: relative;
-  display: block; 
-  max-width: 60vw;
+  display: block;
+  max-width: 55vw;
+}
+
+.c-document__main-title {
+  text-align: left;
 }
 
 .c-document__paragraph {

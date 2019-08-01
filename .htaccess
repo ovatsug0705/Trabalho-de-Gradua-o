@@ -1,4 +1,4 @@
-RewriteEngine on
+RewriteEngine Off
 RewriteCond %{HTTP_HOST} ^(.*)$ [NC,OR]
 RewriteCond %{HTTP_HOST} ^(.*)$
 RewriteCond %{REQUEST_URI} !public/

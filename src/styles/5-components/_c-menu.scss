@@ -3,7 +3,8 @@
   font-size: 0;
   padding-top: 13px;
   padding-bottom: 14px;
-  background: #4e342e;
+  @include color-theme(background-color, c-brown);
+  @include color-theme(color, c-black);
 }
 
 .c-menu__list {

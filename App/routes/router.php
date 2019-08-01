@@ -115,7 +115,7 @@ class Router
 
             switch ($this->url[1]) {
               case 'catecismo':
-                $paginate = 5;
+                $paginate = 20;
                 $maxNumber = 2865;
                 break;
               case 'doutrina_social':
@@ -128,7 +128,7 @@ class Router
               $page = ($_GET['n'] % $paginate) == 0 ? (int)($_GET['n'] / $paginate) : (int)($_GET['n'] / $paginate) + 1;
 
               if($_GET['n'] <= $maxNumber) {
-                header("Location: /{$this->url[1]}/{$page}");
+                header("Location: /{$this->url[1]}/{$page}#{$_GET['n']}");
               }
             }
             
@@ -138,7 +138,7 @@ class Router
         echo $GLOBALS['twig']->render('home.html');
         break;
       default :
-        echo 'Router';
+        // echo 'Router';
         echo $GLOBALS['twig']->render('404.html');
     }
   }

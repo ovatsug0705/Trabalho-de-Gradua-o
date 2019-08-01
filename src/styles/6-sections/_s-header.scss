@@ -15,10 +15,11 @@
   
   @include color-theme(color, c-white);
   font-size: rem(32);
-  font-family: $title-font;
+  font-family: $main-font;
   margin-top: 0;
   margin-bottom: 0;
   display: inline-block;
+  letter-spacing: 1px;
 
   &:hover {
     opacity: 0.8;

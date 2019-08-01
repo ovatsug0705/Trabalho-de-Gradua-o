@@ -63,5 +63,10 @@ vendor/
 
 #package-lock
 mix-manifest.json
+
+#others
 dist/
 database_query.sql
+database.sql
+migration.php
+config/
