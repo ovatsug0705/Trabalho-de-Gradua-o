@@ -122,6 +122,10 @@ class Router
                 $paginate = 5;
                 $maxNumber = 578;
                 break;
+              case 'canodo':
+                $paginate = 5;
+                $maxNumber = 1734;
+                break;
             }
             
             if(is_numeric($_GET['n'])){

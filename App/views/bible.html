@@ -1,54 +1,111 @@
+{% extends "layouts/app.html" %}
+
+{% block content %}
+
+{# <main class="c-document s-catechism">
+	<h1 class="c-document__main-title o-title">{{ title }}</h1>
+	<div class="c-document__holder">
+		{% for item in data %}
+			{% if (item.paragraph_partial != '') or (item.paragraph_section != '') or (item.paragraph_chapter != '') or (item.paragraph_article != '') or (item.paragraph_title != '') %}
+				<header class="c-document__header">
+					{% if item.paragraph_partial != '' %}
+						<h2 class="o-title o-title--2">{{ item.paragraph_partial }}</h2>
+					{% endif %}
+					{% if item.paragraph_section != '' %}
+						<h3 class="o-title o-title--3">{{ item.paragraph_section }}</h3>
+					{% endif %}
+					{% if item.paragraph_chapter != '' %}
+						<h4 class="o-title o-title--4">{{ item.paragraph_chapter }}</h4>
+					{% endif %}
+					{% if item.paragraph_article != '' %}
+						<h5 class="o-title o-title--5">{{ item.paragraph_article }}</h5>
+					{% endif %}
+					{% if item.paragraph_title != '' %}
+						<h6 class="o-title o-title--6">{{ item.paragraph_title }}</h6>
+					{% endif %}
+				</header>
+			{% endif %}
+			<p id="{{ item.paragraph_number }}" class="c-document__paragraph">
+				<span class="c-document__paragraph-number">
+					{{ item.paragraph_number }}
+				</span>
+				{{ item.paragraph_text }}
+			</p>
+		{% endfor %}
+	</div>
+	{% include "partials/references.html" %}
+</main>
+
+<aside class="c-document__lateral">
+	<div class="c-document__form-holder">
+		<form action="/filtro/catecismo" class="c-document__form">
+			<label for="catechismText" class="c-document__form-label">Procure no Catecismo</label>
+			<input type="text" class="c-document__form-input" placeholder="Ex: igreja, fé" name="t" id="catechismText">
+			<input type="submit" class="c-document__form-submit" value="ok">
+		</form>
+	</div>
+	<div class="c-document__form-holder">
+		<form action="/filtro/catecismo" class="c-document__form">
+			<label class="c-document__form-label" for="catechismNumber">Encontre por número</label>
+			<input type="number" class="c-document__form-input c-document__form-input--num" step="0" min="1" max="2865" name="n" id="catechismNumber">
+			<input type="submit" class="c-document__form-submit" value="ok">
+		</form>
+	</div>
+</aside>
+{% include "partials/socials.html" %}
+
 <div>
-    <div>
-    <h1>Bíblia<h1>
-		</div>
+	<div>
+	<h1>Bíblia<h1>
+	</div>
+	
+	<form action="/filtro/biblia">
+		<label for="test">Texto a ser procurado</label>
+		<input type="text" name="t" id="test">
 		
-    <form action="/filtro/biblia">
-    	<label for="test">Texto a ser procurado</label>
-    	<input type="text" name="t" id="test">
-    	
-    	<label for="livros">Livros</label>
+		<label for="livros">Livros</label>
 
-    	<input type="radio" checked name="p" id="all" value="all">
-    	<label for="all">Todos</label>
+		<input type="radio" checked name="p" id="all" value="all">
+		<label for="all">Todos</label>
 
-    	<input type="radio" name="p" id="old" value="old">
-    	<label for="old">Antigo testamento</label>
+		<input type="radio" name="p" id="old" value="old">
+		<label for="old">Antigo testamento</label>
 
-    	<input type="radio" name="p" id="new" value="new">
-    	<label for="new">Novo testamento</label>
-    	
-    	<input type="radio" name="p" id="customized" value="customized">
-		<label for="customized">Customizado</label>
+		<input type="radio" name="p" id="new" value="new">
+		<label for="new">Novo testamento</label>
+		
+		<input type="radio" name="p" id="customized" value="customized">
+	<label for="customized">Customizado</label>
 
 
-		<input type="checkbox" name="b[]" id="lucas" value="lucas">
-    	<label for="lucas">Lucas</label>
+	<input type="checkbox" name="b[]" id="lucas" value="lucas">
+		<label for="lucas">Lucas</label>
 
-    	<input type="checkbox" name="b[]" id="genesis" value="genesis">
-    	<label for="genesis">Genesis</label>
+		<input type="checkbox" name="b[]" id="genesis" value="genesis">
+		<label for="genesis">Genesis</label>
 
-    	<input type="submit" value="enviar">
-    </form>
+		<input type="submit" value="enviar">
+	</form>
 
-    <form action="/filtro/pas" method="get" accept-charset="utf-8">
-    	<label for="livro">Livro</label>
-    	<select name="l" id="livro">
-    		<option value="lucas">Lucas</option>
-    		<option value="genesis">Gênesis</option>
-    	</select>
+	<form action="/filtro/pas" method="get" accept-charset="utf-8">
+		<label for="livro">Livro</label>
+		<select name="l" id="livro">
+			<option value="lucas">Lucas</option>
+			<option value="genesis">Gênesis</option>
+		</select>
 
-    	<label for="cap">Capítulo</label>
-    	<select name="c" id="cap">
-    		<option value="1">1</option>
-    		<option value="2">2</option>
-    		<option value="3">3</option>
-    	</select>
+		<label for="cap">Capítulo</label>
+		<select name="c" id="cap">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
 
-    	<input type="submit" value="enviar">
-    </form>
-</div>
+		<input type="submit" value="enviar">
+	</form>
+</div> #}
 
 <pre>
-	{{ dump() }}
+{{ dump() }}
 </pre>
+{% endblock %}

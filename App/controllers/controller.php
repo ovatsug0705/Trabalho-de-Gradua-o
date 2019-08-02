@@ -43,7 +43,7 @@ class Controller {
     public function reqCano($cano) 
     {
         $this->instance = new Cano();
-        $this->view($this->instance->getCano($cano), 'cano.html');
+        $this->view($this->instance->getCano($cano), 'cano.html', 'Código de Direito Canônico');
     }
 
     /**
@@ -55,7 +55,7 @@ class Controller {
     public function reqSocialDoctrine($paragraph) 
     {
         $this->instance = new SocialDoctrine();
-        $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.html');
+        $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.html', 'Doutrina Social');
     }
 
     /**

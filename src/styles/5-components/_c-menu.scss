@@ -1,9 +1,9 @@
 .c-menu {
-  box-shadow: 1px 0 15px -7px;
+  // box-shadow: 1px 0 15px -7px;
   font-size: 0;
   padding-top: 13px;
   padding-bottom: 14px;
-  @include color-theme(background-color, c-brown);
+  @include color-theme(background-color, c-brown-dark);
   @include color-theme(color, c-black);
 }
 
@@ -14,6 +14,8 @@
 }
 
 .c-menu__list-item {
+  cursor: pointer;
+
   &:hover > .c-menu__list-link{
     opacity: 0.8;
     transition: all 0.1s ease-in-out;

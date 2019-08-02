@@ -1,14 +1,10 @@
-<div>
-   <h1>Encíclica<h1>
-</div>
+{% extends "layouts/app.html" %}
 
- <form action="/filtro/">
+{% block content %}
+<form action="/filtro/">
 	<label for="test">Texto a ser procurado</label>
 	<input type="text" name="t" id="test">
 	
 	<input type="submit" value="enviar">
 </form>
-
-<pre>
-	{{ dump() }}
-</pre>
+{% endblock content %}

@@ -19,7 +19,7 @@ class Search {
   } 
 
   clearInput(evt){
-    evt.preventDefault();
+    // evt.preventDefault();
     this.elm.value = null;
     this.elm2.classList.add('hide');
   }

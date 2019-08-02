@@ -2,8 +2,8 @@
   width: 100vw;
   padding-top: 15px;
   padding-bottom: 15px;
-  background-color: $c-brown;
   max-width: 100%;
+  @include color-theme(background-color, c-brown-dark);
 }
 
 .s-header__link {
@@ -324,7 +324,7 @@
     transform-origin: top;
     z-index: 1;
     padding-left: 20px;
-    @include color-theme(background-color, c-brown);
+    @include color-theme(background-color, c-brown-dark);
     @include color-theme(color, c-white);
     
     // &::placeholder {

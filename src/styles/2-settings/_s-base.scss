@@ -43,7 +43,7 @@ body {
 ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 7px;
   border-radius: 7px;
-  @include color-theme(background-color, c-brown);
+  @include color-theme(background-color, c-brown-dark);
 }
 
 /* Hide HTML5 Up and Down arrows. */
