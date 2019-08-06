@@ -1,34 +1,35 @@
 
-class MenuMobile {
-  constructor(){
-    this.elm = document.querySelector('[data-menu]');
-    this.elm2 = document.querySelector('[data-menu-button]');
-    this.elm3 = document.body;
-    if(window.innerWidth <= 1169) this.setupListeners();
+function MenuMobile() {
+  const elm = document.querySelector('[data-menu]');
+  const elm2 = document.querySelector('[data-menu-button]');
+  const elm3 = document.body;
+
+  function setupListeners(){
+    elm.addEventListener('click', (evt)=> evt.stopPropagation());
+    elm2.addEventListener('click', toggleMenu);
+    elm3.addEventListener('click', closeMenu);
   }
 
-  setupListeners(){
-    this.elm.addEventListener('click', (evt)=> evt.stopPropagation());
-    this.elm2.addEventListener('click', (evt)=> this.toggleMenu(evt));
-    this.elm3.addEventListener('click', (evt)=> this.closeMenu(evt))
+  function toggleMenu(evt){
+    if(evt.currentTarget == elm2) evt.stopPropagation();
+    elm.classList.toggle('active');
+    elm2.classList.toggle('active');
+    elm3.classList.toggle('hide');
   }
 
-  toggleMenu(evt){
-    if(evt.currentTarget == this.elm2) evt.stopPropagation();
-    this.elm.classList.toggle('active');
-    this.elm2.classList.toggle('active');
-    this.elm3.classList.toggle('hide');
+  function closeMenu(){
+    elm.classList.remove('active');
+    elm2.classList.remove('active');
+    elm3.classList.remove('hide');
   }
 
-  closeMenu(){
-    this.elm.classList.remove('active');
-    this.elm2.classList.remove('active');
-    this.elm3.classList.remove('hide');
+  function init(){
+    setupListeners();
   }
+
+  if(window.innerWidth <= 1169) init();
 }
 
 export default {
-  create() {
-    new MenuMobile();
-  }
+  create: MenuMobile,
 }

@@ -14,16 +14,18 @@
 
 require_once './../vendor/autoload.php';
 
-$loader = new \Twig\Loader\FilesystemLoader(__DIR__ . '\..\App\views/');
-// $GLOBALS['twig'] = new \Twig\Environment($loader);
+$loader = new Twig\Loader\FilesystemLoader([
+  'paths' => __DIR__ . '\..\App\views/'
+]);
+$GLOBALS['twig'] = new Twig\Environment($loader);
 
 //debug
-$GLOBALS['twig'] = new \Twig\Environment($loader, [
-  'debug' => true,
-]);
-$GLOBALS['twig']->addExtension(new \Twig\Extension\DebugExtension());
+// $GLOBALS['twig'] = new Twig\Environment($loader, [
+//   'debug' => true,
+// ]);
+// $GLOBALS['twig']->addExtension(new Twig\Extension\DebugExtension());
 
-$dotenv = \Dotenv\Dotenv::create(__DIR__);
+$dotenv = Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();
 
 use App\routes\Router;

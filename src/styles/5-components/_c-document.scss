@@ -4,11 +4,7 @@
   margin-left: calc((100vw - 1170px) / 2);
   position: relative;
   display: block;
-  max-width: 55vw;
-}
-
-.c-document__main-title {
-  text-align: left;
+  max-width: 750px;
 }
 
 .c-document__paragraph {
@@ -26,9 +22,9 @@
 }
 
 .c-document__lateral {
-  position: absolute;
+  position: fixed;
   right: calc((100vw - 1170px) / 2);
-  top: 164px;
+  top: 30vh;
   width: 380px;
   @include color-theme(background-color, c-brown-dark);
   border-radius: 10px;

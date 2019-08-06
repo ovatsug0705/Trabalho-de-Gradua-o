@@ -1,32 +1,30 @@
-class Search {
-  constructor(){
-    this.form = document.querySelector('[data-search]');
-    this.elm = document.querySelector('[data-search-input]');
-    this.elm2 = document.querySelector('[data-search-close]');
-    this.isSubmited = true;
-    this.setupListeners();
+function Search() {
+  const elm = document.querySelector('[data-search-input]');
+  const elm2 = document.querySelector('[data-search-close]');
+
+  function setupListeners(){
+    elm.addEventListener('keydown', displayCloseButton);
+    elm2.addEventListener('click', clearInput);
   }
 
-  setupListeners(){
-    this.elm.addEventListener('keydown', (evt)=> this.displayCloseButton(evt));
-    this.elm2.addEventListener('click', (evt)=> this.clearInput(evt));
-  }
-
-  displayCloseButton(){
+  function displayCloseButton(evt){
     setTimeout(()=>{
-      this.elm.value == '' ? this.elm2.classList.add('hide') : this.elm2.classList.remove('hide');
+      elm.value == '' ? elm2.classList.add('hide') : elm2.classList.remove('hide');
     }, 200);
   } 
 
-  clearInput(evt){
-    // evt.preventDefault();
-    this.elm.value = null;
-    this.elm2.classList.add('hide');
+  function clearInput(evt){
+    elm.value = null;
+    elm2.classList.add('hide');
   }
+
+  function init(){
+    setupListeners();
+  }
+
+  init();
 }
 
 export default {
-  create(){
-    new Search();
-  }
+  create: Search,
 }

@@ -1,9 +1,9 @@
 {% extends "layouts/app.html" %}
 
 {% block content %}
-
+{% set data_page = 'cano' %}
+{% include "partials/webdoor.html" %}
 <main class="c-document s-cano">
-	<h1 class="c-document__main-title o-title">{{ title }}</h1>
 	<div class="c-document__holder">
 		{% for item in data %}
 			{% if (item.paragraph_partial != '') or (item.paragraph_section != '') or (item.paragraph_chapter != '') or (item.paragraph_article != '') or (item.paragraph_title != '') %}
