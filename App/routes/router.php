@@ -81,7 +81,10 @@ class Router
           break;
         }
       case 'enciclicas':
-        if (count($this->url) <= 3) {
+        if (count($this->url) == 1) {
+          $instance->reqEncyclicalPage();
+          break;
+        } else if (count($this->url) <= 3) {
           $instance->reqEncyclical(
             !empty($this->url[1]) ? $this->url[1] : false,
             !empty($this->url[2]) ? $this->url[2] : 1
@@ -89,7 +92,10 @@ class Router
           break;
         }
       case 'biblia':
-        if (count($this->url) <= 3) {
+        if (count($this->url) == 1) {
+          $instance->reqBiblePage();
+          break;
+        } else if (count($this->url) <= 3) {
           $instance->reqBible(
             !empty($this->url[1]) ? $this->url[1] : false,
             !empty($this->url[2]) ? $this->url[2] : false
@@ -142,7 +148,6 @@ class Router
         echo $GLOBALS['twig']->render('home.html');
         break;
       default :
-        // echo 'Router';
         echo $GLOBALS['twig']->render('404.html');
     }
   }

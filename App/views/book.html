@@ -1,0 +1,60 @@
+{% extends "layouts/app.html" %}
+
+{% block content %}
+
+
+<div>
+	<div>
+	<h1>Bíblia<h1>
+	</div>
+	
+	<form action="/filtro/biblia">
+		<label for="test">Texto a ser procurado</label>
+		<input type="text" name="t" id="test">
+		
+		<label for="livros">Livros</label>
+
+		<input type="radio" checked name="p" id="all" value="all">
+		<label for="all">Todos</label>
+
+		<input type="radio" name="p" id="old" value="old">
+		<label for="old">Antigo testamento</label>
+
+		<input type="radio" name="p" id="new" value="new">
+		<label for="new">Novo testamento</label>
+		
+		<input type="radio" name="p" id="customized" value="customized">
+	<label for="customized">Customizado</label>
+
+
+	<input type="checkbox" name="b[]" id="lucas" value="lucas">
+		<label for="lucas">Lucas</label>
+
+		<input type="checkbox" name="b[]" id="genesis" value="genesis">
+		<label for="genesis">Genesis</label>
+
+		<input type="submit" value="enviar">
+	</form>
+
+	<form action="/filtro/pas" method="get" accept-charset="utf-8">
+		<label for="livro">Livro</label>
+		<select name="l" id="livro">
+			<option value="lucas">Lucas</option>
+			<option value="genesis">Gênesis</option>
+		</select>
+
+		<label for="cap">Capítulo</label>
+		<select name="c" id="cap">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+		</select>
+
+		<input type="submit" value="enviar">
+	</form>
+</div>
+
+<pre>
+{{ dump() }}
+</pre>
+{% endblock %}

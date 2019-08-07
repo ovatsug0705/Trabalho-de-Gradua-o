@@ -37,7 +37,7 @@ class Bible {
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
             $this->connection = null;
-            
+
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else if(!$chapter) {
             $sql = 'select book_name, verser_number, chapter, verser_text from books inner join verser on books.id_book = verser.id_book where books.url_text = :url order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';

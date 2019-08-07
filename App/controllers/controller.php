@@ -31,7 +31,7 @@ class Controller {
     public function reqCatechism($page) 
     {   
         $this->instance = new Catechism();
-        $this->view($this->instance->getCatechism($page), 'catechism.html', 'Catecismo');
+        $this->view($this->instance->getCatechism($page), 'catechism.html', 'Catecismo', is_numeric($page) ? $page : '1');
     }
 
     /**
@@ -43,7 +43,7 @@ class Controller {
     public function reqCano($cano) 
     {
         $this->instance = new Cano();
-        $this->view($this->instance->getCano($cano), 'cano.html', 'Código de Direito Canônico');
+        $this->view($this->instance->getCano($cano), 'cano.html', 'Código de Direito Canônico', is_numeric($cano) ? $cano : '1');
     }
 
     /**
@@ -55,7 +55,7 @@ class Controller {
     public function reqSocialDoctrine($paragraph) 
     {
         $this->instance = new SocialDoctrine();
-        $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.html', 'Doutrina Social');
+        $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.html', 'Doutrina Social', is_numeric($paragraph) ? $paragraph : '1');
     }
 
     /**
@@ -68,7 +68,18 @@ class Controller {
     public function reqEncyclical($encyclical, $page)
     {
         $this->instance = new Encyclical();
-        $this->view($this->instance->getEncyclical($encyclical, $page), 'encyclical.html');
+        $data = $this->instance->getEncyclical($encyclical, $page);
+
+        $this->view($data[0], 'encyclical.html', !empty($data) ? $data[0]['encyclical_name'] : '', is_numeric($page) ? $page : '1');
+    }
+
+    /**
+     * Requires the Encyclics page
+     * @return void
+     */
+    public function reqEncyclicalPage() {
+        $this->instance = new Encyclical();
+        $this->view($this->instance->getEncyclical(false, false), 'encyclics.html', 'Encíclicas papais');
     }
 
     /**
@@ -81,7 +92,18 @@ class Controller {
     public function reqBible($book, $chapter)
     {
         $this->instance = new Bible();
-        $this->view($this->instance->getBible($book, $chapter), 'bible.html');
+        $data = $this->instance->getBible($book, $chapter);
+        
+        $this->view($data, 'book.html', !empty($data) ? $data[0]['book_name'] : '', is_numeric($chapter) ? $chapter : '1');
+    }
+
+     /**
+     * Requires the Bible page
+     * @return void
+     */
+    public function reqBiblePage() {
+        $this->instance = new Bible();
+        $this->view($this->instance->getBible(false, false), 'bible.html', 'Bíblia');
     }
 
     /**
@@ -93,7 +115,7 @@ class Controller {
     public function search($text)
     {
         $this->instance = new Search();
-        $this->view($this->instance->search($text), 'search.html');
+        $this->view($this->instance->search($text), 'search.html', 'Busca');
     }
 
     /**
@@ -129,10 +151,10 @@ class Controller {
      * @param array  $data data returned with database
      * @param string $page page that will be returned to the browser
      */
-    private function view($data, $page, $title = 'Page Name') {
+    private function view($data, $page, $title = '', $paginate = null) {
         
         if (isset($data) && !empty($data)) {
-            echo $GLOBALS['twig']->render($page, ['data' => $data, 'title' => $title]);
+            echo $GLOBALS['twig']->render($page, ['data' => $data, 'title' => $title, 'paginate' => $paginate]);
         } else {
             echo $GLOBALS['twig']->render('404.html');
         }
