@@ -156,7 +156,7 @@ class Controller {
         if (isset($data) && !empty($data)) {
             echo $GLOBALS['twig']->render($page, ['data' => $data, 'title' => $title, 'paginate' => $paginate]);
         } else {
-            echo $GLOBALS['twig']->render('404.html');
+            echo $GLOBALS['twig']->render('notFound.html');
         }
     }
 }

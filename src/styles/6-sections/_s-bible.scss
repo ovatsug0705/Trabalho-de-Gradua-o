@@ -1,0 +1,58 @@
+.s-bible__holder {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.s-bible__content {
+  flex: 1;
+}
+
+.s-bible__title {
+  font-size: rem(32);
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+
+.s-bible__links {
+  list-style: none;
+  padding-left: 0;  
+  column-count: 2;
+}
+
+.s-bible__item {
+  margin-bottom: 20px;
+}
+
+.s-bible__link {
+  @include color-theme(color, c-brown-dark);
+  font-size: rem(24);
+  line-height: 1;
+
+  &:hover {
+    text-decoration: underline;
+    transform: all 0.2s ease-in-out;
+  }
+}
+
+@include respond-to(mobile) {
+  .s-bible__holder {
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+
+  .s-bible__title {
+    font-size: rem(24);
+    margin-bottom: 30px;
+  }
+
+  .s-bible__link {
+    font-size: rem(16);
+  }
+}

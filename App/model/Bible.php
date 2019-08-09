@@ -32,7 +32,7 @@ class Bible {
      */
     public function getBible($book, $chapter){
         if (!$book) {
-            $sql = 'select book_name, url_text from books';
+            $sql = 'select book_name, url_text, testament from books';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();

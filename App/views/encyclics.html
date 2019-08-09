@@ -1,12 +1,61 @@
 {% extends "layouts/app.html" %}
 
 {% block content %}
-<form action="/filtro/">
-	<label for="test">Texto a ser procurado</label>
-	<input type="text" name="t" id="test">
-	
-	<input type="submit" value="enviar">
-</form>
+{% set data_page = 'encyclical' %}
+{% include "partials/webdoor.html" %}
 
+<main class="s-enciclical">
+  <div class="s-enciclical__holder content">
+    <div class="s-enciclical__content">
+      <ul class="s-enciclical__links">
+      {% for item in data %}
+        {% if item.testament == "antigo" %}
+          <li class="s-enciclical__item">
+            <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
+          </li>
+          <!-- test -->
+          <li class="s-enciclical__item">
+            <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
+          </li>
+          <li class="s-enciclical__item">
+            <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
+          </li>
+          <li class="s-enciclical__item">
+            <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
+          </li>
+        {% endif %}
+      {% endfor %}
+      </ul>
+    </div>
+    <div class="s-enciclical__content">
+      <ul class="s-enciclical__links">
+        {% for item in data %}
+          {% if item.testament == "novo" %}
+            <li class="s-enciclical__item">
+              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
+            </li>
+            
+            <!-- test -->
+            <li class="s-enciclical__item">
+              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">Tessalonissences 2 test</a>
+            </li>
+            <li class="s-enciclical__item">
+              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
+            </li>
+            <li class="s-enciclical__item">
+              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
+            </li>
+            <li class="s-enciclical__item">
+              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</main>
+
+<pre>
 {{ dump() }}
+</pre>
 {% endblock content %}

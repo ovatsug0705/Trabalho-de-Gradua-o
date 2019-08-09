@@ -148,7 +148,7 @@ class Router
         echo $GLOBALS['twig']->render('home.html');
         break;
       default :
-        echo $GLOBALS['twig']->render('404.html');
+        echo $GLOBALS['twig']->render('notFound.html');
     }
   }
 }
