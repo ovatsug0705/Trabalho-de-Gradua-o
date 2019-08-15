@@ -36,19 +36,19 @@
 	{% include "partials/references.html" %}
 </main>
 
-<aside class="c-document__lateral">
-	<div class="c-document__form-holder">
-		<form action="/filtro/canodo" class="c-document__form">
-			<label for="canoText" class="c-document__form-label">Procure no Código de Direito Canônico</label>
-			<input type="text" class="c-document__form-input" placeholder="Ex: igreja, fé" name="t" id="canoText">
-			<input type="submit" class="c-document__form-submit" value="ok">
+<aside class="c-filter">
+	<div class="c-filter__form-holder">
+		<form action="/filtro/canodo" class="c-filter__form">
+			<label for="canoText" class="c-filter__form-label">Procure no Código de Direito Canônico</label>
+			<input type="text" class="c-filter__form-input" placeholder="Ex: igreja, fé" name="t" id="canoText">
+			<input type="submit" class="c-filter__form-submit" value="ok">
 		</form>
 	</div>
-	<div class="c-document__form-holder">
-		<form action="/filtro/canodo" class="c-document__form">
-			<label class="c-document__form-label" for="canoNumber">Encontre por número</label>
-			<input type="number" class="c-document__form-input c-document__form-input--num" step="0" min="1" max="1734" name="n" id="canoNumber">
-			<input type="submit" class="c-document__form-submit" value="ok">
+	<div class="c-filter__form-holder">
+		<form action="/filtro/canodo" class="c-filter__form">
+			<label class="c-filter__form-label" for="canoNumber">Encontre por número</label>
+			<input type="number" class="c-filter__form-input c-filter__form-input--num" step="0" min="1" max="1734" name="n" id="canoNumber">
+			<input type="submit" class="c-filter__form-submit" value="ok">
 		</form>
 	</div>
 </aside>

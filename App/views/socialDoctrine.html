@@ -34,19 +34,19 @@
 	{% include "partials/references.html" %}
 </main>
 
-<aside class="c-document__lateral">
-	<div class="c-document__form-holder">
-		<form action="/filtro/doutrina_social" class="c-document__form">
-			<label for="social-doctrineText" class="c-document__form-label">Procure na Doutrina Social</label>
-			<input type="text" class="c-document__form-input" placeholder="Ex: igreja, fé" name="t" id="social-doctrineText">
-			<input type="submit" class="c-document__form-submit" value="ok">
+<aside class="c-filter">
+	<div class="c-filter__form-holder">
+		<form action="/filtro/doutrina_social" class="c-filter__form">
+			<label for="social-doctrineText" class="c-filter__form-label">Procure na Doutrina Social</label>
+			<input type="text" class="c-filter__form-input" placeholder="Ex: igreja, fé" name="t" id="social-doctrineText">
+			<input type="submit" class="c-filter__form-submit" value="ok">
 		</form>
 	</div>
-	<div class="c-document__form-holder">
-		<form action="/filtro/doutrina_social" class="c-document__form">
-			<label class="c-document__form-label" for="social-doctrineNumber">Encontre por número</label>
-			<input type="number" class="c-document__form-input c-document__form-input--num" step="0" min="1" max="578" name="n" id="social-doctrineNumber">
-			<input type="submit" class="c-document__form-submit" value="ok">
+	<div class="c-filter__form-holder">
+		<form action="/filtro/doutrina_social" class="c-filter__form">
+			<label class="c-filter__form-label" for="social-doctrineNumber">Encontre por número</label>
+			<input type="number" class="c-filter__form-input c-filter__form-input--num" step="0" min="1" max="578" name="n" id="social-doctrineNumber">
+			<input type="submit" class="c-filter__form-submit" value="ok">
 		</form>
 	</div>
 </aside>

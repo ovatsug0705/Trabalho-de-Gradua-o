@@ -3,40 +3,45 @@
 {% block content %}
 
 {% set data_page = 'bible' %}
+{% set chapter = data.0.chapter %}
 {% include "partials/webdoor.html" %}
 
-<div>
-	<div>
-	<h1>Bíblia<h1>
+<main class="c-document s-bible">
+	<div class="c-document__holder">
+		{% for item in data %}
+			<p id="{{ item.verser_number }}" class="c-document__paragraph">
+				<span class="c-document__paragraph-number">
+					{{ item.verser_number }}
+				</span>
+				{{ item.verser_text }}
+			</p>
+		{% endfor %}
 	</div>
-	
-	<form action="/filtro/biblia">
-		<label for="test">Texto a ser procurado</label>
-		<input type="text" name="t" id="test">
+</main>
+
+<aside class="c-filter">	
 		
-		<label for="livros">Livros</label>
-
-		<input type="radio" checked name="p" id="all" value="all">
-		<label for="all">Todos</label>
-
-		<input type="radio" name="p" id="old" value="old">
-		<label for="old">Antigo testamento</label>
-
-		<input type="radio" name="p" id="new" value="new">
-		<label for="new">Novo testamento</label>
-		
-		<input type="radio" name="p" id="customized" value="customized">
-	<label for="customized">Customizado</label>
-
-
-	<input type="checkbox" name="b[]" id="lucas" value="lucas">
-		<label for="lucas">Lucas</label>
-
-		<input type="checkbox" name="b[]" id="genesis" value="genesis">
-		<label for="genesis">Genesis</label>
-
-		<input type="submit" value="enviar">
-	</form>
+	<div class="c-filter__form-holder c-filter__form-holder--border">
+		<form action="/filtro/biblia" class="c-filter__form">
+			<label for="bibleText" class="c-filter__form-label">Procure na Bíblia</label>
+			<div class="c-filter__input-holder">
+				<input type="radio" class="c-filter__form-radio" checked name="p" id="all" value="all">
+				<label for="all" class="c-filter__form-text">Todos os Livros</label>
+			</div>
+			<div class="c-filter__input-holder">
+				<input type="radio" class="c-filter__form-radio" name="p" id="old" value="old">
+				<label for="old" class="c-filter__form-text">Antigo testamento</label>
+			</div>
+			<div class="c-filter__input-holder">
+				<input type="radio" class="c-filter__form-radio" name="p" id="new" value="new">
+				<label for="new" class="c-filter__form-text">Novo testamento</label>
+			</div>
+			<div class="c-filter__input-holder">
+				<input type="text" class="c-filter__form-input" placeholder="Ex: Deus, fé" name="t" id="bibleText">
+				<input type="submit" class="c-filter__form-submit" value="ok">
+			</div>
+		</form>
+	</div>
 
 	<form action="/filtro/pas" method="get" accept-charset="utf-8">
 		<label for="livro">Livro</label>
@@ -52,11 +57,16 @@
 			<option value="3">3</option>
 		</select>
 
-		<input type="submit" value="enviar">
+		<input type="submit" value="Ir">
 	</form>
-</div>
-
-<pre>
-{{ dump() }}
-</pre>
+</aside>
 {% endblock %}
+
+{# <input type="radio" name="p" id="customized" value="customized">
+<label for="customized">Customizado</label>
+
+<input type="checkbox" name="b[]" id="lucas" value="lucas">
+<label for="lucas">Lucas</label>
+
+<input type="checkbox" name="b[]" id="genesis" value="genesis">
+<label for="genesis">Genesis</label> #}

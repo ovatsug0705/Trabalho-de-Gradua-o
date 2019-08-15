@@ -91,6 +91,7 @@ class Controller {
      */
     public function reqBible($book, $chapter)
     {
+        
         $this->instance = new Bible();
         $data = $this->instance->getBible($book, $chapter);
         

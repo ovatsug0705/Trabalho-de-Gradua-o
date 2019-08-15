@@ -1,7 +1,7 @@
 .s-header {
   width: 100vw;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding-top: 12px;
+  padding-bottom: 12px;
   max-width: 100%;
   @include color-theme(background-color, c-brown-dark);
 }
@@ -12,9 +12,8 @@
 }
 
 .s-header__logo {
-  
   @include color-theme(color, c-white);
-  font-size: rem(32);
+  font-size: rem(26);
   font-family: $main-font;
   margin-top: 0;
   margin-bottom: 0;
@@ -25,10 +24,6 @@
     opacity: 0.8;
     transition: all 0.2s ease;
   }
-}
-
-.s-header__menu-button {
-  display: none;
 }
 
 .s-header__actions {
@@ -218,31 +213,32 @@
   display: inline-block;
 }
 
-@include respond-to(mobile-tablet) {
-  .s-header__menu-button {
-    display: inline-block;
-    border: none;
-    height: 25px;
-    width: 25px;
-    background-color: $c-transparent;
-    position: relative;
-    margin-right: 20px;
-    padding: 0;
-    z-index: 5;
+.s-header__menu-button {
+  display: inline-block;
+  border: none;
+  height: 25px;
+  width: 25px;
+  background-color: $c-transparent;
+  margin-right: 20px;
+  padding: 0;
+  z-index: 5;
+  position: relative;
+  left: 0;
 
-    &.active {
-      .s-header__menu-button-content {
-        background-color: $c-transparent;
-        
-        &::before {
-          transform: rotate(45deg);
-          top: 0;
-        }
+  &.active {
+    .s-header__menu-button-content {
+      background-color: $c-transparent;
+      position: fixed;
+      left: 20px;
+      
+      &::before {
+        transform: rotate(45deg);
+        top: 0;
+      }
 
-        &::after {
-          transform: rotate(-45deg);
-          bottom: 0;
-        }
+      &::after {
+        transform: rotate(-45deg);
+        bottom: 0;
       }
     }
   }
@@ -257,7 +253,7 @@
     font-size: 0;
     left: 0;
     border-radius: 3px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
 
     &::before {
       content: '';
@@ -282,13 +278,6 @@
       border-radius: 3px;
       transition: all 0.2s ease-in-out;
     }
-  }
-}
-
-@include respond-to(tablet) {
-  .s-header__menu-button {
-    position: absolute;
-    left: 20px;
   }
 }
 
@@ -327,9 +316,9 @@
     @include color-theme(background-color, c-brown-dark);
     @include color-theme(color, c-white);
     
-    // &::placeholder {
-    //   @include color-theme(color, c-white);
-    // }
+    &::placeholder {
+      @include color-theme(color, c-white);
+    }
 
     &.active {
       transform: translateX(0);

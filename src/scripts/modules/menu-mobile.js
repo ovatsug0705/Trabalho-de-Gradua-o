@@ -27,7 +27,8 @@ function MenuMobile() {
     setupListeners();
   }
 
-  if(window.innerWidth <= 1169) init();
+  // if(window.innerWidth <= 1169) init();
+  init();
 }
 
 export default {

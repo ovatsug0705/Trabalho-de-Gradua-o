@@ -29,7 +29,8 @@ function SearchMobile() {
     setupListeners();
   }
 
-  if(window.innerWidth <= 767) init();
+  // if(window.innerWidth <= 767) init();
+  init();
 }
 
 export default {

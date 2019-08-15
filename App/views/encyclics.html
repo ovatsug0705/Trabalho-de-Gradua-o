@@ -6,56 +6,29 @@
 
 <main class="s-enciclical">
   <div class="s-enciclical__holder content">
-    <div class="s-enciclical__content">
-      <ul class="s-enciclical__links">
-      {% for item in data %}
-        {% if item.testament == "antigo" %}
-          <li class="s-enciclical__item">
-            <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
-          </li>
-          <!-- test -->
-          <li class="s-enciclical__item">
-            <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
-          </li>
-          <li class="s-enciclical__item">
-            <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
-          </li>
-          <li class="s-enciclical__item">
-            <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
-          </li>
-        {% endif %}
-      {% endfor %}
-      </ul>
-    </div>
-    <div class="s-enciclical__content">
-      <ul class="s-enciclical__links">
-        {% for item in data %}
-          {% if item.testament == "novo" %}
-            <li class="s-enciclical__item">
-              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
-            </li>
-            
-            <!-- test -->
-            <li class="s-enciclical__item">
-              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">Tessalonissences 2 test</a>
-            </li>
-            <li class="s-enciclical__item">
-              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
-            </li>
-            <li class="s-enciclical__item">
-              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
-            </li>
-            <li class="s-enciclical__item">
-              <a href="/biblia/{{ item.url_text }}" class="s-enciclical__link">{{ item.book_name }}</a>
-            </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
+    {% set counter = 0 %}
+    {% set pontiff = false %}
+    
+    {% for item in data %}
+      {% if counter == 0 %}
+        <div class="s-enciclical__content">
+          <strong class="s-enciclical__author">{{ item.pontiff }}</strong>
+          <ul class="s-enciclical__list">
+      {% endif %}
+
+      {% if pontiff == item.pontiff || counter == 0 %}
+        <li class="s-enciclical__item">
+          <a href="/enciclicas/{{ item.url_text }}" class="s-enciclical__link">{{ item.encyclical_name }}</a>
+        </li>
+      {% endif %}
+      
+      
+      {% set pontiff = item.pontiff %}
+    {% endfor %}
   </div>
 </main>
 
-<pre>
+{# <pre>
 {{ dump() }}
-</pre>
+</pre> #}
 {% endblock content %}
