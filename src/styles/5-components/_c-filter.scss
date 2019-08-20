@@ -1,5 +1,5 @@
 .c-filter {
-  position: fixed;
+  position: absolute;
   right: calc((100vw - 1170px) / 2);
   top: 22vh;
   width: 380px;
@@ -14,14 +14,6 @@
   padding: 15px;
 }
 
-.c-filter__form-holder--border {
-  border-width: 1px;
-  border-style: solid;
-  @include color-theme(color, c-white);
-  @include color-theme(border-color, c-white);
-  border-radius: 3px;
-}
-
 .c-filter__form-label {
   text-align: center;
   @include color-theme(color, c-white);
@@ -29,6 +21,10 @@
   font-size: rem(20);
   font-family: $main-font;
   display: block;
+}
+
+.c-filter__form-label--bottom {
+  padding-bottom: 10px;
 }
 
 .c-filter__form-input {
@@ -75,6 +71,12 @@
   }
 }
 
+.c-filter__form-submit--large {
+  width: auto;
+  padding-left: 7px;
+  padding-right: 5px;
+}
+
 .c-filter__input-holder {
   text-align: left;
   padding: 10px;
@@ -114,6 +116,20 @@
     padding: 2px;
     letter-spacing: 1px;
   }
+}
+
+.c-filter__select-label {
+  display: block;
+  @include color-theme(color, c-white);
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+
+.c-filter__select {
+  @include color-theme(color, c-gray-text, c-gray-text);
+  height: 30px;
+  border-radius: 5px;
+  min-width: 150px;
 }
 
 @include respond-to(mobile-tablet) {

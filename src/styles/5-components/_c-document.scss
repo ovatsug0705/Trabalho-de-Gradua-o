@@ -7,6 +7,10 @@
   max-width: 750px;
 }
 
+.c-document--fix {
+  min-height: 450px;
+}
+
 .c-document__paragraph {
   margin-top: 16px;
   margin-bottom: 16px;
@@ -21,11 +25,62 @@
   @include color-theme(color, c-gray-text);
 }
 
+.c-document__paginate {
+  position: relative;
+  margin: 50px auto;
+  width: 120px;
+  text-align: center;
+}
+
+.c-document__paginate-link {
+  text-decoration: none;
+  @include color-theme(color, c-white);
+  @include color-theme(background-color, c-brown-dark);
+  font-size: rem(20);
+  border-radius: 50%;
+  padding: 10px;
+  display: inline-block;
+  margin-left: 7px;
+  margin-right: 7px;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
+
+.c-document__paginate-link--fisrt {
+  transform: rotate(-180deg);
+}
+
 @include respond-to(mobile-tablet) {
   .c-document {
     margin-left: 20px;
     margin-right: 20px;
     max-width: 100%;
     margin-top: 30px;
+  }
+}
+
+@include respond-to(mobile) {
+  .c-document {
+    padding-bottom: 50px;
+  }
+
+  .c-document__paginate {
+    position: fixed;
+    bottom: 25px;
+    left: 12px;
+    margin: 0;
+    width: auto;
+    font-size: 0;
+    transition: all 0.2s ease-in-out;
+
+    &.bottom {
+      transform: translateY(-70px);
+    }
+  }
+
+  .c-document__paginate-link {
+    font-size: 40px;
   }
 }

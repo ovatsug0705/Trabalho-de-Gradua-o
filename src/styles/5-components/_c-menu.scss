@@ -1,3 +1,86 @@
+.c-menu {
+  transform: translateX(-100%);
+  transition: all 0.2s ease-in-out;
+  width: 260px;
+  min-height: 100vh;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  font-size: 0;
+  padding: 20px;
+  z-index: 10;
+  @include color-theme(background-color, c-brown-dark);
+  @include color-theme(color, c-black);
+
+  &.active {
+    transform: translateX(0);
+  }
+}
+
+.c-menu__button {
+  display: inline-block;
+  border: none;
+  height: 25px;
+  width: 25px;
+  background-color: $c-transparent;
+  margin-right: 20px;
+  padding: 0;
+  z-index: 5;
+  position: relative;
+  left: 0;
+  cursor: pointer;
+}
+
+.c-menu__button-content {
+  background-color: $c-transparent;
+  color: $c-transparent;
+  width: rem(25);
+  height: rem(3);
+  position: absolute;
+  display: inline-block;
+  font-size: 0;
+  left: 0;
+  border-radius: 3px;
+  transition: all 0.1s ease-in-out;
+
+  &::before {
+    content: '';
+    @include color-theme(background-color, c-white);
+    width: rem(25);
+    height: rem(3);
+    position: absolute;
+    top: -8px;
+    left: 0;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+    transform: rotate(45deg);
+    top: 0;
+  }
+
+  &::after {
+    content: '';
+    @include color-theme(background-color, c-white);
+    width: rem(25);
+    height: rem(3);
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    border-radius: 3px;
+    transition: all 0.2s ease-in-out;
+    transform: rotate(-45deg);
+    bottom: 0;
+  }
+}
+
+.c-menu__list {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding-top: 20px;
+  width: 100%;
+}
+
 .c-menu__list-item {
   cursor: pointer;
   padding-top: 15px;
@@ -16,34 +99,6 @@
   font-weight: $regular-font;
   position: relative;
   display: block;
-}
-
-.c-menu {
-  transform: translateX(-100%);
-  transition: all 0.2s ease-in-out;
-  width: 260px;
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  font-size: 0;
-  padding-top: 50px;
-  padding-bottom: 14px;
-  z-index: 4;
-  @include color-theme(background-color, c-brown-dark);
-  @include color-theme(color, c-black);
-
-  &.active {
-    transform: translateX(0);
-  }
-}
-
-.c-menu__list {
-  display: flex;
-  list-style: none;
-  flex-wrap: wrap;
-  flex-direction: column;
-  padding: 20px;
-  width: 100%;
 }
 
 /*

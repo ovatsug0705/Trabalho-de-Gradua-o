@@ -6,7 +6,7 @@
 {% set chapter = data.0.chapter %}
 {% include "partials/webdoor.html" %}
 
-<main class="c-document s-bible">
+<main class="c-document c-document--fix s-bible">
 	<div class="c-document__holder">
 		{% for item in data %}
 			<p id="{{ item.verser_number }}" class="c-document__paragraph">
@@ -17,13 +17,21 @@
 			</p>
 		{% endfor %}
 	</div>
+	<div class="c-document__paginate" data-paginate>
+		{% if paginate != 1 %}
+			<a href="/biblia/{{ data.0.book_name }}/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
+		{% endif %}
+		{% if true %}
+			<a href="/biblia/{{ data.0.book_name }}/{{ paginate + 1 }}" class="c-document__paginate-link">➜</a>
+		{% endif %}
+	</div>
 </main>
 
 <aside class="c-filter">	
 		
-	<div class="c-filter__form-holder c-filter__form-holder--border">
+	<div class="c-filter__form-holder">
 		<form action="/filtro/biblia" class="c-filter__form">
-			<label for="bibleText" class="c-filter__form-label">Procure na Bíblia</label>
+			<label for="bibleText" class="c-filter__form-label">Busque na Bíblia</label>
 			<div class="c-filter__input-holder">
 				<input type="radio" class="c-filter__form-radio" checked name="p" id="all" value="all">
 				<label for="all" class="c-filter__form-text">Todos os Livros</label>
@@ -43,24 +51,31 @@
 		</form>
 	</div>
 
-	<form action="/filtro/pas" method="get" accept-charset="utf-8">
-		<label for="livro">Livro</label>
-		<select name="l" id="livro">
-			<option value="lucas">Lucas</option>
-			<option value="genesis">Gênesis</option>
-		</select>
-
-		<label for="cap">Capítulo</label>
-		<select name="c" id="cap">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-		</select>
-
-		<input type="submit" value="Ir">
-	</form>
+	<div class="c-filter__form-holder c-filter__form-holder--top">
+		<form action="/filtro/pas" method="get" class="c-filter__form" accept-charset="utf-8">
+			<label for="bibleText" class="c-filter__form-label c-filter__form-label--bottom">Encontre na Bíblia</label>
+			<div class="c-filter__input-holder">
+				<label for="livro" class="c-filter__select-label">Livro</label>
+				<select name="l" id="livro" class="c-filter__select">
+					<option value="genesis">Gênesis</option>
+					<option value="lucas">Lucas</option>
+				</select>
+			</div>
+			<div class="c-filter__input-holder">
+				<label for="cap" class="c-filter__select-label">Capítulo</label>
+				<select name="c" id="cap" class="c-filter__select">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+				<input type="submit" class="c-filter__form-submit c-filter__form-submit--large" value="Encontrar">
+			</div>
+		</form>
+	</div>
 </aside>
+
 {% endblock %}
+
 
 {# <input type="radio" name="p" id="customized" value="customized">
 <label for="customized">Customizado</label>
@@ -69,4 +84,9 @@
 <label for="lucas">Lucas</label>
 
 <input type="checkbox" name="b[]" id="genesis" value="genesis">
-<label for="genesis">Genesis</label> #}
+<label for="genesis">Genesis</label> 
+
+<pre>
+		{{ dump() }}
+	</pre>
+#}

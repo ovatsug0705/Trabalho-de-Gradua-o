@@ -10,7 +10,7 @@ function SearchMobile() {
   }
   
   function openInput(evt){
-    evt.preventDefault();
+    if(window.innerWidth <= 767) evt.preventDefault();
     elm2.classList.add('active');
     elm4.classList.add('active');
     elm3.classList.add('show');
@@ -18,7 +18,7 @@ function SearchMobile() {
   }
   
   function closeInput(evt){
-    evt.preventDefault();
+    if(window.innerWidth <= 767) evt.preventDefault();
     elm2.classList.remove('active');
     elm4.classList.remove('active');
     elm3.classList.remove('show');
@@ -28,8 +28,7 @@ function SearchMobile() {
   function init(){
     setupListeners();
   }
-
-  // if(window.innerWidth <= 767) init();
+  
   init();
 }
 

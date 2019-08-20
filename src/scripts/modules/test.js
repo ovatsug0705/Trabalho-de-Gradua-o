@@ -1,20 +1,17 @@
 
+/*
 const $ = require ('jquery');
 
 class Test {
-  constructor(elm, elm2, elm3){
-    this.elm = elm;
-    this.elm2 = elm2;
-    this.elm3 = elm3;
+  constructor(){
     this.setupListener();
   }
 
   setupListener(){
-    this.elm2.addEventListener('click', (evt)=> {
+      document.getElementById('livro').addEventListener('change', (evt)=> {
       evt.preventDefault();
-      let test = this.elm3.value
       $.ajax({
-        url: 'http://tg.working:81/busca',
+        url: 'http://tg.working:10080/biblia',
         method: 'GET',
         data: {
           s: test,
@@ -40,13 +37,8 @@ class Test {
 }
 
 export default {
-  create(elm, elm2, elm3) {
-    let element = document.querySelector(elm);
-    let element2 = document.querySelector(elm2);
-    let element3 = document.querySelector(elm3);
-
-    new Test(element, element2, element3);
+  create() {
+    new Test();
   }
 }
-/*
 */
