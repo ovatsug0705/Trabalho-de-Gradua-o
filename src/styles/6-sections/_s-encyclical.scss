@@ -1,0 +1,106 @@
+.s-encyclical__holder {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: start;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.s-encyclical__content {
+  width: 300px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  @include color-theme(border-bottom-color, c-brown-dark);
+  position: relative;
+  padding-bottom: 5px;
+  margin-bottom: 70px;
+  cursor: pointer;
+
+  &::after {
+    content: '';
+    display: block;
+    width: 12px;
+    height: 12px;
+    border-bottom-style: solid;
+    border-bottom-width: 3px;
+    border-right-style: solid;
+    border-right-width: 3px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: rotate(-45deg);
+    transform-origin: center;
+    transition: all 0.2s ease-in-out;
+    @include color-theme(border-bottom-color, c-brown-dark);
+  }
+
+  &.active {
+    &::after {
+      transform: rotate(45deg);
+    }
+
+    .s-encyclical__list {
+      max-height: 1000px;
+    }
+  }
+
+}
+
+.s-encyclical__author {
+  font-size: 22px;
+  @include color-theme(color, c-brown-dark);
+  padding-bottom: 10px;
+  display: block;
+  transition: all 0.2s ease-in-out;
+  padding-right: 25px;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.s-encyclical__list {
+  max-height: 0;
+  transition: all 0.5s ease-in-out;
+  list-style: none;
+  overflow: hidden;
+  margin: 0;
+}
+
+.s-encyclical__item {
+  padding: 7px 5px;
+  display: block;
+  
+  &:first-child {
+    padding-top: 15px;
+  }
+
+  &:last-child {
+    padding-bottom: 20px;
+  }
+}
+
+.s-encyclical__link {
+  display: block;
+  line-height: 1;
+  @include color-theme(color, c-gray-text);
+  font-size: 18px;
+
+  &:hover {
+    @include color-theme(color, c-brown-dark);
+    text-decoration: underline;
+    font-weight: $bold-font;
+  }
+}
+
+@include respond-to(mobile) {
+  .s-encyclical__holder {
+    justify-content: center;
+  }
+
+  .s-encyclical__content {
+    width: 250px;
+    margin: 0 20px 50px;
+  }
+}

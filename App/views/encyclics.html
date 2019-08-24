@@ -4,26 +4,116 @@
 {% set data_page = 'encyclical' %}
 {% include "partials/webdoor.html" %}
 
-<main class="s-enciclical">
-  <div class="s-enciclical__holder content">
-    {% set counter = 0 %}
-    {% set pontiff = false %}
-    
-    {% for item in data %}
-      {% if counter == 0 %}
-        <div class="s-enciclical__content">
-          <strong class="s-enciclical__author">{{ item.pontiff }}</strong>
-          <ul class="s-enciclical__list">
-      {% endif %}
+<main class="s-encyclical">
+  <div class="s-encyclical__holder content">
 
-      {% if pontiff == item.pontiff || counter == 0 %}
-        <li class="s-enciclical__item">
-          <a href="/enciclicas/{{ item.url_text }}" class="s-enciclical__link">{{ item.encyclical_name }}</a>
+    <div class="s-encyclical__content" data-acordeon>
+      <strong class="s-encyclical__author">Papa Francisco 1</strong>
+      <ul class="s-encyclical__list">
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum</a>
         </li>
-      {% endif %}
-      
-      {% set pontiff = item.pontiff %}
-    {% endfor %}
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum 2</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum 3</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum 4</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum 5</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="s-encyclical__content" data-acordeon>
+      <strong class="s-encyclical__author">Papa João Paulo Segundo</strong>
+      <ul class="s-encyclical__list">
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="s-encyclical__content" data-acordeon>
+      <strong class="s-encyclical__author">Leão XXIII</strong>
+      <ul class="s-encyclical__list">
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum_quarintos2/" class="s-encyclical__link">Quarintos</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum_quarintos2/" class="s-encyclical__link">Quarintos 2</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum_quarintos2/" class="s-encyclical__link">Quarintos 3</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum_quarintos2/" class="s-encyclical__link">Quarintos 4</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="s-encyclical__content" data-acordeon>
+      <strong class="s-encyclical__author">Pio X</strong>
+      <ul class="s-encyclical__list">
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="s-encyclical__content" data-acordeon>
+      <strong class="s-encyclical__author">Papa Francisco 1</strong>
+      <ul class="s-encyclical__list">
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum 2</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum 3</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum 4</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum 5</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="s-encyclical__content" data-acordeon>
+      <strong class="s-encyclical__author">Papa João Paulo Segundo Do paraguai</strong>
+      <ul class="s-encyclical__list">
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum/" class="s-encyclical__link">Rerum novarum</a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="s-encyclical__content" data-acordeon>
+      <strong class="s-encyclical__author">Leão XXIII</strong>
+      <ul class="s-encyclical__list">
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum_quarintos2/" class="s-encyclical__link">Quarintos</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum_quarintos2/" class="s-encyclical__link">Quarintos 2</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum_quarintos2/" class="s-encyclical__link">Quarintos 3</a>
+        </li>
+        <li class="s-encyclical__item">
+          <a href="enciclicas/rerum_novarum_quarintos2/" class="s-encyclical__link">Quarintos 4</a>
+        </li>
+      </ul>
+    </div>
   </div>
 </main>
 

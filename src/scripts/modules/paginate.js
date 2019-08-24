@@ -1,5 +1,5 @@
 function Paginate(){
-  const paginate = document.querySelector('[data-paginate]') || document.body;
+  const paginate = document.querySelector('[data-paginate]') || false;
 
   function setupListeners(){
     if(window.innerHeight == document.body.clientHeight) paginate.classList.add('bottom');
@@ -18,7 +18,7 @@ function Paginate(){
     setupListeners();
   }
 
-  if(window.innerWidth <= 767 || document.body == paginate) init();
+  if(window.innerWidth <= 767 && paginate) init();
 }
 
 export default {
