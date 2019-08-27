@@ -70,7 +70,7 @@ class Controller {
         $this->instance = new Encyclical();
         $data = $this->instance->getEncyclical($encyclical, $page);
 
-        $this->view($data[0], 'encyclical.html', !empty($data) ? $data[0]['encyclical_name'] : '', is_numeric($page) ? $page : '1');
+        $this->view($data, 'encyclical.html', !empty($data) ? $data[0]['encyclical_name'] : '', is_numeric($page) ? $page : '1');
     }
 
     /**

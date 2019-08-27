@@ -1,12 +1,40 @@
 {% extends "layouts/app.html" %}
 
 {% block content %}
-<form action="/filtro/">
-	<label for="test">Texto a ser procurado</label>
-	<input type="text" name="t" id="test">
-	
-	<input type="submit" value="enviar">
-</form>
 
-{{ dump() }}
-{% endblock content %}
+{% set data_page = 'encyclical' %}
+{% include "partials/webdoor.html" %}
+
+<main class="c-document s-encyclic">
+	<div class="c-document__holder">
+		{% for item in data %}
+			<p id="{{ item.paragraph_number }}" class="c-document__paragraph">
+				<span class="c-document__paragraph-number">
+					{{ item.paragraph_number }}
+				</span>
+				{{ item.paragraph_text }}
+			</p>
+		{% endfor %}
+	</div>
+	<div class="c-document__paginate" data-paginate>
+		{% if paginate != 1 %}
+			<a href="/enciclicas/{{ data[0].url_text }}/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
+		{% endif %}
+		<!-- provisory, correct is the number of pages of encyclical -->
+		{% if paginate < 3 %}
+			<a href="/enciclicas/{{ data[0].url_text }}/{{ paginate + 1 }}" class="c-document__paginate-link">➜</a>
+		{% endif %}
+	</div>
+	{% include "partials/references.html" %}
+</main>
+
+<aside class="c-filter">
+	<div class="c-filter__form-holder">
+		<form action="/filtro/enciclica" class="c-filter__form">
+			<label for="encyclicText" class="c-filter__form-label">Procure nas encíclicas</label>
+			<input type="text" class="c-filter__form-input" placeholder="Ex: igreja, fé" name="t" id="encyclicText">
+			<input type="submit" class="c-filter__form-submit" value="ok">
+		</form>
+	</div>
+</aside>
+{% endblock %}

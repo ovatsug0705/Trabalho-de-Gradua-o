@@ -51,12 +51,15 @@ class Search {
       $data['cano'] = stristr('canodos', $text) === false ? false : true;
       $data['social_doctrine'] = stristr('doutrina social', $text) === false ? false : true;
       $data['catechism'] = stristr('catecismo', $text) === false ? false : true;
+      $data['text'] = $text;
 
-      if(empty($data['books']) && empty($data['encyclical']) && !$data['cano'] && !$data['catechism'] && !$data['social_doctrine']) {
-        return null;
-      } else {
-        return $data;
-      }
+      return $data;
+
+      // if(empty($data['books']) && empty($data['encyclical']) && !$data['cano'] && !$data['catechism'] && !$data['social_doctrine']) {
+      //   return null;
+      // } else {
+      //   return $data;
+      // }
     }
   }
 }

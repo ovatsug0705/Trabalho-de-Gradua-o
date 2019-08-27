@@ -128,48 +128,13 @@
   @include color-theme(background-color, c-white);
   border-radius: 5px;
   box-shadow: 1px 0 15px -10px;
-  animation: themes-div-out 0.2s ease-in-out forwards;
+  transform-origin: top;
+  transition: all 0.2s ease-in-out;
   transform: scale(0);
   z-index: 3;
 
   &.active {
-    animation: themes-div 0.2s ease-in-out forwards;
-  }
-}
-
-@keyframes themes-div {
-  0% {
-    transform: scale(0);
-  }
-
-  25% {
-    transform: scale(0.25);
-  }
-
-  50% {
-    transform: scale(0.5);
-  }
-
-  100% {
-    transform: scale(1.0);
-  }
-}
-
-@keyframes themes-div-out {
-  0% {
     transform: scale(1);
-  }
-
-  25% {
-    transform: scale(0.5);
-  }
-
-  50% {
-    transform: scale(0.25);
-  }
-
-  100% {
-    transform: scale(0);
   }
 }
 
