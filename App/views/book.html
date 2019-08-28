@@ -17,12 +17,15 @@
 			</p>
 		{% endfor %}
 	</div>
+
+	{% set link = data.0.url_text %}
+	
 	<div class="c-document__paginate" data-paginate>
 		{% if paginate != 1 %}
-			<a href="/biblia/{{ data.0.book_name }}/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
+			<a href="/biblia/{{ link }}/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
 		{% endif %}
 		{% if true %}
-			<a href="/biblia/{{ data.0.book_name }}/{{ paginate + 1 }}" class="c-document__paginate-link">➜</a>
+			<a href="/biblia/{{ link }}/{{ paginate + 1 }}" class="c-document__paginate-link">➜</a>
 		{% endif %}
 	</div>
 </main>
@@ -75,7 +78,6 @@
 </aside>
 
 {% endblock %}
-
 
 {# <input type="radio" name="p" id="customized" value="customized">
 <label for="customized">Customizado</label>
