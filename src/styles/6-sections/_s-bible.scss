@@ -10,7 +10,7 @@
 }
 
 .s-bible__title {
-  font-size: rem(32);
+  font-size: 32px;
   line-height: 1;
   margin-top: 0;
   margin-bottom: 50px;
@@ -28,7 +28,7 @@
 
 .s-bible__link {
   @include color-theme(color, c-brown-dark);
-  font-size: rem(24);
+  font-size: 24px;
   line-height: 1;
 
   &:hover {
@@ -48,7 +48,7 @@
   }
 
   .s-bible__title {
-    font-size: rem(24);
+    font-size: 24px;
     margin-bottom: 30px;
   }
 

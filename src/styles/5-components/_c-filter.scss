@@ -142,10 +142,11 @@
     max-width: 450px;
     padding: 7px 20px;
     opacity: 0;
-    z-index: 11;
     transition: all 0.3s ease-in-out;
-
+    z-index: -1;
+    
     &.active {
+      z-index: $modal;
       transform: translate(-50%, -50%);
       opacity: 1;
     }

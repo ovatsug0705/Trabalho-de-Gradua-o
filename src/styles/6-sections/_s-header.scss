@@ -13,7 +13,7 @@
 
 .s-header__logo {
   @include color-theme(color, c-white);
-  font-size: rem(26);
+  font-size: 26px;
   font-family: $main-font;
   margin-top: 0;
   margin-bottom: 0;
@@ -39,12 +39,12 @@
 }
 
 .s-header__search-input {
-  height: rem(30);
+  height: 30px;
   width: 300px;
   border-radius: 3px;
   border: none;
   padding: 5px;
-  font-size: rem(16);
+  font-size: 16px;
   position: relative;
   vertical-align: top;
   font-family: $main-font;
@@ -59,9 +59,9 @@
   transition: all 0.2s ease-in-out;
   border: none;
   font-family: $main-font;
-  font-size: rem(20);
+  font-size: 20px;
   position: absolute;
-  right: rem(42);
+  right: 42px;
   cursor: pointer;
 
   &.hide {
@@ -72,14 +72,14 @@
 .s-header__submit-button {
   position: relative;
   background-color: $c-transparent;
+  color: $c-transparent;
+  font-size: 0;
   border-radius: 2px;
   border: none;
   vertical-align: top;
   
-  svg {
-    @include color-theme(fill, c-white);
-    height: rem(24);
-    width: rem(24);
+  &::before {
+    @include color-theme(color, c-white);
   }
 
   &:hover {
@@ -98,19 +98,18 @@
 }
 
 .s-header__actions-button {
+  @include color-theme(color, c-white);
   background-color: $c-transparent;
   border: none;
   vertical-align: middle;
-  @include color-theme(color, c-white);
-  font-size: rem(22);
+  font-size: 22px;
   font-family: $main-font;
   margin-left: 5px;
   margin-right: 5px;
+  position: relative;
 
-  svg {
-    @include color-theme(fill, c-white);
-    height: rem(24);
-    width: rem(24);
+  &::before {
+    @include color-theme(color, c-white);
   }
 
   &:hover{
@@ -179,47 +178,74 @@
 }
 
 .s-header__menu-button {
-  display: inline-block;
-  border: none;
-  height: 25px;
-  width: 25px;
-  background-color: $c-transparent;
-  margin-right: 20px;
-  padding: 0;
-  z-index: 5;
-  position: relative;
-  left: 0;
-  cursor: pointer;
+  display: none;
+}
+
+@include respond-to(mobile-tablet) {
+  .s-header__menu-button {
+    display: inline-block;
+    border: none;
+    height: 25px;
+    width: 25px;
+    background-color: $c-transparent;
+    margin-right: 20px;
+    padding: 0;
+    z-index: $menu-button;
+    position: relative;
+    left: 0;
+    cursor: pointer;
+  
+    &.active {
+      position: absolute;
+      left: 20px;
+
+      .s-header__menu-button-content {
+        background-color: $c-transparent;
+  
+        &::before {
+          transition: all 0.2s ease-in-out;
+          transform: rotate(45deg);
+          top: 0;
+        }
+  
+        &::after {
+          transition: all 0.2s ease-in-out;
+          transform: rotate(-45deg);
+          top: 0;
+        }
+      }
+    }
+  }
   
   .s-header__menu-button-content {
     @include color-theme(background-color, c-white);
     color: $c-transparent;
-    width: rem(25);
-    height: rem(3);
+    width: 25px;
+    height: 3px;
     position: absolute;
     display: inline-block;
     font-size: 0;
     left: 0;
     border-radius: 3px;
     transition: all 0.1s ease-in-out;
-
+  
     &::before {
       content: '';
       @include color-theme(background-color, c-white);
-      width: rem(25);
-      height: rem(3);
+      width: 25px;
+      height: 3px;
       position: absolute;
       top: -8px;
       left: 0;
       border-radius: 3px;
       transition: all 0.2s ease-in-out;
     }
-
+  
     &::after {
       content: '';
       @include color-theme(background-color, c-white);
-      width: rem(25);
-      height: rem(3);
+      width: 25px;
+      height: 3px;
       position: absolute;
       bottom: -8px;
       left: 0;
@@ -281,7 +307,7 @@
     top: 45px;
     transition: all 0.2s ease-in-out;
     border: none;
-    font-size: rem(24);
+    font-size: 24px;
     z-index: 2;
     @include color-theme(color, c-white);
     

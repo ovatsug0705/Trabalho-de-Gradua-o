@@ -11,7 +11,12 @@ function Menu() {
   }
 
   function toggleMenu(evt){
-    buttons.forEach(btn => evt.currentTarget == btn ? evt.stopPropagation() : null);
+    buttons.forEach(btn => {
+      if(evt.currentTarget == btn) {
+        evt.stopPropagation();
+        btn.classList.toggle('active');
+      }
+    });
     elm.classList.toggle('active');
     elm2.classList.toggle('hide');
   }
@@ -19,6 +24,7 @@ function Menu() {
   function closeMenu(){
     elm.classList.remove('active');
     elm2.classList.remove('hide');
+    buttons.forEach(btn => btn.classList.remove('active'));
   }
 
   function init(){

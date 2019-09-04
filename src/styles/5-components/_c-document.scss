@@ -42,6 +42,7 @@
   display: inline-block;
   margin-left: 7px;
   margin-right: 7px;
+  z-index: $arrows;
 
   &:hover {
     opacity: 0.9;
