@@ -17,7 +17,7 @@
 		{% endfor %}
 	</div>
 	{% set link = data.0.url_text %}
-	<div class="c-document__paginate" data-paginate>
+	<div class="c-document__paginate" data-bottom-btn>
 		{% if paginate != 1 %}
 			<a href="/enciclicas/{{ link }}/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
 		{% endif %}

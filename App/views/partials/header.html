@@ -6,33 +6,14 @@
     <a class="s-header__link" href="/">
       <h2 class="s-header__logo">Vida Cristã</h2>
     </a>
+    
     <div class="s-header__actions">
       <form class="s-header__search-form" method="get" action="/busca" data-search>
         <input class="s-header__search-input" required="true" placeholder="Buscar" data-search-input type="text" class="test2" name="s" id="searchInput">
         <button type="button" class="s-header__search-close hide" data-search-close>X</button>
-        <button type="submit" class="s-header__submit-button icon icon-search" value="" data-search-submit></button>
+        <button type="submit" class="s-header__submit-button icon-search" value="" data-search-submit></button>
       </form>
-      <div class="s-header__actions-buttons">
-        <button type="button" class="s-header__actions-button icon icon-bucket" data-themes-button></button>
-        <button type="button" class="s-header__actions-button" data-font-decrease>A<sup>-</sup></button>
-        <button type="button" class="s-header__actions-button" data-font-increase>A<sup>+</sup></button>
-      </div>
-      <div class="s-header__themes" data-themes>
-        <ol class="s-header__themes-list">
-          <li class="s-header__themes-item" data-themes-color="0">
-            <span class="s-header__themes-color s-header__themes-color--1"></span>
-          </li>
-          <li class="s-header__themes-item" data-themes-color="1">
-            <span class="s-header__themes-color s-header__themes-color--2"></span>
-          </li>
-          <li class="s-header__themes-item" data-themes-color="2">
-            <span class="s-header__themes-color s-header__themes-color--3"></span>
-          </li>
-          <li class="s-header__themes-item" data-themes-color="3">
-            <span class="s-header__themes-color s-header__themes-color--4"></span>
-          </li>
-        </ol>
-      </div>
+      {% include "partials/actions.html" %}
     </div>
   </div>
 </header>

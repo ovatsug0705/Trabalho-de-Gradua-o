@@ -28,8 +28,10 @@
   font-display: block;
 }
 
-.icon::before,
-.icon::after {
+[class^="icon"]::before,
+[class^="icon"]::after,
+[class*="icon"]::before,
+[class*="icon"]::after {
   font-family: 'icomoon';
   font-style: normal;
   font-weight: normal;
