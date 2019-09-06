@@ -56,9 +56,10 @@ class Filter {
         $stmt->execute();
         $this->connection = null;
 
-        $this->data['url'] = $doc;
+        $this->data['doc'] = $doc;
         $this->data['content'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $this->data['text'] = $text;
 
-        return $this->data['content'] ? $this->data : null;
+        return $this->data;
     }
 }

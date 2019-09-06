@@ -143,7 +143,7 @@ class Controller {
     public function textFilter($text, $doc) 
     {
         $this->instance = new Filter();
-        $this->view($this->instance->textFilter($text, $doc), 'filter.html');
+        $this->view($this->instance->textFilter($text, $doc), 'filter.html', 'Filtro');
     }
 
     /**

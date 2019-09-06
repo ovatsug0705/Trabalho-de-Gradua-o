@@ -1,9 +1,40 @@
 {% extends "layouts/app.html" %}
 
 {% block content %}
-<h1>filter</h1>
+{% set data_page = 'Filter' %}
+{% include "partials/webdoor.html" %}
 
+<main class="content s-search">
+  <div class="s-search_container">
+		<span class="s-search__desc s-search__desc--highlight">Resultados da Filtragem por: <strong>{{ data.text }}</strong></span>
+		{% if (not data.content) %}
+    <div class="s-search__row">
+       <strong class="s-search__error">Desculpe não encontramos a sua busca :(</strong>
+		</div>
+		{% else %}
+			{% if data.doc == 'catecismo' %}
+				{% for item in data.content %}
+					{% if (item.paragraph_number % 20) is same as(0) %}
+						{% set link = (item.paragraph_number / 20)|round(0 ,'floor') %}
+					{% else %}
+						{% set link = ((item.paragraph_number / 20)|round(0, 'floor')) + 1 %}
+					{% endif %}
+					<div class="s-search__row">
+						<a href="/catecismo/{{ link }}#{{ item.paragraph_number }}" class="s-search__link">
+							<p class="c-document__paragraph">
+								<span class="c-document__paragraph-number">
+									{{ item.paragraph_number }}
+								</span>
+								{{ item.paragraph_text }}
+							</p>
+						</a>
+					</div>
+				{% endfor %}	
+			{% endif %}
+    {% endif %}
+  </div>
+</main>
 <pre>
-	{{ dump() }}
+	{{ dump(data) }}
 </pre>
 {% endblock %}
