@@ -32,8 +32,8 @@ class SocialDoctrine {
      */
     public function getSocialDoctrine($paragraph){
         !(is_numeric($paragraph)) ? $paragraph = 0 : null;
-        $endParagraph = $paragraph * 5;
-        $initialParagraph = $endParagraph - 5;
+        $endParagraph = $paragraph * 20;
+        $initialParagraph = $endParagraph - 20;
 
         $sql = 'select paragraph_number, paragraph_text, paragraph_partial, paragraph_chapter, paragraph_section, paragraph_title, ref_text from Social_doctrine left join Social_doctrine_references on Social_doctrine.id_social_doctrine = Social_doctrine_references.id_social_doctrine where paragraph_number > (:iId) and paragraph_number <= (:eId) order by CAST(paragraph_number AS unsigned)';
 

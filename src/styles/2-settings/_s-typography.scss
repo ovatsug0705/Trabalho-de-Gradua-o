@@ -76,6 +76,10 @@
   content: "\e906";
 }
 
+.icon-check::before {
+  content: "\e907";
+}
+
 $main-font: 'Roboto', sans-serif;
 $title-font: 'CrimsonPro', sans-serif;
 $bold-font: 600;

@@ -130,7 +130,7 @@ class Controller {
     public function bibleFilter($text, $partial, $books) 
     {
         $this->instance = new Bible();
-        $this->view($this->instance->bibleFilter($text, $partial, $books), 'filter.html');
+        $this->view($this->instance->bibleFilter($text, $partial, $books), 'filter.html', 'Filtro');
     }
 
     /**

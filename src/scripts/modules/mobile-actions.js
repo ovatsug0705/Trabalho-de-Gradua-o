@@ -3,8 +3,6 @@ function MobileActions(){
   const actions = document.querySelector('[data-actions]') || false;
 
   function setupListeners(){
-    console.log('test', gear, actions);
-    
     gear.addEventListener('click', ()=> actions.classList.toggle('active'));
   }
 

@@ -111,7 +111,10 @@ class Bible {
         $stmt->execute();
         $this->connection = null;
 
-        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $data['content'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+        $data['doc'] = 'biblia';
+        $data['text'] = $text;
+        return $data;
     }
 }
 

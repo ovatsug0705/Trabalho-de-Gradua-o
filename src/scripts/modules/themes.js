@@ -5,7 +5,10 @@ function Themes() {
   let themes = [];
   
   function setupListeners(){
-    elm.addEventListener('click', ()=> elm2.classList.toggle('active'));
+    elm.addEventListener('click', ()=> {
+      elm2.classList.toggle('active');
+      if(window.innerWidth <= 768) document.body.classList.toggle('hide');
+    });
     themes = Array.from(elm2.querySelectorAll('[data-themes-color]'));
     themes.forEach(item => {
       item.addEventListener('click', changeTheme);
@@ -65,7 +68,8 @@ function Themes() {
     setupListeners();
     changeTheme();
   }
-  init()
+  
+  init();
 }
 
 export default {

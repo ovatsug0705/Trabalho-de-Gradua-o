@@ -25,6 +25,13 @@
   @include color-theme(color, c-gray-text);
 }
 
+.c-document__highlight {
+  display: block;
+  margin-bottom: 20px;
+  font-size: rem(12);
+  @include color-theme(color, c-gray-text);
+}
+
 .c-document__paginate {
   position: relative;
   margin: 50px auto;
