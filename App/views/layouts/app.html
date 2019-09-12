@@ -5,10 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta author="Gustavo da Silva Gomes">
   <meta keywords="Bíblia, Catecismo, Encíclica">
+  <meta name="theme-color" content="#000000">
   <title>Vida Cristã - {{ title ? title : 'Home' }}</title>
   <link rel="stylesheet" type="text/css" href="/dist/styles/main.css">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/dist/assets/img/favico/favicon.ico" sizes="16x16">
+  <link rel="icon" href="/dist/assets/img/favico/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" href="/dist/assets/img/favico/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" href="/dist/assets/img/favico/pwa-192x192.png" sizes="192x192">
+  <link rel="icon" href="/dist/assets/img/favico/pwa-512x512.png" sizes="512x512">
+  <link rel="icon" href="/dist/assets/img/favico/apple-touch-icon-180x180.png" sizes="180x180">
 </head>
-<body>
+{% if (title == 'Bíblia') or (title == 'Encíclicas papais') or (title == 'Busca') or (title == 'Filtro') or (title == null)%}
+  {% set class = 'class=no-filter' %}
+{% else %}
+  {% set class = '' %}
+{% endif %}
+<body {{ class }}>
   {% include "partials/header.html" %}
   {% include "partials/menu.html" %}
   {% block content %}{% endblock %}

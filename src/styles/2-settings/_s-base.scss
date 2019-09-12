@@ -10,17 +10,17 @@ html {
 }
 
 body {
-  position: relative;
+  // position: relative;
   width: 100%;
   min-height: 100vh;
   margin: 0;
-  padding: 0;
-  padding-bottom: 70px;
+  padding: 0 0 70px;
   font-size: 16px;
   font-family: $main-font;
   @include color-theme(background-color, c-white);
 
-  &.hide {
+  &.hide,
+  &.hide2, {
     overflow: hidden;
 
     &::before {
@@ -31,7 +31,20 @@ body {
       min-height: 100vh;
       width: 100vw;
       position: absolute;
+      top: 0;
+      left: 0
+    }
+  }
+
+  &.hide {
+    &::before{
       z-index: $hide;
+    }
+  }
+
+  &.hide2 {
+    &::before{
+      z-index: $hide2;
     }
   }
 }

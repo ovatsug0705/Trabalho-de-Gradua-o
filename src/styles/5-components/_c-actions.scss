@@ -88,7 +88,7 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  @include color-theme(background-color, c-black);
+  @include color-theme(background-color, c-brown-dark);
   display: inline-block;
 }
 
@@ -97,8 +97,8 @@
     float: none;
     height: auto;
     position: fixed;
-    bottom: 25px;
-    right: 20px;
+    bottom: 15px;
+    right: 10px;
     z-index: $arrows;
     transition: all 0.2s ease-in-out;
 
@@ -114,8 +114,10 @@
     justify-content: flex-end;
     overflow: hidden;
     height: auto;
-    max-height: 55px;
+    max-height: 65px;
     transition: all 0.2s ease-in-out;
+    padding-right: 10px;
+    padding-bottom: 10px;
 
     &.active {
       max-height: 500px;
@@ -144,7 +146,7 @@
         }
 
         &:nth-child(5) {
-          transform: rotate(180deg);
+          transform: rotate(360deg);
         }
       }
     }
@@ -161,6 +163,7 @@
     margin-top: 5px;
     transition: all 0.2s ease-in-out;
     opacity: 0;
+    box-shadow: 3px 5px 15px -5px $c-black;
     @include color-theme(background-color, c-brown-dark);
 
     &::before {
@@ -177,6 +180,7 @@
     &.icon-gear {
       display: inline-block;
     }
+
 
     &:nth-child(1) {
       transform: translateY(224px);
@@ -199,6 +203,11 @@
       transition-duration: 0.3s;
       opacity: 1;
     }
+  }
+
+  .no-filter .c-actions__button.icon-filter {
+    visibility: hidden;
+    opacity: 0;
   }
 
   .c-actions__themes {

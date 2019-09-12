@@ -1,8 +1,8 @@
 <?php
 namespace App\controllers;
 
-use App\model\Bible;
 use App\model\Cano;
+use App\model\Bible;
 use App\model\Filter;
 use App\model\Search;
 use App\model\Catechism;

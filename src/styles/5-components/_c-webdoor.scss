@@ -47,15 +47,16 @@
 
 @include respond-to(mobile) {
   .c-webdoor {
-    background: none;
+    // background: none;
     box-shadow: none;
     min-height: auto;
     height: auto;
-    padding: 20px 20px 0;
+    padding: 20px;
   }
   
   .c-webdoor__title {
-    @include color-theme(color, c-black);
+    // @include color-theme(color, c-black);
+    text-shadow: 0px 0px 20px $c-black;
     font-size: rem(44);
     position: relative;
     transform: translateY(0);

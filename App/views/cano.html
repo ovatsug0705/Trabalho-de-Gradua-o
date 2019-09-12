@@ -45,7 +45,8 @@
 	{% include "partials/references.html" %}
 </main>
 
-<aside class="c-filter">
+<aside class="c-filter" data-filter>
+	<button type="button" class="c-filter-close" data-filter-close>X</button>
 	<div class="c-filter__form-holder">
 		<form action="/filtro/canodo" class="c-filter__form">
 			<label for="canoText" class="c-filter__form-label">Procure no Código de Direito Canônico</label>

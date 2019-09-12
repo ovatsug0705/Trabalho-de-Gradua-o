@@ -29,7 +29,8 @@
 	{% include "partials/references.html" %}
 </main>
 
-<aside class="c-filter">
+<aside class="c-filter" data-filter>
+	<button type="button" class="c-filter-close" data-filter-close>X</button>
 	<div class="c-filter__form-holder">
 		<form action="/filtro/enciclica" class="c-filter__form">
 			<label for="encyclicText" class="c-filter__form-label">Procure nas encíclicas</label>

@@ -12,14 +12,17 @@
   justify-content: space-between;
 }
 
-.c-menu__list-item {
-  cursor: pointer;
 
-  &:hover > .c-menu__list-link{
-    opacity: 0.8;
+@include respond-to(desktop) {
+  .c-menu__list-item {
+    cursor: pointer;
 
-    &::after {
-      transform: scaleX(1) translateX(-50%);
+    &:hover > .c-menu__list-link{
+      opacity: 0.8;
+
+      &::after {
+        transform: scaleX(1) translateX(-50%);
+      }
     }
   }
 }
@@ -54,7 +57,7 @@
     width: 260px;
     min-height: 100vh;
     height: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     font-size: 0;
     padding: 20px;

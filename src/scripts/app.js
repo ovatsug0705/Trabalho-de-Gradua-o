@@ -6,6 +6,7 @@ import menu from "./modules/menu";
 import bottomButtons from "./modules/bottom-buttons";
 import acordeon from "./modules/acordeon";
 import mobileActions from "./modules/mobile-actions";
+import filterMobile from "./modules/filter-mobile";
 
 fontSize.create();
 themes.create();
@@ -15,3 +16,4 @@ menu.create();
 bottomButtons.create();
 acordeon.create();
 mobileActions.create();
+filterMobile.create();

@@ -1,0 +1,50 @@
+{
+	"name" : "Vida Cristã",
+    "short_name" : "Vida Cristã",
+    "description" : "Facilitando o acesso do Cristão aos documentos fundamentais de sua fé.",
+    "start_url" : "https://www.vidacrista.com.br",
+    "scope" : "/",
+    "display" : "fullscreen",
+    "orientation" : "any",
+    "lang" : "Portuguese",
+    // "backgorund_color": "#000000",
+    // "theme_color": "#ffffff",
+    // "icons" : [
+    // 	{
+    //         "src": "/assets/img/favico/favico.ico",
+    //         "sizes": "16x16",
+    //         "type": "image\/ico",
+    //         "density": "0.75"
+    //     },
+    //     {
+    //         "src": "/assets/img/favico/apple-touch-icon-180x180.png",
+    //         "sizes": "180x180",
+    //         "type": "image\/png",
+    //         "density": "0.75"
+    //     },
+    //     {
+    //         "src": "/assets/img/favico/favico-16x16.png",
+    //         "sizes": "16x16",
+    //         "type": "image\/png",
+    //         "density": "0.75"
+    //     },
+    //     {
+    //         "src": "/assets/img/favico/favico-32x32.png",
+    //         "sizes": "32x32",
+    //         "type": "image\/png",
+    //         "density": "0.75"
+    //     },
+    //     {
+    //         "src": "/assets/img/favico/pwa-192x192.png",
+    //         "sizes": "192x192",
+    //         "type": "image\/png",
+    //         "density": "0.75"
+    //     },
+    //     {
+    //         "src": "/assets/img/favico/pwa-512x512.png",
+    //         "sizes": "512x512",
+    //         "type": "image\/png",
+    //         "density": "0.75"
+    //     },
+    // ]
+}
