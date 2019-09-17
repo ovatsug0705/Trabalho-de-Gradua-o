@@ -31,8 +31,9 @@
     right: 0;
     transform: rotate(-45deg);
     transform-origin: center;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.1s ease-in-out;
     @include color-theme(border-bottom-color, c-brown-dark);
+    @include color-theme(border-right-color, c-brown-dark);
   }
 
   &.active {
@@ -62,7 +63,7 @@
 
 .s-encyclical__list {
   max-height: 0;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   list-style: none;
   overflow: hidden;
   margin: 0;

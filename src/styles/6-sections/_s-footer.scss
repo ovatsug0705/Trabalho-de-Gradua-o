@@ -13,6 +13,7 @@
 
 .s-footer__link {
   @include color-theme(color, c-white);
+  font-weight: $bold-font;
   font-size: 20px;
   display: inline-block;
   transition: all 0.2 ease-in-out;

@@ -88,8 +88,24 @@
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  @include color-theme(background-color, c-brown-dark);
   display: inline-block;
+  border: 1px solid $c-white;
+  
+  &--1 {
+    background-color: $c-brown-dark;
+  }
+  
+  &--2 {
+    background-color: $c-orange;
+  }
+
+  &--3 {
+    background-color: $c-amber;
+  }
+
+  &--4 {
+    background-color: blue;
+  }
 }
 
 @include respond-to(mobile-tablet) {
@@ -164,7 +180,7 @@
     transition: all 0.2s ease-in-out;
     opacity: 0;
     box-shadow: 3px 5px 15px -5px $c-black;
-    @include color-theme(background-color, c-brown-dark);
+    @include color-theme(background-color, c-brown);
 
     &::before {
       vertical-align: middle;

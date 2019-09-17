@@ -10,6 +10,7 @@
 }
 
 .s-bible__title {
+  @include color-theme(color, c-gray-text);
   font-size: 32px;
   line-height: 1;
   margin-top: 0;

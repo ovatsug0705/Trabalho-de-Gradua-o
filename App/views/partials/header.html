@@ -4,7 +4,12 @@
       <span class="s-header__menu-button-content">Menu</span>
     </button>
     <a class="s-header__link" href="/">
-      <h2 class="s-header__logo">Vida Cristã</h2>
+      {% if title %}
+        <strong class="s-header__logo">Vida Cristã</strong>
+      {% else %}
+        <h1 class="s-header__logo">Vida Cristã</h1>
+      {% endif %}
+
     </a>
     
     <div class="s-header__actions">

@@ -29,7 +29,6 @@
 
 .c-filter__form-input {
   font-size: rem(18);
-  @include color-theme(color, c-gray-text);
   height: rem(30);
   padding-left: 10px;
   width: 85%;
@@ -53,7 +52,7 @@
   height: rem(30);
   width: rem(30);
   vertical-align: bottom;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid; 
   border-radius: 5px;
   cursor: pointer;

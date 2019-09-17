@@ -1,9 +1,8 @@
 .c-menu {
   font-size: 0;
-  padding-top: 7px;
+  padding-top: 12px;
   padding-bottom: 12px;
-  @include color-theme(background-color, c-brown-dark);
-  @include color-theme(color, c-black);
+  @include color-theme(background-color, c-brown);
 }
 
 .c-menu__list {
@@ -18,8 +17,6 @@
     cursor: pointer;
 
     &:hover > .c-menu__list-link{
-      opacity: 0.8;
-
       &::after {
         transform: scaleX(1) translateX(-50%);
       }
@@ -82,5 +79,9 @@
   .c-menu__list-item {
     padding-top: 15px;
     padding-bottom: 15px;
+  }
+
+  .c-menu__list-link {
+    font-weight: $bold-font;
   }
 }

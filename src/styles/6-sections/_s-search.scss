@@ -11,6 +11,7 @@
 }
 
 .s-search__desc--highlight {
+  @include color-theme(color, c-gray-light);
   font-size: rem(20);
 }
 

@@ -39,7 +39,7 @@
 }
 
 .s-header__search-input {
-  height: 30px;
+  height: 26px;
   width: 300px;
   border-radius: 3px;
   border: none;
@@ -52,7 +52,6 @@
 
 .s-header__search-close {
   @include color-theme(background-color, c-transparent);
-  @include color-theme(color, c-black);
 
   display: inline-block;
   height: 100%;
@@ -230,11 +229,11 @@
     transform-origin: top;
     z-index: 1;
     padding-left: 20px;
-    @include color-theme(background-color, c-brown-dark);
-    @include color-theme(color, c-white);
+    @include color-theme(background-color, c-brown);
+    @include color-theme(color, c-white, c-white);
     
     &::placeholder {
-      @include color-theme(color, c-white);
+      @include color-theme(color, c-white, c-white);
     }
 
     &.active {
