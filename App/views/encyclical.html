@@ -21,8 +21,7 @@
 		{% if paginate != 1 %}
 			<a href="/enciclicas/{{ link }}/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
 		{% endif %}
-		<!-- provisory, correct is the number of pages of encyclical -->
-		{% if paginate < 3 %}
+		{% if (paginate + 1) <= data.0.number_of_pages %}
 			<a href="/enciclicas/{{ link }}/{{ paginate + 1 }}" class="c-document__paginate-link">➜</a>
 		{% endif %}
 	</div>
@@ -39,4 +38,9 @@
 		</form>
 	</div>
 </aside>
+
+<pre>
+		{{data.0.number_of_pages}}
+		{{ dump() }}
+	</pre>
 {% endblock %}

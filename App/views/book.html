@@ -24,7 +24,7 @@
 		{% if paginate != 1 %}
 			<a href="/biblia/{{ link }}/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
 		{% endif %}
-		{% if true %}
+		{% if (paginate + 1) <= data.0.number_of_chapters  %}
 			<a href="/biblia/{{ link }}/{{ paginate + 1 }}" class="c-document__paginate-link">➜</a>
 		{% endif %}
 	</div>
@@ -76,7 +76,6 @@
 		</form>
 	</div>
 </aside>
-
 {% endblock %}
 
 {# <input type="radio" name="p" id="customized" value="customized">
