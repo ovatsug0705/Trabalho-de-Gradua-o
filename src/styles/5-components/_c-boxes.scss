@@ -74,11 +74,11 @@
   }
 
   &--cano {
-    background-image: url('../assets/img/christ-mosaic.webp');
+    background-image: url('../assets/img/church.jpg');
   }
 
   &--social-doctrine {
-    background-image: url('../assets/img/bible.jpg');
+    background-image: url('../assets/img/comunhao.jpg');
   }
 
   &--cano {
@@ -90,6 +90,12 @@
   }
 
   &--encyclical {
-    background-image: url('../assets/img/bible.jpg');
+    background-image: url('../assets/img/vatican.jpg');
   }
+}
+
+@include respond-to(mobile) {
+	.c-boxes__highlight {
+		font-size: 26px;
+	}
 }

@@ -33,7 +33,7 @@ class Encyclical {
      */
     public function getEncyclical($encyclical, $page){
         if (!$encyclical) {
-            $sql = 'select encyclical_name, pontiff, url_text from encyclical order by pontiff';
+            $sql = 'select encyclical_name, pontiff, url_text from encyclical group by pontiff order by pontiff';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();

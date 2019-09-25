@@ -23,6 +23,13 @@ $c-amber: #ffa000;
 $c-amber-light: #ffd149;
 $c-amber-dark: #c67100;
 
+$c-cian: #006064;
+$c-cian-light: #428e92;
+$c-cian-dark: #00363a;
+
+$c-sky: #b2ebf2;
+$c-sky-light: #e5ffff;
+$c-sky-dark: #81b9bf;
 
 $colors: (
   c-white: $c-white,
@@ -54,5 +61,11 @@ $theme-02: (
 );
 
 $theme-03: (
- 
+  c-white: $c-cian-dark,
+  c-black: $c-white,
+  c-brown: $c-sky,
+  c-brown-light: $c-sky-light,
+  c-brown-dark: $c-sky-dark,
+  c-gray-text: $c-white,
+  c-gray-light: $c-white,
 );

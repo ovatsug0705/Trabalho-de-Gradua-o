@@ -2,7 +2,7 @@
   width: 100%;
   border-top-width: 1px;
   border-top-style: solid;
-  @include color-theme(border-top-color, c-gray);
+  @include color-theme(border-top-color, c-gray-text);
   margin-top: 25px;
 }
 
