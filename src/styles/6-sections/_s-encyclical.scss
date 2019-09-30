@@ -1,10 +1,11 @@
 .s-encyclical__holder {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
   align-items: start;
   margin-top: 50px;
   margin-bottom: 50px;
+  font-size: 0;
 }
 
 .s-encyclical__content {
@@ -44,6 +45,10 @@
     .s-encyclical__list {
       max-height: 1000px;
     }
+  }
+
+  &:not(:nth-child(3n)) {
+    margin-right: 135px;
   }
 
 }
@@ -96,6 +101,18 @@
   }
 }
 
+@include respond-to(tablet) {
+  .s-encyclical__content {
+    &:not(:nth-child(3n)) {
+      margin-right: 0;
+    }
+
+    &:nth-child(odd) {
+      margin-right: 100px;
+    }
+  }
+}
+
 @include respond-to(mobile) {
   .s-encyclical__holder {
     justify-content: center;
@@ -104,5 +121,9 @@
   .s-encyclical__content {
     width: 250px;
     margin: 0 20px 50px;
+
+    &:not(:nth-child(3n)) {
+      margin-right: 20px;
+    }
   }
 }
