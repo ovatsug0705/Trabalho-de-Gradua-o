@@ -151,6 +151,8 @@ class Controller {
      * 
      * @param array  $data data returned with database
      * @param string $page page that will be returned to the browser
+     * @param string $title page title
+     * @param string $paginate number of page to show
      */
     private function view($data, $page, $title = '', $paginate = null) {
         

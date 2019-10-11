@@ -40,7 +40,7 @@ class Bible {
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else if(!$chapter) {
-            $sql = 'select count(chapter) as number_of_chapters, book_name, verser_number, chapter, verser_text, url_text from books inner join verser on books.id_book = verser.id_book where books.url_text = :url and chapter = 1 order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
+            $sql = 'select book_name, verser_number, chapter, verser_text, url_text, (select max(chapter) from verser) as number_of_chapters from books inner join verser on books.id_book = verser.id_book where books.url_text = :url and chapter = 1 group by verser_number order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->bindValue(':url', $book);
@@ -49,7 +49,7 @@ class Bible {
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
-            $sql = 'select count(chapter) as number_of_chapters, book_name, verser_number, chapter, verser_text, url_text from books inner join verser on books.id_book = verser.id_book where books.url_text = :url and chapter = :chapter order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
+            $sql = 'select book_name, verser_number, chapter, verser_text, url_text, (select max(chapter) from verser) as number_of_chapters from books inner join verser on books.id_book = verser.id_book where books.url_text = :url and chapter = :chapter group by verser_number order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->bindValue(':url', $book);

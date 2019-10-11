@@ -33,13 +33,23 @@ class Encyclical {
      */
     public function getEncyclical($encyclical, $page){
         if (!$encyclical) {
-            $sql = 'select encyclical_name, pontiff, url_text from encyclical group by pontiff order by pontiff';
+            $sql = 'select distinct pontiff from encyclical';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();
-            $this->connection= null;
 
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $pontiffs = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            $data = null;
+            foreach ($pontiffs as $pontiff) {
+                $sql = "select pontiff, encyclical_name, url_text from encyclical where pontiff = '${pontiff['pontiff']}'";
+                $stmt = $this->connection->prepare($sql);
+                $stmt->execute();
+                $data[] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            }
+
+            $this->connection= null;
+            return $data;
         } else {
             !(is_numeric($page)) ? $page = 0 : null;
             $endParagraph = $page * 20;

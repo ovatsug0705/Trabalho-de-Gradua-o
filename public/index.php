@@ -14,10 +14,13 @@
 
 require_once './../vendor/autoload.php';
 
+use Twig\Loader\FilesystemLoader;
+
 $loader = new Twig\Loader\FilesystemLoader([
   'paths' => __DIR__ . '\..\App\views/'
 ]);
-// $GLOBALS['twig'] = new Twig\Environment($loader);
+
+$GLOBALS['twig'] = new Twig\Environment($loader);
 
 //debug
 $GLOBALS['twig'] = new Twig\Environment($loader, [

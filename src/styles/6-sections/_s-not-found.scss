@@ -12,10 +12,12 @@
   font-size: rem(60);
   margin-top: 7vh;
   margin-bottom: 7vh;
+  @include color-theme(color, c-brown-dark);
 }
 
 .s-not-found__text {
   font-size: rem(20);
+  @include color-theme(color, c-brown-dark);
 }
 
 @include respond-to(mobile) {
