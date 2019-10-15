@@ -1,0 +1,10 @@
+# nginx configuration
+
+location  public/ {
+}
+
+location / {
+  if ($http_host ~* "^(.*)$"){
+    rewrite ^(.*)$ /public/$1 break;
+  }
+}

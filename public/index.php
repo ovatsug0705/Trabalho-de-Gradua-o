@@ -14,7 +14,6 @@
 
 require_once './../vendor/autoload.php';
 use Jenssegers\Blade\Blade;
-
 $GLOBALS['blade'] = new Blade(__DIR__ . '\..\App\views/', __DIR__ . '\..\App\views/cache/');
 
 $dotenv = Dotenv\Dotenv::create(__DIR__);

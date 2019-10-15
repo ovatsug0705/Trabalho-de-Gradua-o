@@ -1,49 +1,48 @@
-{% extends "layouts/app.html" %}
+@extends('layouts.app')
 
-{% block content %}
+@section('content')
 
-{% set data_page = 'catechism' %}
-{% include "partials/webdoor.html" %}
+@include("partials.webdoor", ["data_page" => 'catechism'])
 <main class="c-document s-catechism">
 	<div class="c-document__holder">
-		{% for item in data %}
-			{% if (item.paragraph_partial != '') or (item.paragraph_section != '') or (item.paragraph_chapter != '') or (item.paragraph_article != '') or (item.paragraph_title != '') %}
+		@foreach ($data as $item)
+			@if (!empty($item['paragraph_partial']) or !empty($item['paragraph_section']) or !empty($item['paragraph_chapter']) or !empty($item['paragraph_article']) or !empty($item['paragraph_title']))
 				<header class="c-document__header">
-					{% if item.paragraph_partial != '' %}
-						<h2 class="o-title o-title--2">{{ item.paragraph_partial }}</h2>
-					{% endif %}
-					{% if item.paragraph_section != '' %}
-						<h3 class="o-title o-title--3">{{ item.paragraph_section }}</h3>
-					{% endif %}
-					{% if item.paragraph_chapter != '' %}
-						<h4 class="o-title o-title--4">{{ item.paragraph_chapter }}</h4>
-					{% endif %}
-					{% if item.paragraph_article != '' %}
-						<h5 class="o-title o-title--5">{{ item.paragraph_article }}</h5>
-					{% endif %}
-					{% if item.paragraph_title != '' %}
-						<h6 class="o-title o-title--6">{{ item.paragraph_title }}</h6>
-					{% endif %}
+					@if(!empty($item['paragraph_partial']))
+						<h2 class="o-title o-title--2">{{ $item['paragraph_partial'] }}</h2>
+					@endif
+					@if(!empty($item['paragraph_section']))
+						<h3 class="o-title o-title--3">{{ $item['paragraph_section'] }}</h3>
+					@endif
+					@if(!empty($item['paragraph_chapter']))
+						<h4 class="o-title o-title--4">{{ $item['paragraph_chapter'] }}</h4>
+					@endif
+					@if(!empty($item['paragraph_article']))
+						<h5 class="o-title o-title--5">{{ $item['paragraph_article'] }}</h5>
+					@endif
+					@if(!empty($item['paragraph_title']))
+						<h6 class="o-title o-title--6">{{ $item['paragraph_title'] }}</h6>
+					@endif
 				</header>
-			{% endif %}
-			<p id="{{ item.paragraph_number }}" class="c-document__paragraph">
+			@endif
+			<p id="{{ $item['paragraph_number'] }}" class="c-document__paragraph">
 				<span class="c-document__paragraph-number">
-					{{ item.paragraph_number }}
+					{{ $item['paragraph_number'] }}
 				</span>
-				{{ item.paragraph_text }}
+				{{ $item['paragraph_text'] }}
 			</p>
-		{% endfor %}
+		@endforeach
 	</div>
 	<div class="c-document__paginate" data-bottom-btn>
-		{% if paginate != 1 %}
-			<a href="/catecismo/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
-		{% endif %}
+		@if($paginate != 1)
+			<a href="/catecismo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
+		@endif
 		<!-- provisory, correct is 144 -->
-		{% if paginate < 3 %}
-			<a href="/catecismo/{{ paginate + 1 }}" class="c-document__paginate-link">➜</a>
-		{% endif %}
+		@if($paginate < 3)
+			<a href="/catecismo/{{ $paginate + 1 }}" class="c-document__paginate-link">➜</a>
+		@endif
 	</div>
-	{% include "partials/references.html" %}
+	@include('partials.references')
 </main>
 
 <aside class="c-filter" data-filter>
@@ -63,5 +62,5 @@
 		</form>
 	</div>
 </aside>
-<!-- {% include "partials/socials.html" %} -->
-{% endblock %}
+
+@endsection
