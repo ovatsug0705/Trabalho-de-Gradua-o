@@ -145,10 +145,10 @@ class Router
           }
         }
       case 'home':
-        echo $GLOBALS['twig']->render('home.html');
+        echo $GLOBALS['blade']->render('home', ['title' => 'Home']);
         break;
       default :
-        echo $GLOBALS['twig']->render('notFound.html');
+        echo $GLOBALS['blade']->render('notFound', ['title' => '404']);
     }
   }
 }

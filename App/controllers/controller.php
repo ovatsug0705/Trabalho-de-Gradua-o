@@ -31,7 +31,7 @@ class Controller {
     public function reqCatechism($page) 
     {   
         $this->instance = new Catechism();
-        $this->view($this->instance->getCatechism($page), 'catechism.html', 'Catecismo', is_numeric($page) ? $page : '1');
+        $this->view($this->instance->getCatechism($page), 'catechism', 'Catecismo', is_numeric($page) ? $page : '1');
     }
 
     /**
@@ -43,7 +43,7 @@ class Controller {
     public function reqCano($cano) 
     {
         $this->instance = new Cano();
-        $this->view($this->instance->getCano($cano), 'cano.html', 'Código de Direito Canônico', is_numeric($cano) ? $cano : '1');
+        $this->view($this->instance->getCano($cano), 'cano', 'Código de Direito Canônico', is_numeric($cano) ? $cano : '1');
     }
 
     /**
@@ -55,7 +55,7 @@ class Controller {
     public function reqSocialDoctrine($paragraph) 
     {
         $this->instance = new SocialDoctrine();
-        $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine.html', 'Doutrina Social', is_numeric($paragraph) ? $paragraph : '1');
+        $this->view($this->instance->getSocialDoctrine($paragraph), 'socialDoctrine', 'Doutrina Social', is_numeric($paragraph) ? $paragraph : '1');
     }
 
     /**
@@ -70,7 +70,7 @@ class Controller {
         $this->instance = new Encyclical();
         $data = $this->instance->getEncyclical($encyclical, $page);
 
-        $this->view($data, 'encyclical.html', !empty($data) ? $data[0]['encyclical_name'] : '', is_numeric($page) ? $page : '1');
+        $this->view($data, 'encyclical', !empty($data) ? $data[0]['encyclical_name'] : '', is_numeric($page) ? $page : '1');
     }
 
     /**
@@ -79,7 +79,7 @@ class Controller {
      */
     public function reqEncyclicalPage() {
         $this->instance = new Encyclical();
-        $this->view($this->instance->getEncyclical(false, false), 'encyclics.html', 'Encíclicas papais');
+        $this->view($this->instance->getEncyclical(false, false), 'encyclics', 'Encíclicas papais');
     }
 
     /**
@@ -95,7 +95,7 @@ class Controller {
         $this->instance = new Bible();
         $data = $this->instance->getBible($book, $chapter);
         
-        $this->view($data, 'book.html', !empty($data) ? $data[0]['book_name'] : '', is_numeric($chapter) ? $chapter : '1');
+        $this->view($data, 'book', !empty($data) ? $data[0]['book_name'] : '', is_numeric($chapter) ? $chapter : '1');
     }
 
      /**
@@ -104,7 +104,7 @@ class Controller {
      */
     public function reqBiblePage() {
         $this->instance = new Bible();
-        $this->view($this->instance->getBible(false, false), 'bible.html', 'Bíblia');
+        $this->view($this->instance->getBible(false, false), 'bible', 'Bíblia');
     }
 
     /**
@@ -116,7 +116,7 @@ class Controller {
     public function search($text)
     {
         $this->instance = new Search();
-        $this->view($this->instance->search($text), 'search.html', 'Busca');
+        $this->view($this->instance->search($text), 'search', 'Busca');
     }
 
     /**
@@ -130,7 +130,7 @@ class Controller {
     public function bibleFilter($text, $partial, $books) 
     {
         $this->instance = new Bible();
-        $this->view($this->instance->bibleFilter($text, $partial, $books), 'filter.html', 'Filtro');
+        $this->view($this->instance->bibleFilter($text, $partial, $books), 'filter', 'Filtro');
     }
 
     /**
@@ -143,7 +143,7 @@ class Controller {
     public function textFilter($text, $doc) 
     {
         $this->instance = new Filter();
-        $this->view($this->instance->textFilter($text, $doc), 'filter.html', 'Filtro');
+        $this->view($this->instance->textFilter($text, $doc), 'filter', 'Filtro');
     }
 
     /**
@@ -157,9 +157,9 @@ class Controller {
     private function view($data, $page, $title = '', $paginate = null) {
         
         if (isset($data) && !empty($data)) {
-            echo $GLOBALS['twig']->render($page, ['data' => $data, 'title' => $title, 'paginate' => $paginate]);
+            echo $GLOBALS['blade']->render($page, ['data' => $data, 'title' => $title, 'paginate' => $paginate]);
         } else {
-            echo $GLOBALS['twig']->render('notFound.html');
+            echo $GLOBALS['blade']->render('notFound', ['title' => '404']);
         }
     }
 }

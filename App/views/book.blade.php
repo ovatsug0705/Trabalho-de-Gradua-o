@@ -1,32 +1,28 @@
-{% extends "layouts/app.html" %}
+@extends('layouts.app')
 
-{% block content %}
+@section('content')
 
-{% set data_page = 'bible' %}
-{% set chapter = data.0.chapter %}
-{% include "partials/webdoor.html" %}
+@include("partials.webdoor", ["data_page" => 'bible', 'chapter' => $data[0]['chapter']])
 
 <main class="c-document c-document--fix s-bible">
 	<div class="c-document__holder">
-		{% for item in data %}
-			<p id="{{ item.verser_number }}" class="c-document__paragraph">
+		@foreach ($data as $item)
+			<p id="{{ $item['verser_number'] }}" class="c-document__paragraph">
 				<span class="c-document__paragraph-number">
-					{{ item.verser_number }}
+					{{ $item['verser_number'] }}
 				</span>
-				{{ item.verser_text }}
-			</p>
-		{% endfor %}
+				{{ $item['verser_text'] }}
+			</p>	
+		@endforeach
 	</div>
-
-	{% set link = data.0.url_text %}
 	
 	<div class="c-document__paginate" data-bottom-btn>
-		{% if paginate != 1 %}
-			<a href="/biblia/{{ link }}/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
-		{% endif %}
-		{% if (paginate + 1) <= data.0.number_of_chapters  %}
-			<a href="/biblia/{{ link }}/{{ paginate + 1 }}" class="c-document__paginate-link">➜</a>
-		{% endif %}
+		@if($paginate != 1)
+			<a href="/biblia/{{ $data[0]['url_text'] }}/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
+		@endif
+		@if(($paginate + 1) <= ($data[0]['number_of_chapters']))
+			<a href="/biblia/{{ $data[0]['url_text'] }}/{{ $paginate + 1 }}" class="c-document__paginate-link">➜</a>
+		@endif
 	</div>
 </main>
 
@@ -76,10 +72,9 @@
 		</form>
 	</div>
 </aside>
+@endsection
 
-{% endblock %}
-
-{# <input type="radio" name="p" id="customized" value="customized">
+{{-- <input type="radio" name="p" id="customized" value="customized">
 <label for="customized">Customizado</label>
 
 <input type="checkbox" name="b[]" id="lucas" value="lucas">
@@ -91,4 +86,4 @@
 <pre>
 		{{ dump() }}
 	</pre>
-#}
+--}}

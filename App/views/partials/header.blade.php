@@ -4,11 +4,11 @@
       <span class="s-header__menu-button-content">Menu</span>
     </button>
     <a class="s-header__link" href="/">
-      {% if title %}
+      @if($title == 'home')
         <strong class="s-header__logo">Vida Cristã</strong>
-      {% else %}
+      @else
         <h1 class="s-header__logo">Vida Cristã</h1>
-      {% endif %}
+      @endif
     </a>
     
     <div class="s-header__actions">
@@ -17,7 +17,7 @@
         <button type="button" class="s-header__search-close hide" data-search-close>X</button>
         <button type="submit" class="s-header__submit-button icon-search" value="" data-search-submit></button>
       </form>
-      {% include "partials/actions.html" %}
+      @include('partials.actions')
     </div>
   </div>
 </header>

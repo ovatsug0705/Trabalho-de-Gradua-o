@@ -194,7 +194,6 @@
     @include color-theme(color, c-brown-dark);
     @include color-theme(background-color, c-white);
     text-align: center;
-    vertical-align: middle;
     font-size: 20px;
     font-weight: $bold-font;
     border: none;

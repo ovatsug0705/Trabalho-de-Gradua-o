@@ -6,7 +6,7 @@
   <meta author="Gustavo da Silva Gomes">
   <meta keywords="Bíblia, Catecismo, Encíclica">
   <meta name="theme-color" content="#000000">
-  <title>Vida Cristã - {{ title ? title : 'Home' }}</title>
+  <title>Vida Cristã - {{ $title ?? 'Home' }}</title>
   <link rel="stylesheet" type="text/css" href="/dist/styles/main.css">
   <link rel="manifest" href="/manifest.json">
   <link rel="icon" href="/dist/assets/img/favico/favicon.ico" sizes="16x16">
@@ -16,15 +16,13 @@
   <link rel="icon" href="/dist/assets/img/favico/pwa-512x512.png" sizes="512x512">
   <link rel="icon" href="/dist/assets/img/favico/apple-touch-icon-180x180.png" sizes="180x180">
 </head>
-{% if (title == 'Bíblia') or (title == 'Encíclicas papais') or (title == 'Busca') or (title == 'Filtro') or (title == null)%}
-  {% set class = 'class=no-filter' %}
-{% else %}
-  {% set class = '' %}
-{% endif %}
-<body {{ class }}>
-  {% include "partials/header.html" %}
-  {% include "partials/menu.html" %}
-  {% block content %}{% endblock %}
-  {% include "partials/footer.html" %}
+@if ($title == 'Bíblia' ?? $title == 'Encíclicas papais' ?? $title == 'Busca' ?? $title == 'Filtro' ?? $title == null)
+  @php $no_filter = 'class=no-filter'; @endphp
+@endif
+<body {{ $no_filter ?? '' }}>
+  @include("partials.header")
+  @include("partials.menu")
+  @yield('content')
+  @include("partials.footer")
   <script src="/dist/scripts/main.js" type="text/javascript" charset="utf-8" async defer></script>
 </body>

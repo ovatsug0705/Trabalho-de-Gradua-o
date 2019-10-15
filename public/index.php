@@ -13,20 +13,9 @@
  */
 
 require_once './../vendor/autoload.php';
+use Jenssegers\Blade\Blade;
 
-use Twig\Loader\FilesystemLoader;
-
-$loader = new Twig\Loader\FilesystemLoader([
-  'paths' => __DIR__ . '\..\App\views/'
-]);
-
-$GLOBALS['twig'] = new Twig\Environment($loader);
-
-//debug
-$GLOBALS['twig'] = new Twig\Environment($loader, [
-  'debug' => true,
-]);
-$GLOBALS['twig']->addExtension(new Twig\Extension\DebugExtension());
+$GLOBALS['blade'] = new Blade(__DIR__ . '\..\App\views/', __DIR__ . '\..\App\views/cache/');
 
 $dotenv = Dotenv\Dotenv::create(__DIR__);
 $dotenv->load();

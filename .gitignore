@@ -70,3 +70,4 @@ database_query.sql
 database.sql
 migration.php
 config/
+cache/
