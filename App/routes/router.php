@@ -125,11 +125,11 @@ class Router
                 $maxNumber = 2865;
                 break;
               case 'doutrina_social':
-                $paginate = 5;
+                $paginate = 20;
                 $maxNumber = 578;
                 break;
               case 'canodo':
-                $paginate = 5;
+                $paginate = 20;
                 $maxNumber = 1734;
                 break;
             }

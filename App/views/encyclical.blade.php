@@ -1,31 +1,30 @@
-{% extends "layouts/app.html" %}
+@extends('layouts.app')
 
-{% block content %}
+@section('content')
 
-{% set data_page = 'encyclical' %}
-{% include "partials/webdoor.html" %}
+@include("partials.webdoor", ["data_page" => 'encyclical'])
 
 <main class="c-document s-encyclic">
 	<div class="c-document__holder">
-		{% for item in data %}
-			<p id="{{ item.paragraph_number }}" class="c-document__paragraph">
-				<span class="c-document__paragraph-number">
-					{{ item.paragraph_number }}
-				</span>
-				{{ item.paragraph_text }}
-			</p>
-		{% endfor %}
+		@foreach($data as $item)
+		<p id="{{ $item['paragraph_number'] }}" class="c-document__paragraph">
+			<span class="c-document__paragraph-number">
+				{{ $item['paragraph_number'] }}
+			</span>
+			{{ $item['paragraph_text'] }}
+		</p>
+		@endforeach
 	</div>
-	{% set link = data.0.url_text %}
+		
 	<div class="c-document__paginate" data-bottom-btn>
-		{% if paginate != 1 %}
-			<a href="/enciclicas/{{ link }}/{{ paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
-		{% endif %}
-		{% if (paginate + 1) <= data.0.number_of_pages %}
-			<a href="/enciclicas/{{ link }}/{{ paginate + 1 }}" class="c-document__paginate-link">➜</a>
-		{% endif %}
+		@if($paginate != 1)
+			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
+		@endif
+		@if(($paginate + 1) <= ($data[0]['number_of_pages']))
+			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate + 1 }}" class="c-document__paginate-link">➜</a>
+		@endif
 	</div>
-	{% include "partials/references.html" %}
+	@include('partials.references')
 </main>
 
 <aside class="c-filter" data-filter>
@@ -38,4 +37,5 @@
 		</form>
 	</div>
 </aside>
-{% endblock %}
+
+@endsection

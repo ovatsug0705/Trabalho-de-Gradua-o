@@ -33,6 +33,11 @@
   &--encyclical {
     background-image: url('../assets/img/vatican.jpg');
   }
+
+  &--filter,
+  &--search, {
+    background-image: url('../assets/img/church.jpg');
+  }
 }
 
 .c-webdoor__title {
