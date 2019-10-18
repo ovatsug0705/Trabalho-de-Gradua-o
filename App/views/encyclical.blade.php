@@ -15,12 +15,11 @@
 		</p>
 		@endforeach
 	</div>
-		
 	<div class="c-document__paginate" data-bottom-btn>
 		@if($paginate != 1)
 			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
 		@endif
-		@if(($paginate + 1) <= ($data[0]['number_of_pages']))
+		@if(($paginate + 1) <= ($data[0]['number_of_paragraphs']))
 			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate + 1 }}" class="c-document__paginate-link">➜</a>
 		@endif
 	</div>
