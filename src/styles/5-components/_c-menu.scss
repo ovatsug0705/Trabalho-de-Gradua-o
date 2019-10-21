@@ -3,6 +3,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   @include color-theme(background-color, c-brown);
+  box-shadow: 0 7px 12px -5px rgba(0,0,0,0.5);
 }
 
 .c-menu__list {
