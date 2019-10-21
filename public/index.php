@@ -21,8 +21,6 @@ $dotenv->load();
 
 use App\Routes\Router;
 
-if($_ENV[""])
-
 if($_ENV['APP_ENVOINEMENT'] == 'Production') {
   require_once './../App/routes/router.php';
   require_once './../App/controllers/controller.php';
