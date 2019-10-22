@@ -42,7 +42,6 @@
 
 .c-document__paginate-link {
   text-decoration: none;
-  @include color-theme(color, c-white);
   @include color-theme(background-color, c-brown);
   font-size: rem(20);
   border-radius: 50%;
@@ -51,6 +50,20 @@
   margin-left: 7px;
   margin-right: 7px;
   z-index: $arrows;
+  position: relative;
+  box-shadow: 3px 5px 15px -5px;
+  color: $c-black;
+
+  &::before {
+    content: '➜';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    @include color-theme(color, c-white);
+    @include color-theme(background-color, c-brown);
+  }
 }
 
 @include respond-to(desktop) {
@@ -62,7 +75,9 @@
 }
 
 .c-document__paginate-link--fisrt {
-  transform: rotate(-180deg);
+  &::before {
+    transform: translate(-50%, -50%) rotate(-180deg);
+  }
 }
 
 @include respond-to(mobile-tablet) {

@@ -43,7 +43,7 @@
 }
 
 .c-boxes__item {
-	@include color-theme(color, c-brown-dark);
+	color: $c-black;
 	display: block;
 	text-decoration: none;
 	font-size: 0;

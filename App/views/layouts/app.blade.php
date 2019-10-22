@@ -16,8 +16,8 @@
   <link rel="icon" href="/dist/assets/img/favico/pwa-512x512.png" sizes="512x512">
   <link rel="icon" href="/dist/assets/img/favico/apple-touch-icon-180x180.png" sizes="180x180">
 </head>
-@if ($title == 'Bíblia' ?? $title == 'Encíclicas papais' ?? $title == 'Busca' ?? $title == 'Filtro' ?? $title == null)
-  @php $no_filter = 'class=no-filter'; @endphp
+@if ($title == 'Bíblia' || $title == 'Encíclicas papais' || $title == 'Busca' || $title == 'Filtro' || $title == null || $title == 'Home')
+@php $no_filter = 'class=no-filter'; @endphp
 @endif
 <body {{ $no_filter ?? '' }}>
   @include("partials.header")
@@ -25,4 +25,20 @@
   @yield('content')
   @include("partials.footer")
   <script src="/dist/scripts/main.js" type="text/javascript" charset="utf-8" async defer></script>
+  <script type="text/javascript" charset="utf-8" async defer>
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("[PWA Builder] active service worker found, no need to register");
+      } else {
+    // Register the service worker
+    navigator.serviceWorker
+    .register("pwabuilder-sw.js", {
+      scope: "./"
+    })
+    .then(function (reg) {
+      console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+    });
+  }
+}
+</script>
 </body>

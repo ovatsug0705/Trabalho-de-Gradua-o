@@ -9,17 +9,39 @@ function FontSize() {
   }
 
   function addBodyClass() {
-    root.classList.contains('increased-font') ? root.classList.add('increased-font-2') :
-    root.classList.add('increased-font');
+    if(root.classList.contains('increased-font')) {
+      root.classList.add('increased-font-2');
+      localStorage.setItem('increased-font', '2')
+    } else {
+      root.classList.add('increased-font');
+      localStorage.setItem('increased-font', '1')
+    }
+    
   }
 
   function removeBodyClass(){
-    root.classList.contains('increased-font-2') ? root.classList.remove('increased-font-2') :
-    root.classList.remove('increased-font');
+    if(root.classList.contains('increased-font-2')) {
+      root.classList.remove('increased-font-2');
+      localStorage.setItem('increased-font', '1');
+    } else {
+      root.classList.remove('increased-font');
+      localStorage.setItem('increased-font', '0');
+    }
+  }
+
+  function checkLocalStorage() {
+    console.log('test', localStorage.getItem('increased-font'));
+    if(localStorage.getItem('increased-font') === '2') {
+      root.classList.add('increased-font');
+      root.classList.add('increased-font-2');
+    } else if(localStorage.getItem('increased-font') === '1') {
+      root.classList.add('increased-font');
+    }
   }
 
   function init() {
     setupListeners();
+    checkLocalStorage();
   }
 
   init();

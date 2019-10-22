@@ -76,13 +76,11 @@
     padding-top: 40px;
     width: 100%;
   }
-  
-  .c-menu__list-item {
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
 
   .c-menu__list-link {
     font-weight: $bold-font;
+    display: block;    
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
 }
