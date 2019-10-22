@@ -35,11 +35,11 @@
 	</div>
 	<div class="c-document__paginate" data-bottom-btn>
 		@if($paginate != 1)
-			<a href="/catecismo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
+			<a href="/catecismo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt"></a>
 		@endif
 		<!-- provisory, correct is 144 -->
 		@if($paginate < 3)
-			<a href="/catecismo/{{ $paginate + 1 }}" class="c-document__paginate-link">➜</a>
+			<a href="/catecismo/{{ $paginate + 1 }}" class="c-document__paginate-link"></a>
 		@endif
 	</div>
 	@include('partials.references')

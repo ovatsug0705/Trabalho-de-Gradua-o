@@ -35,11 +35,11 @@
 	</div>
 	<div class="c-document__paginate" data-bottom-btn>
 		@if($paginate != 1)
-			<a href="/canodo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
+			<a href="/canodo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt"></a>
 		@endif
 		<!-- provisory, correct is 87 -->
 		@if($paginate < 4)
-			<a href="/canodo/{{ $paginate + 1 }}" class="c-document__paginate-link">➜</a>
+			<a href="/canodo/{{ $paginate + 1 }}" class="c-document__paginate-link"></a>
 		@endif
 	</div>
 	@include('partials.references')

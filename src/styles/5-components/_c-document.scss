@@ -53,6 +53,8 @@
   position: relative;
   box-shadow: 3px 5px 15px -5px;
   color: $c-black;
+  height: 45px;
+  width: 45px;
 
   &::before {
     content: '➜';

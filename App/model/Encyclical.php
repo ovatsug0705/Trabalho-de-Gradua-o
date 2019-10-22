@@ -33,7 +33,7 @@ class Encyclical {
      */
     public function getEncyclical($encyclical, $page){
         if (!$encyclical) {
-            $sql = 'select distinct pontiff from encyclical';
+            $sql = 'select distinct pontiff from Encyclical';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->execute();

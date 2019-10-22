@@ -17,10 +17,10 @@
 	</div>
 	<div class="c-document__paginate" data-bottom-btn>
 		@if($paginate != 1)
-			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
+			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt"></a>
 		@endif
 		@if(($data[0]['number_of_paragraphs'] / 20) > ($paginate))
-			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate + 1 }}" class="c-document__paginate-link">➜</a>
+			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate + 1 }}" class="c-document__paginate-link"></a>
 		@endif
 	</div>
 	@include('partials.references')
