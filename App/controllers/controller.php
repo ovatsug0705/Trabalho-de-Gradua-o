@@ -1,13 +1,13 @@
 <?php
-namespace App\controllers;
+namespace App\Controllers;
 
-use App\model\Cano;
-use App\model\Bible;
-use App\model\Filter;
-use App\model\Search;
-use App\model\Catechism;
-use App\model\Encyclical;
-use App\model\SocialDoctrine;
+use App\Model\Cano;
+use App\Model\Bible;
+use App\Model\Filter;
+use App\Model\Search;
+use App\Model\Catechism;
+use App\Model\Encyclical;
+use App\Model\SocialDoctrine;
 
 /**
  * Controller with aplication

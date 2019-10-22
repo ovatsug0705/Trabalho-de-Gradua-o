@@ -1,8 +1,8 @@
 <?php
 
-namespace App\routes;
+namespace App\Routes;
 
-use App\controllers\Controller;
+use App\Controllers\Controller;
 
 /**
  * Router with aplication

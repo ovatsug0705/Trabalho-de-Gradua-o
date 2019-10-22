@@ -19,7 +19,7 @@
 		@if($paginate != 1)
 			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">➜</a>
 		@endif
-		@if(($paginate + 1) <= ($data[0]['number_of_paragraphs']))
+		@if(($data[0]['number_of_paragraphs'] / 20) > ($paginate))
 			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate + 1 }}" class="c-document__paginate-link">➜</a>
 		@endif
 	</div>
