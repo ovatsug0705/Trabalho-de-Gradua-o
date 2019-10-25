@@ -18,10 +18,10 @@
 	
 	<div class="c-document__paginate" data-bottom-btn>
 		@if($paginate != 1)
-			<a href="/biblia/{{ $data[0]['url_text'] }}/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt"></a>
+			<a href="/biblia/{{ $data[0]['url_text'] }}/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">before</a>
 		@endif
 		@if(($paginate + 1) <= ($data[0]['number_of_chapters']))
-			<a href="/biblia/{{ $data[0]['url_text'] }}/{{ $paginate + 1 }}" class="c-document__paginate-link"></a>
+			<a href="/biblia/{{ $data[0]['url_text'] }}/{{ $paginate + 1 }}" class="c-document__paginate-link">after</a>
 		@endif
 	</div>
 </main>
@@ -44,7 +44,7 @@
 				<label for="new" class="c-filter__form-text">Novo testamento</label>
 			</div>
 			<div class="c-filter__input-holder">
-				<input type="text" required class="c-filter__form-input" placeholder="Ex: Deus, fé" name="t" id="bibleText">
+				<input type="text" required class="c-filter__form-input" placeholder="Ex: Deus" name="t" id="bibleText">
 				<input type="submit" class="c-filter__form-submit" value="ok">
 			</div>
 		</form>

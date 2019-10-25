@@ -35,11 +35,11 @@
 	</div>
 	<div class="c-document__paginate" data-bottom-btn>
 		@if($paginate != 1)
-			<a href="/catecismo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt"></a>
+			<a href="/catecismo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">before</a>
 		@endif
 		<!-- provisory, correct is 144 -->
 		@if($paginate < 3)
-			<a href="/catecismo/{{ $paginate + 1 }}" class="c-document__paginate-link"></a>
+			<a href="/catecismo/{{ $paginate + 1 }}" class="c-document__paginate-link">after</a>
 		@endif
 	</div>
 	@include('partials.references')
@@ -50,14 +50,14 @@
 	<div class="c-filter__form-holder">
 		<form action="/filtro/catecismo" class="c-filter__form">
 			<label for="catechismText" class="c-filter__form-label">Procure no Catecismo</label>
-			<input type="text" class="c-filter__form-input" placeholder="Ex: igreja, fé" name="t" id="catechismText">
+			<input required minlength="3" type="text" class="c-filter__form-input" placeholder="Ex: igreja, fé" name="t" id="catechismText">
 			<input type="submit" class="c-filter__form-submit" value="ok">
 		</form>
 	</div>
 	<div class="c-filter__form-holder">
 		<form action="/filtro/catecismo" class="c-filter__form">
 			<label class="c-filter__form-label" for="catechismNumber">Encontre por número</label>
-			<input type="number" class="c-filter__form-input c-filter__form-input--num" step="0" min="1" max="2865" name="n" id="catechismNumber">
+			<input required type="number" class="c-filter__form-input c-filter__form-input--num" step="0" min="1" max="2865" name="n" id="catechismNumber">
 			<input type="submit" class="c-filter__form-submit" value="ok">
 		</form>
 	</div>

@@ -35,11 +35,11 @@
 	</div>
 	<div class="c-document__paginate" data-bottom-btn>
 		@if($paginate != 1)
-			<a href="/canodo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt"></a>
+			<a href="/canodo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">before</a>
 		@endif
 		<!-- provisory, correct is 87 -->
 		@if($paginate < 4)
-			<a href="/canodo/{{ $paginate + 1 }}" class="c-document__paginate-link"></a>
+			<a href="/canodo/{{ $paginate + 1 }}" class="c-document__paginate-link">after</a>
 		@endif
 	</div>
 	@include('partials.references')
@@ -50,14 +50,14 @@
 	<div class="c-filter__form-holder">
 		<form action="/filtro/canodo" class="c-filter__form">
 			<label for="canoText" class="c-filter__form-label">Procure no Código de Direito Canônico</label>
-			<input type="text" class="c-filter__form-input" placeholder="Ex: igreja, fé" name="t" id="canoText">
+			<input required minlength="3" type="text" class="c-filter__form-input" placeholder="Ex: igreja" name="t" id="canoText">
 			<input type="submit" class="c-filter__form-submit" value="ok">
 		</form>
 	</div>
 	<div class="c-filter__form-holder">
 		<form action="/filtro/canodo" class="c-filter__form">
 			<label class="c-filter__form-label" for="canoNumber">Encontre por número</label>
-			<input type="number" class="c-filter__form-input c-filter__form-input--num" step="0" min="1" max="1734" name="n" id="canoNumber">
+			<input required type="number" class="c-filter__form-input c-filter__form-input--num" step="0" min="1" max="1734" name="n" id="canoNumber">
 			<input type="submit" class="c-filter__form-submit" value="ok">
 		</form>
 	</div>

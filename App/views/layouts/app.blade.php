@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta author="Gustavo da Silva Gomes">
   <meta keywords="Bíblia, Catecismo, Encíclica">
-  <meta name="theme-color" content="#000000">
+  <meta name="theme-color" content="#260e04">
+  <meta name="description" content="Facilitando o acesso do Cristão aos documentos fundamentais de sua fé.">
   <title>Vida Cristã - {{ $title ?? 'Home' }}</title>
   <link rel="stylesheet" type="text/css" href="/dist/styles/main.css">
   <link rel="manifest" href="/manifest.json">
@@ -26,19 +27,48 @@
   @include("partials.footer")
   <script src="/dist/scripts/main.js" type="text/javascript" charset="utf-8" async defer></script>
   <script type="text/javascript" charset="utf-8" async defer>
-    if ("serviceWorker" in navigator) {
-      if (navigator.serviceWorker.controller) {
-        console.log("[PWA Builder] active service worker found, no need to register");
-      } else {
-    // Register the service worker
-    navigator.serviceWorker
-    .register("pwabuilder-sw.js", {
-      scope: "./"
-    })
-    .then(function (reg) {
-      console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
-    });
-  }
-}
-</script>
+  //This is the "Offline copy of pages" service worker
+
+  //Install stage sets up the index page (home page) in the cache and opens a new cache
+  self.addEventListener('install', function(event) {
+    var indexPage = new Request('https://vidacrista2.000webhostapp.com');
+    event.waitUntil(
+      fetch(indexPage).then(function(response) {
+        return caches.open('pwabuilder-offline').then(function(cache) {
+          console.log('[PWA Builder] Cached index page during Install'+ response.url);
+          return cache.put(indexPage, response);
+        });
+    }));
+  });
+  
+  //If any fetch fails, it will look for the request in the cache and serve it from there first
+  self.addEventListener('fetch', function(event) {
+    var updateCache = function(request){
+      return caches.open('pwabuilder-offline').then(function (cache) {
+        return fetch(request).then(function (response) {
+          console.log('[PWA Builder] add page to offline'+response.url)
+          return cache.put(request, response);
+        });
+      });
+    };
+  
+    event.waitUntil(updateCache(event.request));
+  
+    event.respondWith(
+      fetch(event.request).catch(function(error) {
+        console.log( '[PWA Builder] Network request Failed. Serving content from cache: ' + error );
+  
+        //Check to see if you have it in the cache
+        //Return response
+        //If not in the cache, then return error page
+        return caches.open('pwabuilder-offline').then(function (cache) {
+          return cache.match(event.request).then(function (matching) {
+            var report =  !matching || matching.status == 404?Promise.reject('no-match'): matching;
+            return report
+          });
+        });
+      })
+    );
+  })
+  </script>
 </body>
