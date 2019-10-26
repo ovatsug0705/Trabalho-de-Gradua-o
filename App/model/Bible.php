@@ -49,7 +49,7 @@ class Bible {
 
             return $stmt->fetchAll(\PDO::FETCH_ASSOC);
         } else {
-            $sql = 'select book_name, verser_number, chapter, verser_text, url_text, (select max(chapter) from Verser) as number_of_chapters from Books inner join verser on Books.id_book = Verser.id_book where Books.url_text = :url and chapter = :chapter group by verser_number order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
+            $sql = 'select book_name, verser_number, chapter, verser_text, url_text, (select max(chapter) from Verser) as number_of_chapters from Books inner join Verser on Books.id_book = Verser.id_book where Books.url_text = :url and chapter = :chapter group by verser_number order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
 
             $stmt = $this->connection->prepare($sql);
             $stmt->bindValue(':url', $book);
@@ -83,7 +83,7 @@ class Bible {
                 return false;
             }
             
-            $sql = "select book_name, url_text, chapter, verser_number, verser_text from Books inner join verser on Books.id_book = Verser.id_book where Verser_text like :text and ({$string}) order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)";
+            $sql = "select book_name, url_text, chapter, verser_number, verser_text from Books inner join Verser on Books.id_book = Verser.id_book where Verser_text like :text and ({$string}) order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)";
 
             $stmt = $this->connection->prepare($sql);
         } else {

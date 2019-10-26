@@ -16,6 +16,14 @@
   <link rel="icon" href="/dist/assets/img/favico/pwa-192x192.png" sizes="192x192">
   <link rel="icon" href="/dist/assets/img/favico/pwa-512x512.png" sizes="512x512">
   <link rel="icon" href="/dist/assets/img/favico/apple-touch-icon-180x180.png" sizes="180x180">
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Vida Cristã - {{ $title ?? 'Home' }}" />
+  <meta property="og:description" content="Facilitando o acesso do cristão aos documentos fundamentais de sua fé." />
+  <meta property="og:image" content="https://vidacrista2.000webhostapp.com/dist/assets/img/church.jpg" />
+  <meta property="og:url" content="{{ $full_url }}" />
+  <meta name="msapplication-TileColor" content="#260e04">
+  <meta name="msapplication-TileImage" content="https://vidacrista2.000webhostapp.com/dist/assets/img/church.jpg">
 </head>
 @if ($title == 'Bíblia' || $title == 'Encíclicas papais' || $title == 'Busca' || $title == 'Filtro' || $title == null || $title == 'Home')
 @php $no_filter = 'class=no-filter'; @endphp

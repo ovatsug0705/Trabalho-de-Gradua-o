@@ -155,9 +155,9 @@ class Controller {
      * @param string $paginate number of page to show
      */
     private function view($data, $page, $title = '', $paginate = null) {
-        
+        $full_url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
         if (isset($data) && !empty($data)) {
-            echo $GLOBALS['blade']->render($page, ['data' => $data, 'title' => $title, 'paginate' => $paginate]);
+            echo $GLOBALS['blade']->render($page, ['data' => $data, 'title' => $title, 'paginate' => $paginate, 'full_url' => $full_url]);
         } else {
             echo $GLOBALS['blade']->render('notFound', ['title' => '404']);
         }

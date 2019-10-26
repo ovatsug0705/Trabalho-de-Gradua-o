@@ -33,7 +33,8 @@
 			</p>
 		@endforeach
 	</div>
-	<div class="c-document__paginate" data-bottom-btn>
+	@include("partials.socials", ["text" => "Leia o Código de Direito Canônico no site Vida Cristã. Acesse agora: "])
+	<div class="c-document__paginate" data-bottom-btn>	
 		@if($paginate != 1)
 			<a href="/canodo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">before</a>
 		@endif

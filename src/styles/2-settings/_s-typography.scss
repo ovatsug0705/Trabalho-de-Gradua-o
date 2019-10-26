@@ -80,6 +80,14 @@
   content: "\e907";
 }
 
+.icon-facebook::before {
+  content: "\ea91";
+}
+
+.icon-twitter::before {
+  content: "\ea96";
+}
+
 $main-font: 'Roboto', sans-serif;
 $title-font: 'CrimsonPro', sans-serif;
 $bold-font: 600;
