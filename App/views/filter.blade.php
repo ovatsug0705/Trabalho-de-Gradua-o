@@ -57,7 +57,7 @@
 			@endforeach
 		@endif
 
-		@if ($data['doc'] == 'biblia')
+		@if ($data['doc'] == 'enciclica')
 			@foreach ($data['content'] as $item)
 				@php
 					if($item['paragraph_number'] % 20 == 0) {

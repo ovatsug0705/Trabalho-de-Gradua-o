@@ -21,7 +21,7 @@ $dotenv->load();
 
 use App\Routes\Router;
 
-if($_ENV['APP_ENVOINEMENT'] == 'production') {
+if($_ENV['APP_ENVIRONMENT'] == 'production') {
   require_once './../App/routes/router.php';
   require_once './../App/controllers/controller.php';
   require_once './../App/model/DatabaseConnection.php';

@@ -15,6 +15,7 @@
 		</p>
 		@endforeach
 	</div>
+	@include("partials.socials", ["text" => "Leia a encíclica {$title} no site Vida Cristã. Acesse agora: "])
 	<div class="c-document__paginate" data-bottom-btn>
 		@if($paginate != 1)
 			<a href="/enciclicas/{{ $data[0]['url_text'] }}/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">before</a>
