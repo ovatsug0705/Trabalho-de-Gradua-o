@@ -88,6 +88,14 @@
   content: "\ea96";
 }
 
+.icon-arrow::before {
+  content: "\ea41";
+}
+
+.icon-pencil::before {
+  content: "\e908";
+}
+
 $main-font: 'Roboto', sans-serif;
 $title-font: 'CrimsonPro', sans-serif;
 $bold-font: 600;

@@ -1,25 +1,25 @@
 .c-filter {
-  position: absolute;
+  position: fixed;
   right: calc((100vw - 1170px) / 2);
-  top: 22vh;
+  top: 20vh;
   width: 380px;
   @include color-theme(background-color, c-brown-dark);
   border-radius: 5px;
   text-align: center;
-  padding: 35px 15px;
+  padding: 20px 15px;
   box-shadow: 2px 7px 12px -5px rgba(0,0,0,.5);
 }
 
 .c-filter__form-holder {
   display: block;
-  padding: 15px;
+  padding: 5px 15px;
 }
 
 .c-filter__form-label {
   text-align: center;
   @include color-theme(color, c-white);
-  padding-bottom: 20px;
-  font-size: rem(20);
+  padding-bottom: 12px;
+  font-size: 20px;
   font-family: $main-font;
   display: block;
 }
@@ -29,8 +29,8 @@
 }
 
 .c-filter__form-input {
-  font-size: rem(18);
-  height: rem(30);
+  font-size: 18px;
+  height: 30px;
   padding-left: 10px;
   width: 85%;
   display: inline-block;
@@ -50,8 +50,8 @@
   @include color-theme(color, c-white);
   @include color-theme(border-color, c-white);
   display: inline-block;
-  height: rem(30);
-  width: rem(30);
+  height: 30px;
+  width: 30px;
   vertical-align: bottom;
   border-width: 2px;
   border-style: solid; 
@@ -79,7 +79,7 @@
 
 .c-filter__input-holder {
   text-align: left;
-  padding: 10px;
+  padding: 5px 10px;
 }
 
 .c-filter__form-radio {

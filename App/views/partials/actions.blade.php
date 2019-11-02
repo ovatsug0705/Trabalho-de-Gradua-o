@@ -4,7 +4,7 @@
     <button type="button" class="c-actions__button icon-bucket" data-themes-button></button>
     <button type="button" class="c-actions__button" data-font-decrease>A<sup>-</sup></button>
     <button type="button" class="c-actions__button" data-font-increase>A<sup>+</sup></button>
-    <button type="button" class="c-actions__button icon-gear" data-show-actions></button>
+    <button type="button" class="c-actions__button icon-pencil" data-show-actions></button>
   </div>
 </div>
 <div class="c-actions__themes" data-themes>

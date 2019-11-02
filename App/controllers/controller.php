@@ -127,10 +127,10 @@ class Controller {
      * @param string/null $books name of the books of bible to be sought (if it is passed)
      * @return void
      */
-    public function bibleFilter($text, $partial, $books) 
+    public function bibleFilter($text, $partial, $books, $page) 
     {
         $this->instance = new Bible();
-        $this->view($this->instance->bibleFilter($text, $partial, $books), 'filter', 'Filtro');
+        $this->view($this->instance->bibleFilter($text, $partial, $books, $page), 'filter', 'Filtro', $page);
     }
 
     /**
@@ -140,10 +140,10 @@ class Controller {
      * @param string $doc name of the document where the search will be performed
      * @return void
      */
-    public function textFilter($text, $doc) 
+    public function textFilter($text, $doc, $page) 
     {
         $this->instance = new Filter();
-        $this->view($this->instance->textFilter($text, $doc), 'filter', 'Filtro');
+        $this->view($this->instance->textFilter($text, $doc, $page), 'filter', 'Filtro', $page);
     }
 
     /**

@@ -69,7 +69,7 @@ class Bible {
      * @param string $books name of the books of bible to be sought
      * @return PDO
      */
-    public function bibleFilter($text, $partial, $books){
+    public function bibleFilter($text, $partial, $books, $page){
         if ($partial == 'customized') {
             $string = '';
             if($books){
@@ -114,6 +114,13 @@ class Bible {
         $data['content'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         $data['doc'] = 'biblia';
         $data['text'] = $text;
+
+        $data['count'] = count($data['content']);
+
+        if ($data['count'] > 20) {
+            $data['content'] = array_slice($data['content'], (($page - 1) * 20), 20);
+        }
+
         return $data;
     }
 }

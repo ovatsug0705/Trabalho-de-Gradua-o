@@ -38,8 +38,7 @@
 		@if($paginate != 1)
 			<a href="/catecismo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">before</a>
 		@endif
-		<!-- provisory, correct is 144 -->
-		@if($paginate < 3)
+		@if(($data[0]['count_paragraph'] / 20) > ($paginate))
 			<a href="/catecismo/{{ $paginate + 1 }}" class="c-document__paginate-link">after</a>
 		@endif
 	</div>

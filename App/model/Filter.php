@@ -32,7 +32,7 @@ class Filter {
      * @param string $doc name of the document
      * @return PDO
      */
-    public function textFilter($text, $doc)
+    public function textFilter($text, $doc, $page)
     {
     	switch ($doc) {
     		case 'enciclica':
@@ -41,7 +41,7 @@ class Filter {
     		case 'canodo':
     			$sql = 'select paragraph_number, paragraph_text from Canos where paragraph_text like :text';
     			break;
-    		case 'doutrina_social':
+    		case 'doutrina-social':
     			$sql = 'select paragraph_number, paragraph_text from Social_doctrine where paragraph_text like :text';
     			break;
     		case 'catecismo':
@@ -59,6 +59,12 @@ class Filter {
         $this->data['doc'] = $doc;
         $this->data['content'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
         $this->data['text'] = $text;
+
+        $this->data['count'] = count($this->data['content']);
+
+        if ($this->data['count'] > 20) {
+            $this->data['content'] = array_slice($this->data['content'], (($page - 1) * 20), 20);
+        }
 
         return $this->data;
     }

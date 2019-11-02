@@ -35,7 +35,7 @@ class Catechism {
         $endParagraph = $page * 20;
         $initialParagraph = $endParagraph - 20;
 
-        $sql = 'select paragraph_number, paragraph_text, paragraph_partial, paragraph_section, paragraph_chapter, paragraph_article, paragraph_title, ref_text, (select max(paragraph_number) from Catechism) as max_paragraph from Catechism left join Catechism_references on Catechism.id_catechism = Catechism_references.id_catechism where paragraph_number > (:iId) and paragraph_number <= (:eId) order by CAST(paragraph_number AS unsigned)';
+        $sql = 'select paragraph_number, paragraph_text, paragraph_partial, paragraph_section, paragraph_chapter, paragraph_article, paragraph_title, ref_text, (select count(id_catechism) from Catechism) as count_paragraph from Catechism left join Catechism_references on Catechism.id_catechism = Catechism_references.id_catechism where paragraph_number > (:iId) and paragraph_number <= (:eId) order by CAST(paragraph_number AS unsigned)';
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':iId', $initialParagraph);

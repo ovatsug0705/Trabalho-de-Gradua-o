@@ -51,7 +51,7 @@
 
     @if (empty($data['books']) and empty($data['cano']) and empty($data['catechism']) and empty($data['encyclical']) and empty($data['social_doctrine']))
       <div class="s-search__row">
-         <strong class="s-search__error">Desculpe não encontramos a sua busca :(</strong>
+         <strong class="s-search__error">Desculpe não encontramos a sua busca.</strong>
       </div>
     @endif
   </div>

@@ -38,8 +38,7 @@
 		@if($paginate != 1)
 			<a href="/canodo/{{ $paginate - 1 }}" class="c-document__paginate-link c-document__paginate-link--fisrt">before</a>
 		@endif
-		<!-- provisory, correct is 87 -->
-		@if($paginate < 4)
+		@if(($data[0]['count_paragraph'] / 20) > ($paginate))
 			<a href="/canodo/{{ $paginate + 1 }}" class="c-document__paginate-link">after</a>
 		@endif
 	</div>

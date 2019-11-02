@@ -13,7 +13,7 @@
       <a class="c-menu__list-link" href="/enciclicas">Enciclicas</a>
     </li>
     <li class="c-menu__list-item">
-      <a class="c-menu__list-link" href="/doutrina_social">Doutrina Social</a>      
+      <a class="c-menu__list-link" href="/doutrina-social">Doutrina Social</a>      
     </li>
     <li class="c-menu__list-item">
       <a class="c-menu__list-link" href="/canodo">Código de Direito Canônico</a>

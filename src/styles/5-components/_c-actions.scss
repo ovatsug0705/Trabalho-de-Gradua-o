@@ -162,7 +162,17 @@
         }
 
         &:nth-child(5) {
-          transform: rotate(360deg);
+          // @include color-theme(background-color, c-white); 
+          // @include color-theme(border-color, c-brown-dark);
+          // border-width: 1px;
+          // border-style: solid;
+
+          &::before {
+            content: 'X';
+            font-family: $main-font;
+            font-size: 28px;
+            // @include color-theme(color, c-brown-dark);
+          }
         }
       }
     }
@@ -218,6 +228,11 @@
       transition: transform ease-in-out;
       transition-duration: 0.3s;
       opacity: 1;
+
+      &::before {
+        font-size: 24px;
+        line-height: 24px;
+      }
     }
   }
 

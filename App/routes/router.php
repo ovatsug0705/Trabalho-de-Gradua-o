@@ -25,6 +25,7 @@ class Router
    */
   public function __construct()
   {
+
     $this->verifyUrl();
     $this->routing();
   }
@@ -75,7 +76,7 @@ class Router
           $instance->reqCano(!empty($this->url[1]) ? $this->url[1] : 1);
           break;
         }
-      case 'doutrina_social':
+      case 'doutrina-social':
         if (count($this->url) <= 2) {
           $instance->reqSocialDoctrine(!empty($this->url[1]) ? $this->url[1] : 1);
           break;
@@ -110,12 +111,12 @@ class Router
       case 'filtro':
         if (!empty($this->url[1])) {
           if (($this->url[1] == 'biblia') && !empty($_GET['t']) && !empty($_GET['p'])) {
-            $instance->bibleFilter($_GET['t'], $_GET['p'], !empty($_GET['b']) ? $_GET['b'] : null);
+            $instance->bibleFilter($_GET['t'], $_GET['p'], !empty($_GET['b']) ? $_GET['b'] : null, !empty($this->url[2]) ? $this->url[2] : 1);
             break;
           } else if (($this->url[1] == 'pas') && !empty($_GET['l']) && !empty($_GET['c'])) {
             header("Location: /biblia/{$_GET['l']}/{$_GET['c']}");
           } else if (!empty($_GET['t'])) {
-            $instance->textFilter($_GET['t'], $this->url[1]);
+            $instance->textFilter($_GET['t'], $this->url[1], !empty($this->url[2]) ? $this->url[2] : 1);
             break;
           } else if (!empty($_GET['n'])) {
 
@@ -124,7 +125,7 @@ class Router
                 $paginate = 20;
                 $maxNumber = 2865;
                 break;
-              case 'doutrina_social':
+              case 'doutrina-social':
                 $paginate = 20;
                 $maxNumber = 578;
                 break;

@@ -54,12 +54,6 @@ class Search {
       $data['text'] = $text;
 
       return $data;
-
-      // if(empty($data['books']) && empty($data['encyclical']) && !$data['cano'] && !$data['catechism'] && !$data['social_doctrine']) {
-      //   return null;
-      // } else {
-      //   return $data;
-      // }
     }
   }
 }

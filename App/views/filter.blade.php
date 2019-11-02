@@ -2,18 +2,18 @@
 
 @section('content')
 
-@include("partials.webdoor", ["data_page" => 'filter'])
+@include("partials.webdoor", ["data_page" => 'filter', "data-doc" => $data['doc']])
 
 <main class="content s-search">
   <div class="s-search_container">
-		<span class="s-search__desc s-search__desc--highlight">Resultados da Filtragem por: <strong>{{ $data['text'] }}</strong></span>
+		<span class="s-search__desc s-search__desc--highlight"><strong>{{ $data['count'] }}</strong> resultados da Filtragem por: <strong>{{ $data['text'] }}</strong></span>
 		@if (empty($data['content']))
 			<div class="s-search__row">
-				<strong class="s-search__error">Desculpe não encontramos a sua busca :(</strong>
+				<strong class="s-search__error">Desculpe não encontramos a sua busca.</strong>
 			</div>
 		@endif
 
-		@if ($data['doc'] == 'catecismo' or $data['doc'] == 'canodo' or $data['doc'] == 'doutrina_social')
+		@if ($data['doc'] == 'catecismo' or $data['doc'] == 'canodo' or $data['doc'] == 'doutrina-social')
 			@foreach ($data['content'] as $item)
 				@php
 					if($item['paragraph_number'] % 20 == 0) {
@@ -27,7 +27,7 @@
 						<span class="c-document__highlight">
 							@if( $data['doc'] == 'catecismo')Catecismo @endif
 							@if( $data['doc'] == 'canodo')Código de Direito Canônico @endif
-							@if( $data['doc'] == 'doutrina_social')Doutrina Social @endif
+							@if( $data['doc'] == 'doutrina-social')Doutrina Social @endif
 						 - {{ $item['paragraph_number'] }}
 						</span>
 						<p class="c-document__paragraph">
@@ -79,7 +79,17 @@
 				</div>
 			@endforeach
 		@endif
-
+  </div>
+  <div class="c-document__paginate" data-bottom-btn>
+  	@php
+  		$query_string = substr($_SERVER['QUERY_STRING'], strpos($_SERVER['QUERY_STRING'], '&') + 1);
+  	@endphp
+		@if($paginate != 1)
+			<a href="/filtro/{{ $data['doc'] }}/{{ $paginate - 1 }}/?{{ $query_string }}" class="c-document__paginate-link c-document__paginate-link--fisrt">before</a>
+		@endif
+		@if(($data['count'] / 20) > ($paginate))
+			<a href="/filtro/{{ $data['doc'] }}/{{ $paginate + 1 }}/?{{ $query_string }}" class="c-document__paginate-link">after</a>
+		@endif
   </div>
 </main>
 
