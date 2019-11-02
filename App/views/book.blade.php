@@ -44,7 +44,7 @@
 				<label for="new" class="c-filter__form-text">Novo testamento</label>
 			</div>
 			<div class="c-filter__input-holder">
-				<input type="text" required class="c-filter__form-input" placeholder="Ex: Deus" name="t" id="bibleText">
+				<input minlength="3" required type="text" class="c-filter__form-input" placeholder="Ex: Deus" name="t" id="bibleText">
 				<input type="submit" class="c-filter__form-submit" value="ok">
 			</div>
 		</form>
