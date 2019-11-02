@@ -58,8 +58,8 @@
 	text-align: center;
 	box-shadow: inset 650px 0 750px -600px;
 	background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
+	background-position: center center;
+	background-repeat: no-repeat;
 	width: 100%;
 	height: 100%;
 	cursor: pointer;
@@ -70,28 +70,28 @@
 	}
 
 	&--catechism {
-    background-image: url('../assets/img/holy-spirit.jpg');
-  }
+		background-image: url('../assets/img/holy-spirit.webp');
+	}
 
-  &--cano {
-    background-image: url('../assets/img/church.jpg');
-  }
+	&--cano {
+		background-image: url('../assets/img/church.webp');
+	}
 
-  &--social-doctrine {
-    background-image: url('../assets/img/comunhao.jpg');
-  }
+	&--social-doctrine {
+		background-image: url('../assets/img/comunhao.webp');
+	}
 
-  &--cano {
-    background-image: url('../assets/img/christ-mosaic.webp');
-  }
+	&--cano {
+		background-image: url('../assets/img/christ-mosaic.webp');
+	}
 
-  &--bible {
-    background-image: url('../assets/img/bible.jpg');
-  }
+	&--bible {
+		background-image: url('../assets/img/bible.webp');
+	}
 
-  &--encyclical {
-    background-image: url('../assets/img/vatican.jpg');
-  }
+	&--encyclical {
+		background-image: url('../assets/img/vatican.webp');
+	}
 }
 
 @include respond-to(mobile) {

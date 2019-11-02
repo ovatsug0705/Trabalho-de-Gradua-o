@@ -28,7 +28,7 @@
   }
 
   &.icon-filter,
-  &.icon-gear {
+  &.icon-pencil {
     display: none;
   }
 }
@@ -162,16 +162,10 @@
         }
 
         &:nth-child(5) {
-          // @include color-theme(background-color, c-white); 
-          // @include color-theme(border-color, c-brown-dark);
-          // border-width: 1px;
-          // border-style: solid;
-
           &::before {
             content: 'X';
             font-family: $main-font;
             font-size: 28px;
-            // @include color-theme(color, c-brown-dark);
           }
         }
       }
