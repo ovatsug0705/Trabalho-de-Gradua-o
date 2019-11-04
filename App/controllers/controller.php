@@ -95,7 +95,7 @@ class Controller {
         $this->instance = new Bible();
         $data = $this->instance->getBible($book, $chapter);
         
-        $this->view($data, 'book', !empty($data) ? $data[0]['book_name'] : '', is_numeric($chapter) ? $chapter : '1');
+        $this->view($data, 'book', !empty($data) ? $data['content'][0]['book_name'] : '', is_numeric($chapter) ? $chapter : '1');
     }
 
      /**
@@ -144,6 +144,22 @@ class Controller {
     {
         $this->instance = new Filter();
         $this->view($this->instance->textFilter($text, $doc, $page), 'filter', 'Filtro', $page);
+    }
+
+    /**
+     * Get a number of chapters into a book
+     *
+     * @param string $book text to be searched
+     * @return JSON
+     */
+    public function getBooksChapter($book) 
+    {
+        $this->instance = new Bible();
+        $data = $this->instance->getBooksChapters($book);
+
+        header("Content-type: application/json; charset=utf-8");
+        echo json_encode($data);
+        die();
     }
 
     /**

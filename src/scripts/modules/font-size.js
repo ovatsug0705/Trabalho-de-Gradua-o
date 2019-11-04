@@ -30,7 +30,6 @@ function FontSize() {
   }
 
   function checkLocalStorage() {
-    console.log('test', localStorage.getItem('increased-font'));
     if(localStorage.getItem('increased-font') === '2') {
       root.classList.add('increased-font');
       root.classList.add('increased-font-2');

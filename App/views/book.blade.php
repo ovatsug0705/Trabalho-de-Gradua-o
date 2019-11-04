@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+@php
+	$books = $data['books'];
+	$data = $data['content'];
+@endphp
 @include("partials.webdoor", ["data_page" => 'bible', 'chapter' => $data[0]['chapter']])
 
 <main class="c-document c-document--fix s-bible">
@@ -55,17 +58,22 @@
 			<label for="bibleText" class="c-filter__form-label c-filter__form-label--bottom">Encontre na Bíblia</label>
 			<div class="c-filter__input-holder">
 				<label for="livro" class="c-filter__select-label">Livro</label>
-				<select name="l" id="livro" class="c-filter__select">
-					<option value="genesis">Gênesis</option>
-					<option value="lucas">Lucas</option>
+				<select name="l" id="livro" class="c-filter__select" data-books='{{ $data[0]['url_text'] }}'>
+					@foreach ($books as $book)
+						@php
+							if ($book['url_text'] === $data[0]['url_text']) {
+								$selected = 'selected="selected"';
+							} else {
+								$selected = false;
+							}
+						@endphp
+						<option {{ $selected ?? '' }} data-book="{{ $book['url_text'] }}" value="{{ $book['url_text'] }}">{{ $book['book_name'] }}</option>
+					@endforeach
 				</select>
 			</div>
 			<div class="c-filter__input-holder">
 				<label for="cap" class="c-filter__select-label">Capítulo</label>
-				<select name="c" id="cap" class="c-filter__select">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
+				<select name="c" id="cap" class="c-filter__select" data-books-number>
 				</select>
 				<input type="submit" class="c-filter__form-submit c-filter__form-submit--large" value="Encontrar">
 			</div>
@@ -73,17 +81,3 @@
 	</div>
 </aside>
 @endsection
-
-{{-- <input type="radio" name="p" id="customized" value="customized">
-<label for="customized">Customizado</label>
-
-<input type="checkbox" name="b[]" id="lucas" value="lucas">
-<label for="lucas">Lucas</label>
-
-<input type="checkbox" name="b[]" id="genesis" value="genesis">
-<label for="genesis">Genesis</label> 
-
-<pre>
-		{{ dump() }}
-	</pre>
---}}

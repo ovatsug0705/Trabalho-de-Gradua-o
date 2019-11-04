@@ -145,6 +145,8 @@ class Router
             
           }
         }
+      case 'bible-books-count':
+        $instance->getBooksChapter($this->url[1]);
       case 'home':
         echo $GLOBALS['blade']->render('home', ['title' => 'Home']);
         break;

@@ -30,16 +30,17 @@ class Bible {
      * @param integer $chapter chapter number of the book that will be returned 
      * @return PDO 
      */
-    public function getBible($book, $chapter){
-        if (!$book) {
-            $sql = 'select book_name, url_text, testament from Books';
+    public function getBible($book, $chapter)
+    {
+        $sql = 'select book_name, url_text, testament from Books';
 
-            $stmt = $this->connection->prepare($sql);
-            $stmt->execute();
-            $this->connection = null;
+        $stmt = $this->connection->prepare($sql);
+        $stmt->execute();
+        // $this->connection = null;
 
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
-        } else if(!$chapter) {
+        $data['books'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+        if(!$chapter) {
             $sql = 'select book_name, verser_number, chapter, verser_text, url_text, (select max(chapter) from Verser inner join Books on Books.id_book = Verser.id_book where Books.url_text = :url) as number_of_chapters from Books inner join Verser on Books.id_book = Verser.id_book where Books.url_text = :url and chapter = 1 group by verser_number order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
 
             $stmt = $this->connection->prepare($sql);
@@ -47,7 +48,8 @@ class Bible {
             $stmt->execute();
             $this->connection = null;
 
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $data['content'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $data;
         } else {
             $sql = 'select book_name, verser_number, chapter, verser_text, url_text, (select max(chapter) from Verser inner join Books on Books.id_book = Verser.id_book where Books.url_text = :url) as number_of_chapters from Books inner join Verser on Books.id_book = Verser.id_book where Books.url_text = :url and chapter = :chapter group by verser_number order by CAST(chapter AS unsigned), CAST(verser_number AS unsigned)';
 
@@ -57,7 +59,8 @@ class Bible {
             $stmt->execute();
             $this->connection = null;
 
-            return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            $data['content'] = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+            return $data;
         }
     }
 
@@ -69,7 +72,8 @@ class Bible {
      * @param string $books name of the books of bible to be sought
      * @return PDO
      */
-    public function bibleFilter($text, $partial, $books, $page){
+    public function bibleFilter($text, $partial, $books, $page)
+    {
         if ($partial == 'customized') {
             $string = '';
             if($books){
@@ -122,6 +126,24 @@ class Bible {
         }
 
         return $data;
+    }
+
+    /**
+     * Execute the querys in the database in the books
+     *
+     * @param string  $book name of the book of bible to be sought
+     * @return PDO 
+     */
+    public function getBooksChapters($book)
+    {
+        $sql = 'select distinct chapter from Verser inner join Books on Books.id_book = Verser.id_book where Books.url_text = :book';
+
+        $stmt = $this->connection->prepare($sql);
+        $stmt->bindValue(':book', $book);
+        $stmt->execute();
+        $this->connection = null;
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
 

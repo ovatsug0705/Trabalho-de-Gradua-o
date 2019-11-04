@@ -7,6 +7,7 @@ import bottomButtons from "./modules/bottom-buttons";
 import acordeon from "./modules/acordeon";
 import mobileActions from "./modules/mobile-actions";
 import filterMobile from "./modules/filter-mobile";
+import getChapters from "./modules/get-chapter";
 
 fontSize.create();
 themes.create();
@@ -17,3 +18,4 @@ bottomButtons.create();
 acordeon.create();
 mobileActions.create();
 filterMobile.create();
+getChapters.create();

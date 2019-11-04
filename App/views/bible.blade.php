@@ -8,7 +8,7 @@
     <div class="s-bible__content">
       <h2 class="s-bible__title">Antigo Testamento</h2>
       <ul class="s-bible__links">
-        @foreach ($data as $item)
+        @foreach ($data['books'] as $item)
           @if ($item['testament'] == 'antigo')
             <li class="s-bible__item">
               <a href="/biblia/{{ $item["url_text"] }}" class="s-bible__link">{{ $item["book_name"] }}</a>
@@ -20,7 +20,7 @@
     <div class="s-bible__content">
       <h2 class="s-bible__title">Novo Testamento</h2>
       <ul class="s-bible__links">
-        @foreach ($data as $item)
+        @foreach ($data['books'] as $item)
           @if ($item['testament'] == 'novo')
             <li class="s-bible__item">
               <a href="/biblia/{{ $item["url_text"] }}" class="s-bible__link">{{ $item["book_name"] }}</a>
