@@ -136,7 +136,7 @@ class Bible {
      */
     public function getBooksChapters($book)
     {
-        $sql = 'select distinct chapter from Verser inner join Books on Books.id_book = Verser.id_book where Books.url_text = :book';
+        $sql = 'select distinct chapter from Verser inner join Books on Books.id_book = Verser.id_book where Books.url_text = :book order by CAST(chapter AS unsigned)';
 
         $stmt = $this->connection->prepare($sql);
         $stmt->bindValue(':book', $book);

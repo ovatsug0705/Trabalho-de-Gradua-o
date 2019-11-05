@@ -70,7 +70,11 @@ class Controller {
         $this->instance = new Encyclical();
         $data = $this->instance->getEncyclical($encyclical, $page);
 
-        $this->view($data, 'encyclical', !empty($data) ? $data[0]['encyclical_name'] : '', is_numeric($page) ? $page : '1');
+        if(!empty($data['content'])){
+            $this->view($data, 'encyclical', !empty($data) ? $data[0]['encyclical_name'] : '', is_numeric($page) ? $page : '1');
+        } else {
+            echo $GLOBALS['blade']->render('notFound', ['title' => '404']);
+        }
     }
 
     /**
@@ -95,7 +99,11 @@ class Controller {
         $this->instance = new Bible();
         $data = $this->instance->getBible($book, $chapter);
         
-        $this->view($data, 'book', !empty($data) ? $data['content'][0]['book_name'] : '', is_numeric($chapter) ? $chapter : '1');
+        if(!empty($data['content'])){
+            $this->view($data, 'book', !empty($data) ? $data['content'][0]['book_name'] : '', is_numeric($chapter) ? $chapter : '1');
+        } else {
+            echo $GLOBALS['blade']->render('notFound', ['title' => '404']);
+        }
     }
 
      /**
