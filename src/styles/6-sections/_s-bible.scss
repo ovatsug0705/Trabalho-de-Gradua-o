@@ -17,7 +17,7 @@
   margin-bottom: 50px;
 }
 
-.s-bible__links {
+.s-bible__links  {
   list-style: none;
   padding-left: 0;  
   column-count: 2;
@@ -51,6 +51,10 @@
   .s-bible__title {
     font-size: 24px;
     margin-bottom: 30px;
+  }
+
+  .s-bible__links {
+    column-count: 1;
   }
 
   .s-bible__link {

@@ -25,7 +25,7 @@
   <meta name="msapplication-TileColor" content="#260e04">
   <meta name="msapplication-TileImage" content="https://vidacrista2.000webhostapp.com/dist/assets/img/church.jpg">
 </head>
-@if ($title == 'Bíblia' || $title == 'Encíclicas papais' || $title == 'Busca' || $title == 'Filtro' || $title == null || $title == 'Home')
+@if ($title == 'Bíblia' || $title == 'Encíclicas papais' || $title == 'Busca' || $title == 'Filtro' || $title == null || $title == 'Home' || $title == '404')
 @php $no_filter = 'class=no-filter'; @endphp
 @endif
 <body {{ $no_filter ?? '' }}>
