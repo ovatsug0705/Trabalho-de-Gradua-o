@@ -20,10 +20,10 @@
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Vida Cristã - {{ $title ?? 'Home' }}" />
   <meta property="og:description" content="Facilitando o acesso do cristão aos documentos fundamentais de sua fé." />
-  <meta property="og:image" content="https://vidacrista2.000webhostapp.com/dist/assets/img/church.jpg" />
+  <meta property="og:image" content="https://vidacrista2.000webhostapp.com/dist/assets/img/church.webp" />
   <meta property="og:url" content="{{ $full_url }}" />
   <meta name="msapplication-TileColor" content="#260e04">
-  <meta name="msapplication-TileImage" content="https://vidacrista2.000webhostapp.com/dist/assets/img/church.jpg">
+  <meta name="msapplication-TileImage" content="https://vidacrista2.000webhostapp.com/dist/assets/img/church.webp">
 </head>
 @if ($title == 'Bíblia' || $title == 'Encíclicas papais' || $title == 'Busca' || $title == 'Filtro' || $title == null || $title == 'Home' || $title == '404')
 @php $no_filter = 'class=no-filter'; @endphp
