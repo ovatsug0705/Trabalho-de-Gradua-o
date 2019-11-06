@@ -3,7 +3,7 @@
 @section('content')
 
 @include("partials.webdoor", ["data_page" => 'encyclical'])
-
+	
 <main class="c-document s-encyclic">
 	<div class="c-document__holder">
 		@foreach($data as $item)
