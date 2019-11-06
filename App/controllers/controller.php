@@ -70,7 +70,7 @@ class Controller {
         $this->instance = new Encyclical();
         $data = $this->instance->getEncyclical($encyclical, $page);
 
-        if(!empty($data['content'])){
+        if(!empty($data)){
             $this->view($data, 'encyclical', !empty($data) ? $data[0]['encyclical_name'] : '', is_numeric($page) ? $page : '1');
         } else {
             echo $GLOBALS['blade']->render('notFound', ['title' => '404']);
