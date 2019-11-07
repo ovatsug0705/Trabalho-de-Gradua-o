@@ -115,6 +115,7 @@ class Router
             break;
           } else if (($this->url[1] == 'pas') && !empty($_GET['l']) && !empty($_GET['c'])) {
             header("Location: /biblia/{$_GET['l']}/{$_GET['c']}");
+            break;
           } else if (!empty($_GET['t'])) {
             $instance->textFilter($_GET['t'], $this->url[1], !empty($this->url[2]) ? $this->url[2] : 1);
             break;
@@ -142,8 +143,14 @@ class Router
                 header("Location: /{$this->url[1]}/{$page}#{$_GET['n']}");
               }
             }
-            
+            break;
+          } else {
+            echo $GLOBALS['blade']->render('notFound', ['title' => '404']);
+            break;
           }
+        } else {
+          echo $GLOBALS['blade']->render('notFound', ['title' => '404']);
+          break;
         }
       case 'bible-books-count':
         $instance->getBooksChapter($this->url[1]);

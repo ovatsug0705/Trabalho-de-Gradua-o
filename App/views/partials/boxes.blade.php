@@ -18,7 +18,7 @@
 		</div>
 	</a>
 
-	<a class="c-boxes__item" href="/doutrina_social">
+	<a class="c-boxes__item" href="/doutrina-social">
 		<div class="c-boxes__holder c-boxes__holder--social-doctrine">
 			<h3 class="c-boxes__highlight o-title">Doutrina Social</h3>	
 		</div>

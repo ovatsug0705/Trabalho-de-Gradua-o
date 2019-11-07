@@ -12,6 +12,9 @@
  * @link       https://vidacrista.com.br
  */
 
+error_reporting(0);
+ini_set('display_errors', 0);
+
 require_once './../vendor/autoload.php';
 use Jenssegers\Blade\Blade;
 $GLOBALS['blade'] = new Blade(__DIR__ . '/../App/views', __DIR__ . '/../App/views/cache');
@@ -21,7 +24,7 @@ $dotenv->load();
 
 use App\Routes\Router;
 
-if($_ENV['APP_ENVOINEMENT'] == 'production') {
+if($_ENV['APP_ENVIRONMENT'] == 'production') {
   require_once './../App/routes/router.php';
   require_once './../App/controllers/controller.php';
   require_once './../App/model/DatabaseConnection.php';

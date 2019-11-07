@@ -46,7 +46,7 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-size: rem(50);
+  font-size: 50px;
   @include color-theme(color, c-white, c-white);
 }
 
