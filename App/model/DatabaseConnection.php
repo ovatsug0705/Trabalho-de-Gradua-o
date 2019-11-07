@@ -42,7 +42,7 @@ class DatabaseConnection {
             $this->conn = new \PDO($this->dsn, $this->user, $this->pass, $this->options);
             return $this->conn;
         } catch (\PDOException $ex) {
-            echo 'Erro:' . $ex->getMessage();
+            throw 'Erro:' . $ex->getMessage();
         }
     }
 }
